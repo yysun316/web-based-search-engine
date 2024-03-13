@@ -1,0 +1,11 @@
+		if(this.hashtable.get(word)!=null)
+		{
+			//System.out.println("new key " + word);
+			String temp_value = hashtable.get(word) + " doc" + String.valueOf(x) + " " + String.valueOf(y);
+			hashtable.put(word, temp_value);
+		}
+		else
+		{
+			//System.out.println("old key " + word);
+			this.hashtable.put(word, "doc" + String.valueOf(x) + " " + String.valueOf(y));
+		}
