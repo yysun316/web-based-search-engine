@@ -1,4 +1,4 @@
 -link extractor recursively retrieve url by BFS
 -implemented tree structure
 -can find child URL and title of page
--by running LinkExtractor.java
+-by running src.src.linkExtractor.LinkExtractor.java
