@@ -17,6 +17,6 @@ public class LastModifiedDateExtractor {
             e.printStackTrace();
             System.out.println("Check last modified date extractor!");
         }
-        return null;
+        return "";
     }
 }
