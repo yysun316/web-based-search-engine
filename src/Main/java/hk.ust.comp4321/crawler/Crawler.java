@@ -8,7 +8,8 @@ Email: htchoiad@connect.ust.hk
 */
 
 import hk.ust.comp4321.extractors.LinkExtractor;
-import hk.ust.comp4321.invertedIndex.CrawlerInvertedIndex;
+import hk.ust.comp4321.invertedIndex.IndexTable;
+import hk.ust.comp4321.utils.TreeNames;
 import hk.ust.comp4321.utils.WebNode;
 
 import java.io.IOException;
@@ -16,24 +17,15 @@ import java.util.List;
 
 
 public class Crawler {
-    private int curMaxID;
-    private CrawlerInvertedIndex crawlerDB;
+    private IndexTable db;
 
-    public Crawler() {
-        curMaxID = 0;
-        try {
-            crawlerDB = new CrawlerInvertedIndex("crawler", "url2Id", "id2WebNodes");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error in Crawler constructor");
-        }
+    public Crawler(IndexTable db) {
+        this.db = db;
     }
 
     public List<WebNode> extractLinks(String root, int numPages) {
         try {
-            List<WebNode> webNodes = LinkExtractor.extractLinks(crawlerDB, root, numPages, curMaxID);
-            curMaxID += webNodes.size();
-            return webNodes;
+            return LinkExtractor.extractLinks(db, root, numPages);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error in extractLinks of Crawler");
@@ -43,7 +35,8 @@ public class Crawler {
 
     public List<WebNode> getChildren(int id) {
         try {
-            return crawlerDB.getChildren(id);
+            String treeName = TreeNames.id2WebNode.toString();
+            return db.getEntry(treeName, id, WebNode.class).getChildren();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error in getChildren of Crawler");

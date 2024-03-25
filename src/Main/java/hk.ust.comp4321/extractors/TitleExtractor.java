@@ -3,11 +3,11 @@ package hk.ust.comp4321.extractors;
 import org.htmlparser.Parser;
 import org.htmlparser.filters.TagNameFilter;
 import org.htmlparser.util.NodeList;
+
 import java.net.URL;
 
 public class TitleExtractor {
-    public static String extractTitle(String url) {
-        try {
+    public static String extractTitle(String url) throws Exception {
             // Create a Parser object and fetch the HTML content from the URL
             Parser parser = new Parser(new URL(url).openConnection());
             NodeList nodeList = parser.extractAllNodesThatMatch(new TagNameFilter("title"));
@@ -17,9 +17,6 @@ public class TitleExtractor {
                 String title = nodeList.elementAt(0).toPlainTextString();
                 return title;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return "";
     }
 }
