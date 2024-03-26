@@ -13,10 +13,8 @@ public class TitleExtractor {
             NodeList nodeList = parser.extractAllNodesThatMatch(new TagNameFilter("title"));
 
             // Extract the title from the NodeList
-            if (nodeList.size() > 0) {
-                String title = nodeList.elementAt(0).toPlainTextString();
-                return title;
-            }
+            if (nodeList.size() > 0)
+                return nodeList.elementAt(0).toPlainTextString();
         return "";
     }
 }

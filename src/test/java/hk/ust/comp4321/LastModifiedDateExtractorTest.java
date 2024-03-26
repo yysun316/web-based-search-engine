@@ -18,6 +18,8 @@ public class LastModifiedDateExtractorTest {
             throw new RuntimeException(e);
         }
         System.out.println("Last modified date: " + date); // Last-Modified :Tue, 16 May 2023 05:03:16 GMT
+        System.out.println("Date in milliseconds: " + LastModifiedDateExtractor.getDateInMilliseconds(date)); // 1680002596000
+        System.out.println("Current time in milliseconds: " + System.currentTimeMillis()); // 1680002596000
         assertNotNull(date, "The extracted date should not be null");
     }
 

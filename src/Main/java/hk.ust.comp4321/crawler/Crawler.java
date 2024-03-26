@@ -7,13 +7,7 @@ Email: htchoiad@connect.ust.hk
        ysyeungad@connect.ust.hk
 */
 
-import hk.ust.comp4321.extractors.LinkExtractor;
 import hk.ust.comp4321.invertedIndex.IndexTable;
-import hk.ust.comp4321.utils.TreeNames;
-import hk.ust.comp4321.utils.WebNode;
-
-import java.io.IOException;
-import java.util.List;
 
 
 public class Crawler {
@@ -23,26 +17,26 @@ public class Crawler {
         this.db = db;
     }
 
-    public List<WebNode> extractLinks(String root, int numPages) {
-        try {
-            return LinkExtractor.extractLinks(db, root, numPages);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error in extractLinks of Crawler");
-        }
-        return null;
-    }
+//    public List<WebNode> extractLinks(String root, int numPages) {
+//        try {
+//            return LinkExtractor.extractLinks(db, root, numPages);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            System.out.println("Error in extractLinks of Crawler");
+//        }
+//        return null;
+//    }
 
-    public List<WebNode> getChildren(int id) {
-        try {
-            String treeName = TreeNames.id2WebNode.toString();
-            return db.getEntry(treeName, id, WebNode.class).getChildren();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error in getChildren of Crawler");
-        }
-        return null;
-    }
+//    public List<WebNode> getChildren(int id) {
+//        try {
+//            String treeName = TreeNames.id2WebNode.toString();
+//            return db.getEntry(treeName, id, WebNode.class).getChildren();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            System.out.println("Error in getChildren of Crawler");
+//        }
+//        return null;
+//    }
 //    private String url;
 //    int numPage;
 

@@ -4,19 +4,19 @@ import hk.ust.comp4321.extractors.StringExtractor;
 import hk.ust.comp4321.extractors.TitleExtractor;
 import hk.ust.comp4321.invertedIndex.IndexTable;
 import hk.ust.comp4321.utils.TreeNames;
-import org.htmlparser.util.ParserException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Indexer {
     StopStem stopStem;
     IndexTable indexTable;
+
     public Indexer(IndexTable indexTable) {
         this.indexTable = indexTable;
         stopStem = new StopStem("resources/stopwords.txt");
     }
+
     public void index(String url) throws Exception {
         // Index the title
         indexTitle(url);
@@ -29,7 +29,7 @@ public class Indexer {
             throw new Exception("Page ID not found");
 
         // 1. Extract words from the title
-        String[] words = TitleExtractor.extractTitle(url).split("\\s+"); // split by whitespace
+        String[] words = TitleExtractor.extractTitle(url).split("[\\t\\s\\p{Punct}]+"); // split by whitespace
         int pos = 0; // position of the word in the title
         Hashtable<Integer, ArrayList<Integer>> res = new Hashtable<>(); // wordIdTitle -> positions
         // 2. Remove stop words and stem the words
@@ -62,12 +62,12 @@ public class Indexer {
         }
     }
 
-    private void indexBody(String url) throws IOException, ParserException {
+    private void indexBody(String url) throws Exception {
         int pageId = indexTable.getPageIdFromURL(url);
         if (pageId == -1)
             return;
         // 1. Extract words from the body
-        String[] words = StringExtractor.extractStrings(false, url).split("\\s+"); // split by whitespace
+        String[] words = StringExtractor.extractStrings(false, url);
         int pos = 0; // position of the word in the body
         Hashtable<Integer, ArrayList<Integer>> res = new Hashtable<>(); // wordIdBody -> positions
         // 2. Remove stop words and stem the words

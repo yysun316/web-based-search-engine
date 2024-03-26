@@ -1,11 +1,12 @@
 package hk.ust.comp4321.utils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebNode {
-    private int id; // URL of the page / page id
-    private List<WebNode> children; // List of URLs of the children pages
+public class WebNode implements Serializable {
+    private int id; // page id
+    private  List<WebNode> children; // List of URLs of the children pages
     private WebNode parent; // URL of the parent page
     private String URL; // URL of this page
     private String lastModifiedDate; // Last modified date of the page

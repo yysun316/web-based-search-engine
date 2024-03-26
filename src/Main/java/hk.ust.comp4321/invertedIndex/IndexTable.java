@@ -119,7 +119,7 @@ public class IndexTable {
             }
             case "id2WebNode" -> {
                 if (id2WebNode.get(key) == null)
-                    id2WebNode.put(key, value);
+                    id2WebNode.put(key, value); // non-serilizable object
                 else System.out.println("The WebNode already exists in the database.");
             }
             case "word2IdTitle" -> {
@@ -146,6 +146,21 @@ public class IndexTable {
         }
         recordManager.commit();
     }
+
+    public <K, V> void updateEntry(String hTreeName, K key, V value) throws IOException {
+        switch (hTreeName) {
+            case "url2Id" -> System.out.println("ID should not be updated.");
+            case "id2WebNode" -> {
+                if (id2WebNode.get(key) == null)
+                    System.out.println("The WebNode does not exist in the database. Please add it first.");
+                else
+                    id2WebNode.put(key, value); // should update the value only
+            }
+            default -> throw new IllegalArgumentException("Invalid hTreeName");
+        }
+        recordManager.commit();
+    }
+
 
     // key: wordId, value: id, freq: term frequency
     public void updateInvertedIdx(String hTreeName, int wordId, int pageId, int freq) throws IOException {
@@ -262,6 +277,7 @@ public class IndexTable {
         Object wordId = word2IdTitle.get(stem);
         return wordId != null ? (int) wordId : -1;
     }
+
     public int getWordIdBodyFromStem(String stem) throws IOException {
         Object wordId = word2IdBody.get(stem);
         return wordId != null ? (int) wordId : -1;
@@ -342,6 +358,7 @@ public class IndexTable {
         if (invertedIdxBody.get(key) == null) return null;
         return (BTree) invertedIdxBody.get(key);
     }
+
     public BTree getForwardIdxTitleEntry(int key) throws IOException {
         if (forwardIdxTitle.get(key) == null) return null;
         return BTree.load(recordManager, (Long) forwardIdxTitle.get(key));
@@ -352,4 +369,8 @@ public class IndexTable {
         return BTree.load(recordManager, (Long) forwardIdxBody.get(key));
     }
 
+    public int getIdFromUrl(String url) throws IOException {
+        Object id = url2Id.get(url);
+        return id != null ? (int) id : -1;
+    }
 }
