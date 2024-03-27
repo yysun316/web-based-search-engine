@@ -25,9 +25,9 @@ public class IndexTable {
     private HTree invertedIdxBody; // wordID to list of {id} for that word in body
     private HTree forwardIdxTitle; // id to wordID list for that page {using the id to find the wordId, sort the wordId by frequency}
     private HTree forwardIdxBody; // id to wordID list for that page {using the id to find the wordId}
-    private int pageId = 0; // increase by 1 for each new page (url2ID add entry)
-    private int wordIdTitle = 0; // increase by 1 for each new word
-    private int wordIdBody = 0; // increase by 1 for each new word
+    private int pageId; // increase by 1 for each new page (url2ID add entry)
+    private int wordIdTitle; // increase by 1 for each new word
+    private int wordIdBody; // increase by 1 for each new word
     private HTree IdTitle2Word; // wordId to word {using the wordId to find the word}
     private HTree IdBody2Word; // wordId to word {using the wordId to find the word}
 
@@ -102,6 +102,18 @@ public class IndexTable {
             this.IdBody2Word = HTree.createInstance(recordManager);
             recordManager.setNamedObject("IdBody2Word", this.IdBody2Word.getRecid());
         }
+        pageId = getSize(url2Id);
+        wordIdTitle = getSize(word2IdTitle);
+        wordIdBody = getSize(word2IdBody);
+    }
+    public static int getSize(HTree tree) throws IOException {
+        FastIterator iter = tree.keys();
+        Object key;
+        int count = 0;
+        while ((key = iter.next()) != null) {
+            count++;
+        }
+        return count;
     }
 
     public void close() throws IOException { // change finalize to close
@@ -300,10 +312,15 @@ public class IndexTable {
         return pageId;
     }
 
+    // TODO: May remove after testing
     public HTree getUrl2Id() {
         return url2Id;
     }
-
+    // TODO: May remove after testing
+    public HTree getId2WebNode() {
+        return id2WebNode;
+    }
+    // TODO: May remove after testing
     public HTree getInvertedIdxTitle() {
         return invertedIdxTitle;
     }

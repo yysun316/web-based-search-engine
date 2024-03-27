@@ -22,7 +22,7 @@ public class LinkExtractor {
 
     public static List<String> extractLinks(IndexTable indexTable, String rootURL, int numPages) throws Exception {
         // TODO: return a list of WebNode objects using bfs, each of which represents a webpage.
-        System.out.println("run extract links ");
+//        System.out.println("run extract links ");
 
         List<String> res = new ArrayList<>(numPages); // store the result
         LinkBean lb = new LinkBean();
@@ -48,10 +48,10 @@ public class LinkExtractor {
                 indexTable.addEntry(TreeNames.url2Id.toString(), url, child.getId());
                 indexTable.addEntry(TreeNames.id2WebNode.toString(), child.getId(), child);
                 // debug:
-                System.out.printf("Extracting the page with URL: %s\n", url);
-                System.out.println("The pageID is " + child.getId());
-                System.out.println("The last modified date is " + child.getLastModifiedDate());
-                System.out.println("The parent node is " + (parent == null ? "null" : parent.getURL()));
+//                System.out.printf("Extracting the page with URL: %s\n", url);
+//                System.out.println("The pageID is " + child.getId());
+//                System.out.println("The last modified date is " + child.getLastModifiedDate());
+//                System.out.println("The parent node is " + (parent == null ? "null" : parent.getUrl()));
             }
             // TODO: BFS the webpages
             lb.setURL(url);
@@ -81,10 +81,11 @@ public class LinkExtractor {
             res.add(url);
             // 4. Update the parent node's children list
             if (parent != null) parent.addChild(newNode);
-            System.out.println("Updated the page with URL: " + url);
-            System.out.println("Old last modified date: " + recordedDate);
-            System.out.println("New last modified date: " + newDate);
-            System.out.printf("The pageID is %d\n", id);
+            // debug:
+//            System.out.println("Updated the page with URL: " + url);
+//            System.out.println("Old last modified date: " + recordedDate);
+//            System.out.println("New last modified date: " + newDate);
+//            System.out.printf("The pageID is %d\n", id);
         }
         // 5. Update the parent node to be newNode
         return indexTable.getEntry(TreeNames.id2WebNode.toString(), id, WebNode.class);

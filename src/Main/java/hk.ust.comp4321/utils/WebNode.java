@@ -34,7 +34,7 @@ public class WebNode implements Serializable {
         return id;
     }
 
-    public String getURL() {
+    public String getUrl() {
         return URL;
     }
 
