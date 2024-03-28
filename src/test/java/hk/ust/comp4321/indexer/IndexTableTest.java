@@ -28,22 +28,24 @@ public class IndexTableTest {
     public void testAddAndGetEntry() {
         try {
             // Add an entry to the url2Id HTree
-            indexTable.addEntry("url2Id", "http://test.com", indexTable.getPageId());
-            indexTable.addEntry("url2Id", "http://test.com", indexTable.getPageId());
-            indexTable.addEntry("url2Id", "http://www.example.com", indexTable.getPageId());
+            indexTable.addEntry("url2Id", "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm", indexTable.getPageId());
+            indexTable.addEntry("url2Id", "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm", indexTable.getPageId());
+            indexTable.addEntry("url2Id", "https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm", indexTable.getPageId());
             // Retrieve the entry
-            Integer pageId = indexTable.getEntry("url2Id", "http://test.com", Integer.class);
-            Integer pageId2 = indexTable.getEntry("url2Id", "http://www.example.com", Integer.class);
-            // Check if the entry has been added and retrieved correctly
+            Integer pageId1 = indexTable.getEntry("url2Id", "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm", Integer.class);
+            Integer pageId2 = indexTable.getEntry("url2Id", "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm", Integer.class);
+            Integer pageId3 = indexTable.getEntry("url2Id", "https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm", Integer.class);
 
+            // Check if the entry has been added and retrieved correctly
             HTree url2Id = indexTable.getUrl2Id();
             FastIterator iter = url2Id.keys();
             String key;
             while ((key = (String) iter.next()) != null) {
                 System.out.println(key + " " + url2Id.get(key));
             }
-            assertEquals(0, pageId);
+            assertEquals(0, pageId1);
             assertEquals(1, pageId2);
+            assertEquals(2, pageId3);
         } catch (Exception e) {
             fail("Exception should not be thrown");
         }
@@ -52,8 +54,11 @@ public class IndexTableTest {
     @Test
     public void testAddEntryToInvertedIdx() {
         try {
-            // Add an entry to the invertedIdxTitle HTree
-            indexTable.updateInvertedIdx("invertedIdxTitle", 1, 1, 1);
+            ArrayList<Integer> pos = new ArrayList<>();
+            pos.add(1);
+            pos.add(2);
+            pos.add(3);
+            indexTable.updateInvertedIdx("invertedIdxTitle", 0, 0, 3, pos);
             // Retrieve the entry
             BTree value = indexTable.getInvertIdxTitleEntry(1);
 
@@ -79,18 +84,16 @@ public class IndexTableTest {
             pos.add(1);
             pos.add(2);
             pos.add(3);
-            indexTable.updateForwardIdx("forwardIdxTitle", 1, 1, pos);
+            indexTable.updateForwardIdx("forwardIdxTitle", 1, 1, 3, pos);
             // Retrieve the entry
             BTree value = indexTable.getForwardIdxTitleEntry(1);
             Tuple tuple = new Tuple();
             TupleBrowser browser = value.browse();
-
             while (browser.getNext(tuple)) {
                 System.out.println("Key: " + tuple.getKey() + ", Value: " + tuple.getValue());
                 System.out.println("WordId:" + ((Posting) tuple.getKey()).getId() + ", PageId: " + ((Posting) tuple.getKey()).getFreq());
                 assertEquals(pos, tuple.getValue());
             }
-
         } catch (Exception e) {
             fail("Exception should not be thrown");
         }

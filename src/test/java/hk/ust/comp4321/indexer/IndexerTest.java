@@ -1,47 +1,61 @@
 package hk.ust.comp4321.indexer;
 
+import hk.ust.comp4321.extractors.LastModifiedDateExtractor;
 import hk.ust.comp4321.invertedIndex.IndexTable;
-import hk.ust.comp4321.utils.Posting;
-import jdbm.btree.BTree;
-import jdbm.helper.Tuple;
-import jdbm.helper.TupleBrowser;
-import org.junit.jupiter.api.BeforeEach;
+import hk.ust.comp4321.utils.WebNode;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+@TestMethodOrder(org.junit.jupiter.api.MethodOrderer.OrderAnnotation.class)
 public class IndexerTest {
     private Indexer indexer;
     private IndexTable indexTable;
 
-    @BeforeEach
-    public void setUp() throws IOException {
-        indexTable = new IndexTable("recordManagerTest");
-        indexer = new Indexer(indexTable);
-    }
-
     @Test
+    @Order(1)
     public void testIndexWebsite() {
         try {
-            indexer.index("https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm");
-            BTree value = indexTable.getForwardIdxTitleEntry(1);
-            Tuple tuple = new Tuple();
-            TupleBrowser browser = value.browse();
-            while (browser.getNext(tuple)) {
-                System.out.println("Key: " + tuple.getKey() + ", Value: " + tuple.getValue());
-                System.out.println("WordId:" + ((Posting) tuple.getKey()).getId() + ", PageId: " + ((Posting) tuple.getKey()).getFreq());;
-            }
+            // Assume crawler has already crawled the website and add a node to the database
+            indexTable = new IndexTable("recordManagerTest");
+            indexer = new Indexer(indexTable);
+//            String url = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
+            String url = "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm";
+//            String url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_title_test";
+//            String url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_head_test";
+            int id = indexTable.getPageId();
+            WebNode node = new WebNode(id, null, url, LastModifiedDateExtractor.extractModifiedDate(url));
+            indexTable.addEntry("url2Id", url, id);
+            indexTable.addEntry("id2WebNode", id, node);
 
-            value = indexTable.getInvertIdxTitleEntry(1);
-            tuple = new Tuple();
-            browser = value.browse();
+            // index the title of the website
+            indexer.index(url);
+            // Check if the title has been indexed correctly
+            // Check forward index
+            System.out.println("Checking forward index:");
+            indexTable.printAllWithBTree("forwardIdxTitle");
+            System.out.println("End of forward index\n");
+//             Check inverted index
+//            Posting: pageId, freq
+//            wordId -> (posting, pos)
+//            0 -> ((0, 1) -> (0))
+//            1 -> ((0, 1) -> (1))
+            System.out.println("Checking inverted index:");
+            indexTable.printAllWithBTree("invertedIdxTitle");
+            System.out.println("End of inverted index\n");
 
-            while (browser.getNext(tuple)) {
-                System.out.println("Key: " + tuple.getKey() + ", Value: " + tuple.getValue());
-                assertEquals(1, tuple.getKey());
-            }
+
+            // check forward index body
+            System.out.println("Checking forward index body:");
+            indexTable.printAllWithBTree("forwardIdxBody");
+            System.out.println("End of forward index body\n");
+            // check inverted index body
+            System.out.println("Checking inverted index body:");
+            indexTable.printAllWithBTree("invertedIdxBody");
+            System.out.println("End of inverted index body\n");
+
         } catch (Exception e) {
             fail("Exception should not be thrown");
         }
