@@ -6,15 +6,15 @@ import java.util.List;
 
 public class WebNode implements Serializable {
     private int id; // page id
-    private  List<WebNode> children; // List of URLs of the children pages
-    private WebNode parent; // URL of the parent page
+    private List<String> children;
+    private String parent;
     private String URL; // URL of this page
     private String lastModifiedDate; // Last modified date of the page
     public WebNode (){
         this.children = new ArrayList<>();
     }
 
-    public WebNode(int id, WebNode parent, String URL, String lastModifiedDate) {
+    public WebNode(int id, String parent, String URL, String lastModifiedDate) {
         this.id = id;
         this.children = new ArrayList<>();
         this.parent = parent;
@@ -22,11 +22,11 @@ public class WebNode implements Serializable {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public void addChild(WebNode child) {
+    public void addChild(String child) {
         children.add(child);
     }
 
-    public List<WebNode> getChildren() {
+    public List<String> getChildren() {
         return children;
     }
 
@@ -46,15 +46,15 @@ public class WebNode implements Serializable {
         this.id = id;
     }
 
-    public void setChildren(List<WebNode> children) {
+    public void setChildren(List<String> children) {
         this.children = children;
     }
 
-    public WebNode getParent() {
+    public String getParent() {
         return parent;
     }
 
-    public void setParent(WebNode parent) {
+    public void setParent(String parent) {
         this.parent = parent;
     }
 

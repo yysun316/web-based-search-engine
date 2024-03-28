@@ -7,7 +7,14 @@ Email: htchoiad@connect.ust.hk
        ysyeungad@connect.ust.hk
 */
 
+import hk.ust.comp4321.extractors.LinkExtractor;
 import hk.ust.comp4321.invertedIndex.IndexTable;
+import hk.ust.comp4321.utils.TreeNames;
+import hk.ust.comp4321.utils.WebNode;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Crawler {
@@ -17,26 +24,47 @@ public class Crawler {
         this.db = db;
     }
 
-//    public List<WebNode> extractLinks(String root, int numPages) {
-//        try {
-//            return LinkExtractor.extractLinks(db, root, numPages);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            System.out.println("Error in extractLinks of Crawler");
-//        }
-//        return null;
-//    }
+    public List<String> extractLinks(String root, int numPages) {
+        try {
+            return LinkExtractor.extractLinks(db, root, numPages);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error in extractLinks of Crawler");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
 
-//    public List<WebNode> getChildren(int id) {
-//        try {
-//            String treeName = TreeNames.id2WebNode.toString();
-//            return db.getEntry(treeName, id, WebNode.class).getChildren();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            System.out.println("Error in getChildren of Crawler");
-//        }
-//        return null;
-//    }
+    // TODO: Given a parent pageId, return the list of children pageIds
+    public List<Integer> getChildrenPageIds(int id) {
+        try {
+            List<Integer> pageIds = new ArrayList<>();
+            String treeName = TreeNames.id2WebNode.toString();
+            for (String url : db.getEntry(treeName, id, WebNode.class).getChildren())
+                pageIds.add(db.getEntry(TreeNames.url2Id.toString(), url, Integer.class));
+            return pageIds;
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error in getChildren of Crawler");
+        }
+        return null;
+    }
+
+    // TODO: Given a child's pageId, return the parent pageId
+    public Integer getParentPageId(int id) {
+        try {
+            String treeName = TreeNames.id2WebNode.toString();
+            String url = db.getEntry(treeName, id, WebNode.class).getParent();
+            // if null, it's root url
+            return url == null ? null : db.getEntry(TreeNames.url2Id.toString(), url, Integer.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error in getParent of Crawler");
+        }
+        return null;
+    }
+
 //    private String url;
 //    int numPage;
 

@@ -2,15 +2,9 @@ package hk.ust.comp4321.extractors;// HTMLParser Library $Name: v1_6 $ - A java-
 // http://sourceforge.org/projects/htmlparser
 
 import hk.ust.comp4321.invertedIndex.IndexTable;
-import hk.ust.comp4321.utils.TreeNames;
-import hk.ust.comp4321.utils.WebNode;
-import org.htmlparser.beans.LinkBean;
 
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * src.src.linkExtractor.LinkExtractor extracts all the links from the given webpage
@@ -19,77 +13,78 @@ import java.util.Queue;
 
 
 public class LinkExtractor {
-
     public static List<String> extractLinks(IndexTable indexTable, String rootURL, int numPages) throws Exception {
-        // TODO: return a list of WebNode objects using bfs, each of which represents a webpage.
-//        System.out.println("run extract links ");
-
         List<String> res = new ArrayList<>(numPages); // store the result
-        LinkBean lb = new LinkBean();
+//        LinkBean lb = new LinkBean();
+//        URL[] URL_array;
+//
+//        Queue<String> queue = new LinkedList<>();
+//        WebNode root;
+//        int rootId = indexTable.getIdFromUrl(rootURL);
+//        if (rootId != -1)
+//            root = indexTable.getEntry(TreeNames.id2WebNode.toString(), rootId, WebNode.class);
+//        else
+//            root = new WebNode(indexTable.getPageId(), null, rootURL, LastModifiedDateExtractor.extractModifiedDate(rootURL));
 //        lb.setURL(rootURL);
-        URL[] URL_array;
-
-        Queue<String> queue = new LinkedList<>();
-        queue.add(rootURL);
-        WebNode parent = null; // the parent node of the current node
-        WebNode child = null; // the current node
-        while (!queue.isEmpty() && res.size() < numPages) {
-            String url = queue.poll();
-            // TODO: Handle Cyclic links
-            if (res.contains(url)) continue;
-            // TODO: Compare modified date for visited pages
-            if (indexTable.getIdFromUrl(url) != -1)
-                parent = compareVisitedPages(indexTable, url, res, parent);
-            // TODO: Handle unvisited pages
-            else {
-                child = new WebNode(indexTable.getPageId(), parent, url, LastModifiedDateExtractor.extractModifiedDate(url));
-                if (parent != null) parent.addChild(child);
-                res.add(url);
-                indexTable.addEntry(TreeNames.url2Id.toString(), url, child.getId());
-                indexTable.addEntry(TreeNames.id2WebNode.toString(), child.getId(), child);
-                // debug:
-//                System.out.printf("Extracting the page with URL: %s\n", url);
-//                System.out.println("The pageID is " + child.getId());
-//                System.out.println("The last modified date is " + child.getLastModifiedDate());
-//                System.out.println("The parent node is " + (parent == null ? "null" : parent.getUrl()));
-            }
-            // TODO: BFS the webpages
-            lb.setURL(url);
-            URL_array = lb.getLinks();
-            for (URL u : URL_array) {
-                String stringURL = u.toExternalForm();
-                if (!res.contains(stringURL))
-                    queue.add(stringURL);
-            }
-        }
+//        for (URL url : lb.getLinks()) {
+//            String stringURL = url.toExternalForm();
+//            queue.add(stringURL);
+//        }
+//        int parentID = root.getId();
+//        while (!queue.isEmpty() && res.size() < numPages) {
+//            String url = queue.poll();
+//            // Handle Cyclic links
+//            if (res.contains(url)) continue;
+//            // Compare modified date for visited pages
+//            if (indexTable.getIdFromUrl(url) != -1)
+//                compareVisitedPages(indexTable, url, res, parentID);
+//                // Handle unvisited pages
+//            else {
+//                res.add(url);
+//                WebNode node = new WebNode(indexTable.getPageId(), parentID, url, LastModifiedDateExtractor.extractModifiedDate(url));
+//                indexTable.addEntry(TreeNames.url2Id.toString(), url, indexTable.getPageId());
+//                indexTable.addEntry(TreeNames.id2WebNode.toString(), node.getId(), node);
+//                indexTable.getEntry(TreeNames.id2WebNode.toString(), parentID, WebNode.class).addChild(node.getId());
+//            }
+//            // BFS the webpages
+//            lb.setURL(url);
+//            URL_array = lb.getLinks();
+//            for (URL u : URL_array) {
+//                String stringURL = u.toExternalForm();
+//                if (!res.contains(stringURL)) {
+//                    queue.add(stringURL);
+//                }
+//            }
+//        }
         return res;
     }
 
     // TODO: Implement the method
-    private static WebNode compareVisitedPages(IndexTable indexTable, String url, List<String> res, WebNode parent) throws Exception {
-        int id = indexTable.getIdFromUrl(url);
-        WebNode recordedNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), id, WebNode.class);
-        String recordedDate = recordedNode.getLastModifiedDate();
-        String newDate = LastModifiedDateExtractor.extractModifiedDate(url);
-        // TODO: If the current page is newer than the recorded page, update the page
-        if (LastModifiedDateExtractor.getDateInMilliseconds(recordedDate) < LastModifiedDateExtractor.getDateInMilliseconds(newDate)) {
-            // 1. Create a new node with the same ID because the URL is the same, however, the last modified date, parent, children maybe different.
-            WebNode newNode = new WebNode(id, parent, url, newDate);
-            // 2. Update the id2WebNode tree
-            indexTable.updateEntry(TreeNames.id2WebNode.toString(), id, newNode);
-            // 3. Add it into the result list for indexing.
-            res.add(url);
-            // 4. Update the parent node's children list
-            if (parent != null) parent.addChild(newNode);
-            // debug:
-//            System.out.println("Updated the page with URL: " + url);
-//            System.out.println("Old last modified date: " + recordedDate);
-//            System.out.println("New last modified date: " + newDate);
-//            System.out.printf("The pageID is %d\n", id);
-        }
-        // 5. Update the parent node to be newNode
-        return indexTable.getEntry(TreeNames.id2WebNode.toString(), id, WebNode.class);
-    }
+//    private static WebNode compareVisitedPages(IndexTable indexTable, String url, List<String> res, int parent) throws Exception {
+//        int id = indexTable.getIdFromUrl(url);
+//        WebNode recordedNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), id, WebNode.class);
+//        String recordedDate = recordedNode.getLastModifiedDate();
+//        String newDate = LastModifiedDateExtractor.extractModifiedDate(url);
+//        // TODO: If the current page is newer than the recorded page, update the page
+//        if (LastModifiedDateExtractor.getDateInMilliseconds(recordedDate) < LastModifiedDateExtractor.getDateInMilliseconds(newDate)) {
+//            // 1. Create a new node with the same ID because the URL is the same, however, the last modified date, parent, children maybe different.
+//            WebNode newNode = new WebNode(id, parent, url, newDate);
+//            // 2. Update the id2WebNode tree
+//            indexTable.updateEntry(TreeNames.id2WebNode.toString(), id, newNode);
+//            // 3. Add it into the result list for indexing.
+//            res.add(url);
+//            // 4. Update the parent node to add the new node as a child
+//            // also need to remove old node from the old parent's children list
+//            indexTable.getEntry(TreeNames.id2WebNode.toString(), parent, WebNode.class).addChild(id);
+//            // debug:
+////            System.out.println("Updated the page with URL: " + url);
+////            System.out.println("Old last modified date: " + recordedDate);
+////            System.out.println("New last modified date: " + newDate);
+////            System.out.printf("The pageID is %d\n", id);
+//        }
+//        // 5. Update the parent node to be newNode
+//        return indexTable.getEntry(TreeNames.id2WebNode.toString(), id, WebNode.class);
+//    }
 }
 
 
