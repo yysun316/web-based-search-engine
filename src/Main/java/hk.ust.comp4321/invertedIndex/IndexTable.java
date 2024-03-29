@@ -279,23 +279,6 @@ public class IndexTable {
         recordManager.commit();
     }
 
-    // TODO: add delete entry (X)
-    public <K> void delEntry(String hTreeName, K key) throws IOException {
-        switch (hTreeName) {
-            case "url2Id" -> url2Id.remove(key);
-            case "id2WebNode" -> id2WebNode.remove(key);
-            case "word2IdTitle" -> word2IdTitle.remove(key);
-            case "word2IdBody" -> word2IdBody.remove(key);
-            case "invertedIdxTitle" -> invertedIdxTitle.remove(key);
-            case "invertedIdxBody" -> invertedIdxBody.remove(key);
-            case "forwardIdxTitle" -> forwardIdxTitle.remove(key);
-            case "forwardIdxBody" -> forwardIdxBody.remove(key);
-            case "IdTitle2Word" -> IdTitle2Word.remove(key);
-            case "IdBody2Word" -> IdBody2Word.remove(key);
-            default -> throw new IllegalArgumentException("Invalid hTreeName");
-        }
-        recordManager.commit();
-    }
 
     // TODO: add update entry (X)
     public void printAll(String hTreeName) throws IOException {

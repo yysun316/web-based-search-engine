@@ -26,7 +26,7 @@ public class IndexerTest {
 //            String url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_title_test";
 //            String url = "https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_head_test";
             int id = indexTable.getPageId();
-            WebNode node = new WebNode(id, null, url, LastModifiedDateExtractor.extractModifiedDate(url));
+            WebNode node = new WebNode(id, url, LastModifiedDateExtractor.extractModifiedDate(url));
             indexTable.addEntry("url2Id", url, id);
             indexTable.addEntry("id2WebNode", id, node);
 
