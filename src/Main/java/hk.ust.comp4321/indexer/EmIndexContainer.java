@@ -2,9 +2,11 @@ package hk.ust.comp4321.indexer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class EmIndexContainer {
+public class EmIndexContainer implements Serializable{
     private List<EmIndex> emIndexList;
+
     public EmIndexContainer() {
         emIndexList = new ArrayList<>();
     }

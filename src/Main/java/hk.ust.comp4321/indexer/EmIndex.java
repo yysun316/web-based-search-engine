@@ -1,11 +1,11 @@
 package hk.ust.comp4321.indexer;
 
-import java.net.Inet4Address;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 // EmIndex is called by EmIndexContainer only. You are not expected to explicitly call them.
-public class EmIndex {
+public class EmIndex implements Serializable{
     private String stem;
     private List<List<Integer>> docFreq;
     private Integer Emid;

@@ -1,13 +1,12 @@
 package hk.ust.comp4321;
 
 import hk.ust.comp4321.crawler.Crawler;
-import hk.ust.comp4321.extractors.LastModifiedDateExtractor;
-import hk.ust.comp4321.extractors.TitleExtractor;
 import hk.ust.comp4321.extractors.CharacterCounter;
-import hk.ust.comp4321.indexer.EmIndex;
+import hk.ust.comp4321.extractors.TitleExtractor;
 import hk.ust.comp4321.indexer.EmIndexContainer;
 import hk.ust.comp4321.indexer.Indexer;
 import hk.ust.comp4321.indexer.StopStem;
+import hk.ust.comp4321.invertedIndex.EmIndexContainerRecorder;
 import hk.ust.comp4321.invertedIndex.IndexTable;
 import hk.ust.comp4321.utils.TreeNames;
 import hk.ust.comp4321.utils.WebNode;
@@ -19,19 +18,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
-import jdbm.btree.BTree;
 
 import static hk.ust.comp4321.extractors.StringExtractor.extractStrings;
 
 public class ProjectPhase1 {
     private static Crawler crawler1;
     private static IndexTable db1;
+    private static EmIndexContainerRecorder dbEm;
     private static Indexer indexer;
     private static StopStem stopStem;
 
 
     public static void main(String[] args) throws Exception {
-        EmIndexContainer EmIndexContainer = new EmIndexContainer();
+        EmIndexContainer EmIndexContainer;
         List<String> stringList = List.of("https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/news.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/books.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/PG.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse/UG.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/news/bbc.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/news/cnn.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/books/book1.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/books/book2.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/books/book3.htm", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/1.html", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/2.html", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/3.html", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/4.html", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/5.html", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/6.html", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/7.html", "https://www.cse.ust.hk/~kwtleung/COMP4321/Movie/8.html");
         String testUrl;
         Vector<String> nodeVec = new Vector<>();
@@ -39,6 +38,12 @@ public class ProjectPhase1 {
         stopStem = new StopStem("resources/stopwords.txt");
         try {
             db1 = new IndexTable("crawlerEmTest");
+            dbEm = new EmIndexContainerRecorder("EmForStem");
+            EmIndexContainer = dbEm.retrieveEmIndexContainer("objectTreeRec");
+            if(EmIndexContainer == null)
+            {
+                EmIndexContainer = new EmIndexContainer();
+            }
             indexer = new Indexer(db1);
             crawler1 = new Crawler(db1);
         } catch (IOException e) {
@@ -115,6 +120,7 @@ public class ProjectPhase1 {
                     EmIndexContainer.addEmIndex(curStem, currentId);
                 }
             }
+            dbEm.storeEmIndexContainer("objectTreeRec",EmIndexContainer);
             List<Integer> indices = new ArrayList<>(frequency.size());
             for (int i = 0; i < frequency.size(); i++) {
                 indices.add(i);
