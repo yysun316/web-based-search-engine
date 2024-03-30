@@ -10,6 +10,7 @@ public class WebNode implements Serializable {
     private List<String> parent;
     private String URL; // URL of this page
     private String lastModifiedDate; // Last modified date of the page
+    private Double pageRank;
     public WebNode (){
         this.children = new ArrayList<>();
     }
@@ -20,6 +21,7 @@ public class WebNode implements Serializable {
         this.parent = new ArrayList<>();
         this.URL = URL;
         this.lastModifiedDate = lastModifiedDate;
+        this.pageRank = 1.0;
     }
 
     public void addChild(String child) {
@@ -76,6 +78,12 @@ public class WebNode implements Serializable {
 
     public void setLastModifiedDate(String lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+    public void updatePagerank(Double newRank) {
+        this.pageRank = newRank;
+    }
+    public Double getPagerank() {
+        return this.pageRank;
     }
 }
 
