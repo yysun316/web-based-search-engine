@@ -80,18 +80,7 @@ public class LinkExtractor {
                 System.out.println("the page is old");
                 lb.setURL(parentURL);
                 URL_array = lb.getLinks();
-                List<String> parentsExtraChildList = new ArrayList<>();
-                for (String element : parentWebNode.getChildren()) {
-                    parentsExtraChildList.add(new String(element));
-                }
-                for (URL u : URL_array) {
-                    String childURL = u.toExternalForm();
-                    parentsExtraChildList.remove(childURL);
-                }
-                if (parentsExtraChildList.size()!=0)
-                {
-                    //System.out.println("something needs to be removed");
-                }
+                List<String> parentsExtraChildList = getStrings(parentWebNode, URL_array);
                 // iterate through parentsExtraChildList, get the child, and remove the relationship
                 for(String extraElement : parentsExtraChildList){
                     parentWebNode.removeChild(extraElement);
@@ -110,8 +99,10 @@ public class LinkExtractor {
             // get / initiate the corresponding child webnode and set up the relationship between them
             lb.setURL(parentURL);
             URL_array = lb.getLinks();
+            //System.out.println("parent URL " + parentURL);
             for (URL u : URL_array) {
                 String childURL = u.toExternalForm();
+                //System.out.println("has got children " + childURL);
                 // if the parent child relationship has been set up previously then we need to do nothing
                 if (parentWebNode.getChildren().contains(childURL)) {
                     //System.out.println("no need previously added");
@@ -138,8 +129,26 @@ public class LinkExtractor {
                     queue.add(childURL);
                 }
             }
+            //System.out.println(parentWebNode.getChildren());
+            //System.out.println();
         }
         return res;
+    }
+
+    private static List<String> getStrings(WebNode parentWebNode, URL[] URL_array) {
+        List<String> parentsExtraChildList = new ArrayList<>();
+        for (String element : parentWebNode.getChildren()) {
+            parentsExtraChildList.add(new String(element));
+        }
+        for (URL u : URL_array) {
+            String childURL = u.toExternalForm();
+            parentsExtraChildList.remove(childURL);
+        }
+        if (parentsExtraChildList.size()!=0)
+        {
+            //System.out.println("something needs to be removed");
+        }
+        return parentsExtraChildList;
     }
 
     // TODO: Implement the method

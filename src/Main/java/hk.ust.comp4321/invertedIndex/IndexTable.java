@@ -152,11 +152,15 @@ public class IndexTable {
                 else System.out.println("The WebNode already exists in the database.");
             }
             case "word2IdTitle" -> {
-                if (word2IdTitle.get(key) == null) word2IdTitle.put(key, wordIdTitle++);
+                if (word2IdTitle.get(key) == null)
+                {
+                    word2IdTitle.put(key, wordIdTitle++);
+                }
                 else System.out.println("The word already exists in the title database.");
             }
             case "word2IdBody" -> {
-                if (word2IdBody.get(key) == null) word2IdBody.put(key, wordIdBody++);
+                if (word2IdBody.get(key) == null)
+                    word2IdBody.put(key, wordIdBody++);
                 else System.out.println("The word already exists in the body database.");
             }
             case "IdTitle2Word" -> {
@@ -296,7 +300,7 @@ public class IndexTable {
         while ((key = iter.next()) != null) {
             System.out.println(key + " : " + tree.get(key));
         }
-        recordManager.commit();
+        //recordManager.commit();
     }
     public void printAllWithBTree(String htreeName) throws IOException{
         HTree tree = switch (htreeName) {
@@ -318,19 +322,18 @@ public class IndexTable {
                 System.out.println("Value: " + tuple.getValue());
             }
         }
-        recordManager.commit();
+        //recordManager.commit();
     }
 
 
     public int getWordIdTitleFromStem(String stem) throws IOException {
         Object wordId = word2IdTitle.get(stem);
-        recordManager.commit();
+        //recordManager.commit();
         return wordId != null ? (int) wordId : -1;
     }
 
     public int getWordIdBodyFromStem(String stem) throws IOException {
         Object wordId = word2IdBody.get(stem);
-        recordManager.commit();
         return wordId != null ? (int) wordId : -1;
     }
 
@@ -344,7 +347,7 @@ public class IndexTable {
 
     public int getPageIdFromURL(String url) throws IOException {
         Object pageId = url2Id.get(url);
-        recordManager.commit();
+        //recordManager.commit();
         return pageId != null ? (int) pageId : -1;
     }
 
@@ -400,43 +403,43 @@ public class IndexTable {
         Object value = tree.get(key);
         if (value != null) {
             if (type.isInstance(value)) {
-                recordManager.commit();
+                //recordManager.commit();
                 return type.cast(value);
             } else {
                 throw new ClassCastException("The object is not of type " + type.getName());
             }
         }
-        recordManager.commit();
+        //recordManager.commit();
         return null;
     }
 
     public BTree getInvertIdxTitleEntry(int key) throws IOException {
         if (invertedIdxTitle.get(key) == null) return null;
-        recordManager.commit();
+        //recordManager.commit();
         return BTree.load(recordManager, (Long) invertedIdxTitle.get(key));
     }
 
     public BTree getInvertIdxBodyEntry(int key) throws IOException {
         if (invertedIdxBody.get(key) == null) return null;
-        recordManager.commit();
+        //recordManager.commit();
         return (BTree) invertedIdxBody.get(key);
     }
 
     public BTree getForwardIdxTitleEntry(int key) throws IOException {
         if (forwardIdxTitle.get(key) == null) return null;
-        recordManager.commit();
+        //recordManager.commit();
         return BTree.load(recordManager, (Long) forwardIdxTitle.get(key));
     }
 
     public BTree getForwardIdxBodyEntry(int key) throws IOException {
         if (forwardIdxBody.get(key) == null) return null;
-        recordManager.commit();
+        //recordManager.commit();
         return BTree.load(recordManager, (Long) forwardIdxBody.get(key));
     }
 
     public int getIdFromUrl(String url) throws IOException {
         Object id = url2Id.get(url);
-        recordManager.commit();
+        //recordManager.commit();
         return id != null ? (int) id : -1;
     }
 }

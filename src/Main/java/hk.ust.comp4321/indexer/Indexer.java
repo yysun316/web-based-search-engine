@@ -40,26 +40,28 @@ public class Indexer {
                 String stem = stopStem.stem(word);
                 // 3. If stem exists in the word2IdTitle table, get the wordId; otherwise, add the stem to the tables
                 if (indexTable.getWordIdTitleFromStem(stem) == -1) {
+                    //System.out.println("stem is " + stem + " indexTable.getWordIdTitle() is "+ indexTable.getWordIdTitle());
+                    //System.out.println("indexTable.getWordIdTitle() is "+ indexTable.getWordIdTitle());
                     indexTable.addEntry(TreeNames.word2IdTitle.toString(), stem, indexTable.getWordIdTitle());
-                    indexTable.addEntry(TreeNames.IdTitle2Word.toString(), indexTable.getWordIdTitleFromStem(stem), stem);
+                    //indexTable.addEntry(TreeNames.IdTitle2Word.toString(), indexTable.getWordIdTitleFromStem(stem), stem);
 //                    System.out.println(stem + " not found in word2IdTitle table. Adding...");
                 }
-                // 4. Find all the positions of the stem in the title
-                int wordIdTitle = indexTable.getWordIdTitleFromStem(stem);
-//                System.out.println(stem + " has wordId: " + wordIdTitle);
-                ArrayList<Integer> tmpPos = wordId2Pos.computeIfAbsent(wordIdTitle, k -> new ArrayList<>());
-                tmpPos.add(pos);
+//                // 4. Find all the positions of the stem in the title
+//                int wordIdTitle = indexTable.getWordIdTitleFromStem(stem);
+////                System.out.println(stem + " has wordId: " + wordIdTitle);
+//                ArrayList<Integer> tmpPos = wordId2Pos.computeIfAbsent(wordIdTitle, k -> new ArrayList<>());
+//                tmpPos.add(pos);
             }
             pos++;
         }
-        // 5. Insert the wordIdTitle and positions into the inverted index
-        for (int wordIdTitle : wordId2Pos.keySet()) {
-            indexTable.updateInvertedIdx(TreeNames.invertedIdxTitle.toString(), wordIdTitle, pageId, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
-        }
-//         6. Insert the wordIdTitle and id into the forward index
-        for (int wordIdTitle : wordId2Pos.keySet()) {
-            indexTable.updateForwardIdx(TreeNames.forwardIdxTitle.toString(), pageId, wordIdTitle, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
-        }
+//        // 5. Insert the wordIdTitle and positions into the inverted index
+//        for (int wordIdTitle : wordId2Pos.keySet()) {
+//            indexTable.updateInvertedIdx(TreeNames.invertedIdxTitle.toString(), wordIdTitle, pageId, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
+//        }
+////         6. Insert the wordIdTitle and id into the forward index
+//        for (int wordIdTitle : wordId2Pos.keySet()) {
+//            indexTable.updateForwardIdx(TreeNames.forwardIdxTitle.toString(), pageId, wordIdTitle, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
+//        }
     }
 
     private void indexBody(String url) throws Exception {
@@ -72,31 +74,31 @@ public class Indexer {
 //        System.out.println("Body: " + Arrays.toString(words));
         int pos = 0; // position of the word in the body
         Hashtable<Integer, ArrayList<Integer>> wordId2Pos = new Hashtable<>(); // wordIdBody -> positions
-        // 2. Remove stop words and stem the words
+//        // 2. Remove stop words and stem the words
         for (String word : words) {
             if (!stopStem.isStopWord(word)) {
                 String stem = stopStem.stem(word);
                 // 3. If stem exists in the word2IdBody table, get the wordId; otherwise, add the stem to the tables
                 if (indexTable.getWordIdBodyFromStem(stem) == -1) {
                     indexTable.addEntry(TreeNames.word2IdBody.toString(), stem, indexTable.getWordIdBody());
-                    indexTable.addEntry(TreeNames.IdBody2Word.toString(), indexTable.getWordIdBody(), stem);
+                    indexTable.addEntry(TreeNames.IdBody2Word.toString(), indexTable.getWordIdBodyFromStem(stem), stem);
 //                    System.out.println(stem + " not found in word2IdBody table. Adding...");
                 }
                 // 4. Find all the positions of the stem in the body
-                int wordIdBody = indexTable.getWordIdBodyFromStem(stem);
-//                System.out.println(stem + " has wordId: " + wordIdBody);
-                ArrayList<Integer> tmpPos = wordId2Pos.computeIfAbsent(wordIdBody, k -> new ArrayList<>());
-                tmpPos.add(pos);
+//                int wordIdBody = indexTable.getWordIdBodyFromStem(stem);
+////                System.out.println(stem + " has wordId: " + wordIdBody);
+//                ArrayList<Integer> tmpPos = wordId2Pos.computeIfAbsent(wordIdBody, k -> new ArrayList<>());
+//                tmpPos.add(pos);
             }
             pos++;
         }
-        // 5. Insert the wordIdBody and positions into the inverted index
-        for (int wordIdBody : wordId2Pos.keySet()) {
-            indexTable.updateInvertedIdx(TreeNames.invertedIdxBody.toString(), wordIdBody, pageId, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
-        }
-        // 6. Insert the wordIdBody and id into the forward index
-        for (int wordIdBody : wordId2Pos.keySet()) {
-            indexTable.updateForwardIdx(TreeNames.forwardIdxBody.toString(), pageId, wordIdBody, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
-        }
+//        // 5. Insert the wordIdBody and positions into the inverted index
+//        for (int wordIdBody : wordId2Pos.keySet()) {
+//            indexTable.updateInvertedIdx(TreeNames.invertedIdxBody.toString(), wordIdBody, pageId, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
+//        }
+//        // 6. Insert the wordIdBody and id into the forward index
+//        for (int wordIdBody : wordId2Pos.keySet()) {
+//            indexTable.updateForwardIdx(TreeNames.forwardIdxBody.toString(), pageId, wordIdBody, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
+//        }
     }
 }

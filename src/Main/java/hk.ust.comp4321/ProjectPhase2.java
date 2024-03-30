@@ -3,7 +3,7 @@ package hk.ust.comp4321;
 import hk.ust.comp4321.crawler.Crawler;
 import hk.ust.comp4321.extractors.LastModifiedDateExtractor;
 import hk.ust.comp4321.extractors.TitleExtractor;
-import hk.ust.comp4321.extractors.WordCounter;
+import hk.ust.comp4321.extractors.CharacterCounter;
 import hk.ust.comp4321.indexer.Indexer;
 import hk.ust.comp4321.indexer.StopStem;
 import hk.ust.comp4321.invertedIndex.IndexTable;
@@ -67,9 +67,9 @@ public class ProjectPhase2 {
                 System.out.println("Size of page : Unknown");
             }
             ///////////////////////////////////////////////////////////////////////////////
-            WordCounter wordCounter = new WordCounter();
-            int wordCount = wordCounter.countWords(currentUrl);
-            System.out.println("Webpage Word Count: " + wordCount);
+            CharacterCounter charCounter = new CharacterCounter();
+            int charCount = charCounter.countCharacters(currentUrl);
+            System.out.println("Webpage Word Count: " + charCount);
             ///////////////////////////////////////////////////////////////////////////////
             System.out.println("Keyword and frequency");
 //            String[] words;
