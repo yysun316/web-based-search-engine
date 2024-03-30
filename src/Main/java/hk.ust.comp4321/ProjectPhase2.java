@@ -7,8 +7,12 @@ import hk.ust.comp4321.extractors.WordCounter;
 import hk.ust.comp4321.indexer.Indexer;
 import hk.ust.comp4321.indexer.StopStem;
 import hk.ust.comp4321.invertedIndex.IndexTable;
+import hk.ust.comp4321.utils.Posting;
 import hk.ust.comp4321.utils.TreeNames;
 import hk.ust.comp4321.utils.WebNode;
+import jdbm.btree.BTree;
+import jdbm.helper.Tuple;
+import jdbm.helper.TupleBrowser;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,11 +20,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import jdbm.btree.BTree;
 
-import static hk.ust.comp4321.extractors.StringExtractor.extractStrings;
-
-public class ProjectPhase1 {
+public class ProjectPhase2 {
     private static Crawler crawler1;
     private static IndexTable db1;
     private static Indexer indexer;
@@ -55,29 +56,28 @@ public class ProjectPhase1 {
             }
             System.out.println("Title: " + TitleExtractor.extractTitle(currentUrl));
             System.out.println("URL: " + currentUrl);
-            //System.out.println("Last modification data : " + currentWebnode.getLastModifiedDate());
+            System.out.println("Last modification data : " + LastModifiedDateExtractor.extractModifiedDate(currentUrl));
             ///////////////////////////////////////////////////////////////////////////////
-//            URL url = new URL(currentUrl);
-//            URLConnection connection = url.openConnection();
-//            int contentLength = connection.getContentLength();
-//            if (contentLength != -1) {
-//                System.out.println("Size of page : " + contentLength + " bytes");
-//            } else {
-//                System.out.println("Size of page : Unknown");
-//            }
-            indexer.index(currentUrl);
+            URL url = new URL(currentUrl);
+            URLConnection connection = url.openConnection();
+            int contentLength = connection.getContentLength();
+            if (contentLength != -1) {
+                System.out.println("Size of page : " + contentLength + " bytes");
+            } else {
+                System.out.println("Size of page : Unknown");
+            }
             ///////////////////////////////////////////////////////////////////////////////
-            //WordCounter wordCounter = new WordCounter();
-            //int wordCount = wordCounter.countWords(currentUrl);
-            //System.out.println("Webpage Word Count: " + wordCount);
+            WordCounter wordCounter = new WordCounter();
+            int wordCount = wordCounter.countWords(currentUrl);
+            System.out.println("Webpage Word Count: " + wordCount);
             ///////////////////////////////////////////////////////////////////////////////
-//            System.out.println("Keyword and frequency");
+            System.out.println("Keyword and frequency");
 //            String[] words;
 //            List<String> stems = new ArrayList<>();
 //            List<String> keywords = new ArrayList<>();
 //            int[] frequency = {0,0,0,0,0,0,0,0,0,0};
 //            words = extractStrings(false, currentUrl);
-//            indexer.index(currentUrl);
+////            indexer.index(currentUrl);
 //            count = 1;
 //            for (int i = 0; i < words.length; i++) {
 //                if (!stopStem.isStopWord(words[i])) {
@@ -109,8 +109,22 @@ public class ProjectPhase1 {
 //            System.out.println();
 //            System.out.print("their stems are:");
 //            System.out.println(stems);
+            indexer.index(currentUrl);
 
-                //db1.printAll(TreeNames.IdTitle2Word.toString());
+            Integer id = db1.getEntry(TreeNames.url2Id.toString(), currentUrl, Integer.class);
+            System.out.println("id is " + id.toString());
+            BTree temp = db1.getForwardIdxBodyEntry(id);
+            System.out.println("Btree is : " + temp);
+            TupleBrowser browser = temp.browse();
+            Tuple tuple = new Tuple();
+            while (browser.getNext(tuple)) {
+                Object currentPosting = tuple.getKey();
+                ArrayList<Integer> value = (ArrayList<Integer>) tuple.getValue();
+                System.out.println("Value for key " + currentPosting + ": " + value);
+                break;
+            }
+
+
                 ///////////////////////////////////////////////////////////////////////////////
                 try {
                     currentId = db1.getIdFromUrl(currentUrl);
