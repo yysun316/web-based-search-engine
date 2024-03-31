@@ -10,8 +10,8 @@ import jdbm.helper.TupleBrowser;
 import jdbm.htree.HTree;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ForwardInvertedIndex {
     private RecordManager recordManager;
@@ -91,6 +91,7 @@ public class ForwardInvertedIndex {
         wordIdTitle = getSize(word2IdTitle);
         wordIdBody = getSize(word2IdBody);
     }
+
     public static int getSize(HTree tree) throws IOException {
         FastIterator iter = tree.keys();
         Object key;
@@ -137,6 +138,7 @@ public class ForwardInvertedIndex {
         }
         recordManager.commit();
     }
+
     public void updateInvertedIdx(String hTreeName, int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
         // Posting: pageId, freq
         // wordId -> (posting, pos)
@@ -209,6 +211,7 @@ public class ForwardInvertedIndex {
         //recordManager.commit();
         return wordId != null ? (int) wordId : -1;
     }
+
     public int getWordIdTitle() {
         return wordIdTitle;
     }
@@ -222,7 +225,7 @@ public class ForwardInvertedIndex {
         return wordIdBody;
     }
 
-    public Hashtable<String, Integer> getKeywordFrequency(int pageId) throws IOException {
+    public Map<String, Integer> getKeywordFrequency(int pageId, int numKeywords) throws IOException {
         Hashtable<String, Integer> keywordFrequency = new Hashtable<>();
         BTree list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageId));
         BTree list2 = BTree.load(recordManager, (Long) forwardIdxBody.get(pageId));
@@ -230,17 +233,36 @@ public class ForwardInvertedIndex {
         Tuple tuple2 = new Tuple();
         while (browser2.getNext(tuple2)) {
             Posting post = (Posting) tuple2.getKey();
-            if (keywordFrequency.containsKey((String) IdBody2Word.get(post.getId())))
-                keywordFrequency.put((String) IdBody2Word.get(post.getId()), keywordFrequency.get((String) IdBody2Word.get(post.getId())) + post.getFreq());
+            String keyword = (String) IdBody2Word.get(post.getId());
+            if (keywordFrequency.containsKey(keyword))
+                keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
             else
-                keywordFrequency.put((String) IdBody2Word.get(post.getId()), post.getFreq());
+                keywordFrequency.put(keyword, post.getFreq());
         }
         TupleBrowser browser = list.browse();
         Tuple tuple = new Tuple();
         while (browser.getNext(tuple)) {
             Posting post = (Posting) tuple.getKey();
-            keywordFrequency.put((String) IdTitle2Word.get(post.getId()), post.getFreq());
+            String keyword = (String) IdTitle2Word.get(post.getId());
+            if (keywordFrequency.containsKey(keyword))
+                keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
+            else
+                keywordFrequency.put(keyword, post.getFreq());
         }
-        return keywordFrequency;
+
+        // Convert the Hashtable into a List of entries
+        List<Map.Entry<String, Integer>> entries = new ArrayList<>(keywordFrequency.entrySet());
+
+        // Sort the entries by their values (frequencies)
+        entries.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+        // Convert the sorted entries back into a LinkedHashMap
+        return entries.stream()
+                .limit(numKeywords)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new));
+    }
+
+    public String getWordFromIdBody(int wordId) throws IOException {
+        return (String) IdBody2Word.get(wordId);
     }
 }

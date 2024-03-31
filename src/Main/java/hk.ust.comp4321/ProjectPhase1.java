@@ -12,8 +12,8 @@ import hk.ust.comp4321.utils.WebNode;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 public class ProjectPhase1 {
     private static Crawler crawler1;
@@ -38,6 +38,8 @@ public class ProjectPhase1 {
                     throw new RuntimeException(e);
                 }
                 int numPages = 30;
+                int numKeywords = 10;
+                int numChildLinks = 10;
 
                 List<String> result = crawler1.extractLinks(root, numPages);
                 Integer testId;
@@ -47,7 +49,7 @@ public class ProjectPhase1 {
                 WebNode currentWebnode;
                 String title;
                 String lastModified;
-                Hashtable<String, Integer> keyword2Freq = new Hashtable<>();
+                Map<String, Integer> keyword2Freq;
                 int pageId;
                 int pageSize;
                 for (String currentUrl : result) {
@@ -57,19 +59,19 @@ public class ProjectPhase1 {
                     currentWebnode = db1.getEntry(TreeNames.id2WebNode.toString(), pageId, WebNode.class);
                     lastModified = currentWebnode.getLastModifiedDate();
                     pageSize = PageSizeExtractor.extractPageSize(currentUrl);
-                    keyword2Freq = db2.getKeywordFrequency(pageId);
-
-                    System.out.println(title);
+                    keyword2Freq = db2.getKeywordFrequency(pageId, numKeywords);
+//                    System.out.println(db2.getWordFromIdBody(103));
+//                    System.out.println(title);
                     writer.write(title + "\n");
 
-                    System.out.println(currentUrl);
+//                    System.out.println(currentUrl);
                     writer.write(currentUrl + "\n");
 
-                    System.out.println(lastModified + " " + pageSize);
+//                    System.out.println(lastModified + " " + pageSize);
                     writer.write(lastModified + " " + pageSize + "\n");
 
                     keyword2Freq.forEach((k, v) -> {
-                        System.out.print(k + " " + v + "; ");
+//                        System.out.print(k + " " + v + "; ");
                         try {
                             writer.write(k + " " + v + "; ");
                         } catch (IOException e) {
@@ -78,19 +80,29 @@ public class ProjectPhase1 {
                     });
 
 
-                    System.out.println();
+//                    System.out.println();
                     writer.write("\n");
-
-                    currentWebnode.getChildren().forEach(child -> {
-                        System.out.println(child);
-                        try {
-                            writer.write(child + "\n");
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
+                    int countChildLinks = 0;
+                    for (String child : currentWebnode.getChildren()) {
+                        if (countChildLinks >= numChildLinks) {
+                            break;
                         }
-                    });
+//                        System.out.println(child);
+                        writer.write(child + "\n");
+                        countChildLinks++;
+                    }
 
-                    System.out.println("----------------------------------------------------------------------------------------");
+//                    currentWebnode.getChildren().forEach(child -> {
+//
+//                        System.out.println(child);
+//                        try {
+//                            writer.write(child + "\n");
+//                        } catch (IOException e) {
+//                            throw new RuntimeException(e);
+//                        }
+//                    });
+
+//                    System.out.println("----------------------------------------------------------------------------------------");
                     writer.write("----------------------------------------------------------------------------------------" + "\n");
                 }
             }

@@ -13,6 +13,9 @@
 5. Please don't run other test cases in the test folder, as they are for our own testing purposes and may not be updated nor relevant to the current version of the project.
 
 # Project Structure
+## Crawler:
+The Crawler.java file is a class that providing web crawling function.<br>
+
 ## IndexTable:
 The IndexTable.java file is a class that providing mapping function, which is primarily constructed by crawler.<br>
 ### Function: 
