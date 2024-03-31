@@ -11,6 +11,7 @@
 3. The program will automatically generate the IndexTable and ForwardInvertedIndex.
 4. The program will automatically generate the output file spider_result.txt.
 5. Please don't run other test cases in the test folder, as they are for our own testing purposes and may not be updated nor relevant to the current version of the project.
+6. JDK20 is used.
 
 # Project Structure
 ## Crawler:
