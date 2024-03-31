@@ -30,8 +30,8 @@ public class ProjectPhase1 {
                 String root = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
                 stopStem = new StopStem("resources/stopwords.txt");
                 try {
-                    db1 = new IndexTable("crawlerEmTest");
-                    db2 = new ForwardInvertedIndex("whatever");
+                    db1 = new IndexTable("CrawlerDatabase");
+                    db2 = new ForwardInvertedIndex("ForwardInvertedIndexDatabase");
                     indexer = new Indexer(db1, db2);
                     crawler1 = new Crawler(db1);
                 } catch (IOException e) {
