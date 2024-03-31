@@ -20,6 +20,7 @@ import java.util.Queue;
 
 public class LinkExtractor {
     public static List<String> extractLinks(IndexTable indexTable, String rootURL, int numPages) throws Exception {
+        Integer countAgain = 0;
         List<String> res = new ArrayList<>(numPages); // store the result
         LinkBean lb = new LinkBean();
         URL[] URL_array;
@@ -27,6 +28,7 @@ public class LinkExtractor {
         queue.add(rootURL);
 
         while (!queue.isEmpty() && res.size() < numPages) {
+            //System.out.println( indexTable.getPageId() + " is max");
             String parentURL = queue.poll();
             res.add(parentURL);
             // get/initiate parent webnode
@@ -116,15 +118,20 @@ public class LinkExtractor {
                 if (childId != -1)
                 {
                     childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
+                    childWebNode.addParent(parentURL);
                 }
                 else
                 {
-                    childWebNode = new WebNode(indexTable.getPageId(), childURL, LastModifiedDateExtractor.extractModifiedDate(childURL));
-                    indexTable.addEntry(TreeNames.url2Id.toString(), childURL, indexTable.getPageId());
-                    indexTable.addEntry(TreeNames.id2WebNode.toString(), childWebNode.getId(), childWebNode);
+                    if(indexTable.getPageId() < numPages)
+                    {
+                        childWebNode = new WebNode(indexTable.getPageId(), childURL, LastModifiedDateExtractor.extractModifiedDate(childURL));
+                        indexTable.addEntry(TreeNames.url2Id.toString(), childURL, indexTable.getPageId());
+                        indexTable.addEntry(TreeNames.id2WebNode.toString(), childWebNode.getId(), childWebNode);
+                        childWebNode.addParent(parentURL);
+                        //System.out.println( indexTable.getPageId() + " child add entry " + childURL);
+                    }
                 }
                 parentWebNode.addChild(childURL);
-                childWebNode.addParent(parentURL);
                 if (!res.contains(childURL)) {
                     queue.add(childURL);
                 }
