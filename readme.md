@@ -20,13 +20,15 @@ The Crawler.java file is a class that providing web crawling function.<br>
 The IndexTable.java file is a class that providing mapping function, which is primarily constructed by crawler.<br>
 ### Function: 
 1. URL <=> pageId mapping function.<br>
+2. pageId <=> WebNode mapping function.<br>
+**Remarks: The pageId is a unique identifier for each page, and the WebNode is a class that stores the information of the page.**<br>
+**WebNode stores the ID, modified date and URL of the webpage, and its children-parent URL**
 
 ## ForwardInvertedIndex: 
 The ForwardInvertedIndex.java file is a class that providing forward indexing and inverted indexing function, which is primarily constructed by indexer.<br>
 ### Function: 
 1. Word <=> wordId mapping function for title and body respectively.<br>
-2. Inverted indexing for title and body respectively. <br>
+2. Inverted indexing for title and body respectively.<br>
 3. Forward indexing for title and body respectively.<br>
-4. The position and frequency of each word in the title and body are stored in the both index for fast retrieval.<br>
-
+**Remarks:The position and frequency of each word in the title and body are stored in the both index for fast retrieval.<br>**
 .... updating

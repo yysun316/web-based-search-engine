@@ -22,7 +22,6 @@ public class ForwardInvertedIndex {
     private HTree invertedIdxBody; // wordID to list of {id} for that word in body
     private HTree forwardIdxTitle; // id to wordID list for that page {using the id to find the wordId, sort the wordId by frequency}
     private HTree forwardIdxBody; // id to wordID list for that page {using the id to find the wordId}
-    private int pageId; // increase by 1 for each new page (url2ID add entry)
     private int wordIdTitle; // increase by 1 for each new word
     private int wordIdBody; // increase by 1 for each new word
     private HTree IdTitle2Word; // wordId to word {using the wordId to find the word}
