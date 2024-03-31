@@ -37,7 +37,7 @@ public class ProjectPhase1 {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                int numPages = 20;
+                int numPages = 30;
 
                 List<String> result = crawler1.extractLinks(root, numPages);
                 Integer testId;

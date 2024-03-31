@@ -151,13 +151,12 @@ public class LinkExtractor {
         return parentsExtraChildList;
     }
 
-    // TODO: Implement the method
 //    private static WebNode compareVisitedPages(IndexTable indexTable, String url, List<String> res, int parent) throws Exception {
 //        int id = indexTable.getIdFromUrl(url);
 //        WebNode recordedNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), id, WebNode.class);
 //        String recordedDate = recordedNode.getLastModifiedDate();
 //        String newDate = LastModifiedDateExtractor.extractModifiedDate(url);
-//        // TODO: If the current page is newer than the recorded page, update the page
+//
 //        if (LastModifiedDateExtractor.getDateInMilliseconds(recordedDate) < LastModifiedDateExtractor.getDateInMilliseconds(newDate)) {
 //            // 1. Create a new node with the same ID because the URL is the same, however, the last modified date, parent, children maybe different.
 //            WebNode newNode = new WebNode(id, parent, url, newDate);
