@@ -226,12 +226,6 @@ public class ForwardInvertedIndex {
         Hashtable<String, Integer> keywordFrequency = new Hashtable<>();
         BTree list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageId));
         BTree list2 = BTree.load(recordManager, (Long) forwardIdxBody.get(pageId));
-        TupleBrowser browser = list.browse();
-        Tuple tuple = new Tuple();
-        while (browser.getNext(tuple)) {
-            Posting post = (Posting) tuple.getKey();
-            keywordFrequency.put((String) IdTitle2Word.get(post.getId()), post.getFreq());
-        }
         TupleBrowser browser2 = list2.browse();
         Tuple tuple2 = new Tuple();
         while (browser2.getNext(tuple2)) {
@@ -240,6 +234,12 @@ public class ForwardInvertedIndex {
                 keywordFrequency.put((String) IdBody2Word.get(post.getId()), keywordFrequency.get((String) IdBody2Word.get(post.getId())) + post.getFreq());
             else
                 keywordFrequency.put((String) IdBody2Word.get(post.getId()), post.getFreq());
+        }
+        TupleBrowser browser = list.browse();
+        Tuple tuple = new Tuple();
+        while (browser.getNext(tuple)) {
+            Posting post = (Posting) tuple.getKey();
+            keywordFrequency.put((String) IdTitle2Word.get(post.getId()), post.getFreq());
         }
         return keywordFrequency;
     }
