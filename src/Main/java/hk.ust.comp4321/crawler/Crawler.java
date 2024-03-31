@@ -39,10 +39,14 @@ public class Crawler {
     // TODO: Given a parent pageId, return the list of children pageIds
     public List<Integer> getChildrenPageIds(int id) {
         try {
+            System.out.println("try getchildrenpageid");
             List<Integer> pageIds = new ArrayList<>();
             String treeName = TreeNames.id2WebNode.toString();
-            for (String url : db.getEntry(treeName, id, WebNode.class).getChildren())
+            for (String url : db.getEntry(treeName, id, WebNode.class).getChildren()) {
+                System.out.println("ChildrenPageURL is " + url);
                 pageIds.add(db.getEntry(TreeNames.url2Id.toString(), url, Integer.class));
+                System.out.println("ChildrenPageID is " + db.getEntry(TreeNames.url2Id.toString(), url, Integer.class));
+            }
             return pageIds;
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,12 +56,13 @@ public class Crawler {
     }
 
     // TODO: Given a child's pageId, return the parent pageId
-    public Integer getParentPageId(int id) {
+    public List<Integer> getParentPageId(int id) {
         try {
+            List<Integer> pageIds = new ArrayList<>();
             String treeName = TreeNames.id2WebNode.toString();
-            String url = db.getEntry(treeName, id, WebNode.class).getParent();
-            // if null, it's root url
-            return url == null ? null : db.getEntry(TreeNames.url2Id.toString(), url, Integer.class);
+            for (String url : db.getEntry(treeName, id, WebNode.class).getParent())
+                pageIds.add(db.getEntry(TreeNames.url2Id.toString(), url, Integer.class));
+            return pageIds;
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error in getParent of Crawler");

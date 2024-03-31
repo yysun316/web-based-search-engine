@@ -57,10 +57,9 @@ class CrawlerTest {
         System.out.println("Test getParentPageId");
         int id = 1; // assuming there is a WebNode with id 1 in the db
 
-        Integer result = crawler.getParentPageId(id);
-        if (result == null) System.out.println("It's the root url");
-        else System.out.println("The parent page id is " + result);
-        assertNull(crawler.getParentPageId(0));
+        List<Integer> result = crawler.getParentPageId(id);
+        result.forEach(System.out::println);
+
         assertNotNull(result);
         // Add more assertions based on your expected result
     }
