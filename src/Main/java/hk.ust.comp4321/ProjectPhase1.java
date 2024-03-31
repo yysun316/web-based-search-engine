@@ -12,8 +12,9 @@ import hk.ust.comp4321.utils.WebNode;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.*;
+
+import static hk.ust.comp4321.utils.writeVectorToFile.writeVectorToFile;
 
 public class ProjectPhase1 {
     private static Crawler crawler1;
@@ -21,6 +22,7 @@ public class ProjectPhase1 {
     private static ForwardInvertedIndex db2;
     private static Indexer indexer;
     private static StopStem stopStem;
+    private static Vector<String> webVec;
 
 
     public static void main(String[] args) throws Exception {
@@ -34,6 +36,7 @@ public class ProjectPhase1 {
                 db2 = new ForwardInvertedIndex("whatever");
                 indexer = new Indexer(db1, db2);
                 crawler1 = new Crawler(db1);
+                webVec = new Vector<>();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -58,18 +61,65 @@ public class ProjectPhase1 {
                 lastModified = currentWebnode.getLastModifiedDate();
                 pageSize = PageSizeExtractor.extractPageSize(currentUrl);
                 keyword2Freq = db2.getKeywordFrequency(pageId);
-                writer.println(title);
-                writer.println(currentUrl);
-                writer.println(lastModified + " " + pageSize);
-                keyword2Freq.forEach((k, v) -> writer.print(k + " " + v + "; "));
-                writer.println();
+                webVec.add(title);
+                //writer.println(title);
+                webVec.add("URL: " + currentUrl);
+                //writer.println(currentUrl);
+                webVec.add(lastModified + " " + pageSize);
+                //writer.println(lastModified + " " + pageSize);
+
+                List<String> stems = new ArrayList<>();
+                List<Integer> freq = new ArrayList<>();
+                keyword2Freq.forEach((k, v) -> freq.add(v));
+                keyword2Freq.forEach((k, v) -> stems.add(k));
+                List<Integer> indices = new ArrayList<>(freq.size());
+                for (int i = 0; i < freq.size(); i++) {
+                    indices.add(i);
+                }
+                Collections.sort(indices, (a, b) -> Integer.compare(freq.get(b), freq.get(a)));
+                for (int j = 0; j < Math.min(10, indices.size()); j++) {
+//                    writer.print(indices.get(j) + " ");
+//                    writer.print(stems.get(indices.get(j)) + " ");
+//                    writer.print(freq.get(indices.get(j)) + " | ");
+                    webVec.add("Keystem " + stems.get(indices.get(j)) + " has frequency " + freq.get(indices.get(j)));
+                }
+
+
+//                keyword2Freq.forEach((k, v) -> writer.print(" "));//writer.print(k + " " + v + "; "));
+//                writer.println();
+
+                webVec.add("Child Links:");
+                //writer.println("Child Links:");
+                List<String> children = currentWebnode.getChildren();
+                List<String> parent = currentWebnode.getParent();
+                List<String> children10 = new ArrayList<>();
+                List<String> parent10 = new ArrayList<>();
+                for (int i = 0; i < Math.min(10, children.size()); i++) {
+                    String child = children.get(i);
+                    webVec.add(child);
+                    children10.add(child);
+                }
+                //writer.println("Parent Links:");
+                webVec.add("Parent Links:");
+                for (int i = 0; i < Math.min(10, parent.size()); i++) {
+                    String par = parent.get(i);
+                    webVec.add(par);
+                    parent10.add(par);
+                }
+                writer.println("Child Links:");
                 currentWebnode.getChildren().forEach(writer::println);
+
+                //writer.println("Parent Links:");
+                //currentWebnode.getParent().forEach(writer::println);
+
+                webVec.add("--------------------------------------------------------------------------------------------------------");
                 writer.println("----------------------------------------------------------------------------------------");
 
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        writeVectorToFile(webVec, "webpagesExtracted");
     }
 
 }
