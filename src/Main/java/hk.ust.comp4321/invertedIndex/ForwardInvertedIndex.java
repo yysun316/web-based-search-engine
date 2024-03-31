@@ -227,28 +227,36 @@ public class ForwardInvertedIndex {
 
     public Map<String, Integer> getKeywordFrequency(int pageId, int numKeywords) throws IOException {
         Hashtable<String, Integer> keywordFrequency = new Hashtable<>();
-        BTree list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageId));
-        BTree list2 = BTree.load(recordManager, (Long) forwardIdxBody.get(pageId));
-        TupleBrowser browser2 = list2.browse();
-        Tuple tuple2 = new Tuple();
-        while (browser2.getNext(tuple2)) {
-            Posting post = (Posting) tuple2.getKey();
-            String keyword = (String) IdBody2Word.get(post.getId());
-            if (keywordFrequency.containsKey(keyword))
-                keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
-            else
-                keywordFrequency.put(keyword, post.getFreq());
+        long recid = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxTitle");
+        if (recid != 0 && forwardIdxTitle.get(pageId) != null){
+            BTree list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageId));
+            TupleBrowser browser = list.browse();
+            Tuple tuple = new Tuple();
+            while (browser.getNext(tuple)) {
+                Posting post = (Posting) tuple.getKey();
+                String keyword = (String) IdTitle2Word.get(post.getId());
+                if (keywordFrequency.containsKey(keyword))
+                    keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
+                else
+                    keywordFrequency.put(keyword, post.getFreq());
+            }
+
         }
-        TupleBrowser browser = list.browse();
-        Tuple tuple = new Tuple();
-        while (browser.getNext(tuple)) {
-            Posting post = (Posting) tuple.getKey();
-            String keyword = (String) IdTitle2Word.get(post.getId());
-            if (keywordFrequency.containsKey(keyword))
-                keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
-            else
-                keywordFrequency.put(keyword, post.getFreq());
+        long recid2 = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxBody");
+        if (recid2 != 0 && forwardIdxBody.get(pageId) != null){
+            BTree list2 = BTree.load(recordManager, (Long) forwardIdxBody.get(pageId));
+            TupleBrowser browser2 = list2.browse();
+            Tuple tuple2 = new Tuple();
+            while (browser2.getNext(tuple2)) {
+                Posting post = (Posting) tuple2.getKey();
+                String keyword = (String) IdBody2Word.get(post.getId());
+                if (keywordFrequency.containsKey(keyword))
+                    keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
+                else
+                    keywordFrequency.put(keyword, post.getFreq());
+            }
         }
+
 
         // Convert the Hashtable into a List of entries
         List<Map.Entry<String, Integer>> entries = new ArrayList<>(keywordFrequency.entrySet());

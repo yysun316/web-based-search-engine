@@ -33,13 +33,14 @@ public class Indexer {
         if (pageId == -1) throw new Exception("Page ID not found");
 
         // 1. Extract words from the title
-        String[] words = Arrays.stream(TitleExtractor.extractTitle(url).split("[\\s\\p{Punct}]+")).filter(word -> word != null && !word.trim().isEmpty()).toArray(String[]::new); // split by whitespace
+        String[] words = Arrays.stream(TitleExtractor.extractTitle(url).split("[\\s\\p{Punct}&&[^-]]+")).filter(word -> word != null && !word.trim().isEmpty()).toArray(String[]::new); // split by whitespace
         if (words.length == 0) return;
 //        System.out.println("Title: " + Arrays.toString(words));
         int pos = 0; // position of the word in the title
         Hashtable<Integer, ArrayList<Integer>> wordId2Pos = new Hashtable<>(); // wordIdTitle -> positions
         // 2. Remove stop words and stem the words
         for (String word : words) {
+            word = word.toLowerCase().trim();
             if (!stopStem.isStopWord(word)) {
                 String stem = stopStem.stem(word);
                 if (stem.trim().isEmpty()) {
@@ -82,6 +83,7 @@ public class Indexer {
         Hashtable<Integer, ArrayList<Integer>> wordId2Pos = new Hashtable<>(); // wordIdBody -> positions
         // 2. Remove stop words and stem the words
         for (String word : words) {
+            word = word.toLowerCase().trim();
             if (!stopStem.isStopWord(word)) {
                 String stem = stopStem.stem(word);
                 if (stem.trim().isEmpty()) {

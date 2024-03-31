@@ -26,8 +26,8 @@ public class StringExtractor {
         sb.setLinks(links);
         sb.setURL(resource);
         String string = sb.getStrings();
-        ArrayList<String> words = new ArrayList<>(Arrays.asList(string.split("[\\s\\p{Punct}]+")));
-        int titleLength = TitleExtractor.extractTitle(resource).split("[\\s\\p{Punct}]+").length;
+        ArrayList<String> words = new ArrayList<>(Arrays.asList(string.split("[\\s\\p{Punct}&&[^-]]+")));
+        int titleLength = TitleExtractor.extractTitle(resource).split("[\\s\\p{Punct}&&[^-]]+").length;
         for (int i = 0; i < titleLength; i++)
             words.remove(0);
 
