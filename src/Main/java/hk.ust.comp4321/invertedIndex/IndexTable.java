@@ -171,173 +171,13 @@ public class IndexTable {
         recordManager.commit();
     }
 
-//    /***
-//     * Update the value of the key in the hTree
-//     * @param hTreeName the name of the hTree
-//     * @param key the key of the value
-//     * @param value the value of the key
-//     * @param <K> the type of the key
-//     * @param <V> the type of the value
-//     * @throws IOException if the tree name is invalid
-//     */
-//    public <K, V> void updateEntry(String hTreeName, K key, V value) throws IOException {
-//        switch (hTreeName) {
-//            case "url2Id", "word2IdTitle", "word2IdBody", "IdTitle2Word", "IdBody2Word" ->
-//                    System.out.println("ID should not be updated.");
-//            case "id2WebNode" -> {
-//                if (id2WebNode.get(key) == null)
-//                    System.out.println("The WebNode does not exist in the database. Please add it first.");
-//                else id2WebNode.put(key, value); // should update the value only
-//            }
-//            default -> throw new IllegalArgumentException("Invalid hTreeName");
-//        }
-//        recordManager.commit();
-//    }
-
-//    /***
-//     * Update the inverted index
-//     * @param hTreeName the name of the hTree
-//     * @param wordId the wordId
-//     * @param pageId the pageId
-//     * @param freq the term frequency of the word
-//     * @param pos the list of positions of the word
-//     * @throws IOException if the tree name is invalid
-//     */
-//    public void updateInvertedIdx(String hTreeName, int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
-//        // Posting: pageId, freq
-//        // wordId -> (posting, pos)
-//        Posting post = new Posting(pageId, freq);
-//        switch (hTreeName) {
-//            case "invertedIdxTitle" -> {
-//                // if this wordIdTitle is not in the invertedIdxTitle, create a new BTree
-//                BTree list;
-//                if (invertedIdxTitle.get(wordId) == null) { // it stores the record.
-//                    list = BTree.createInstance(recordManager, new Posting.IdComparator()); // sort by pageId
-//                    recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxTitle", list.getRecid()); // name of list is wordId
-//                    invertedIdxTitle.put(wordId, list.getRecid()); // add the name of the list to the invertedIdxTitle
-//                }
-//                list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordId)); // load the list
-//                // if the pageId is already in the list (when page has modification)
-//                list.insert(post, pos, true);
-//            }
-//            case "invertedIdxBody" -> {
-//                // if this wordIdBody is not in the invertedIdxBody, create a new BTree
-//                BTree list;
-//                if (invertedIdxBody.get(wordId) == null) {
-//                    // wordIdBody, {((id, pos), frequency), (...), ...}
-//                    list = BTree.createInstance(recordManager, new Posting.IdComparator());
-//                    recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxBody", list.getRecid());
-//                    invertedIdxBody.put(wordId, list.getRecid());
-//                }
-//                list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordId));
-//                list.insert(post, pos, true);
-//            }
-//            default -> throw new IllegalArgumentException("Invalid hTreeName");
-//        }
-//        recordManager.commit();
-//    }
-
-//    /***
-//     * Update the forward index
-//     * @param hTreeName the name of the hTree
-//     * @param pageID the pageId
-//     * @param wordId the wordId
-//     * @param freq the term frequency of the word
-//     * @throws IOException if the tree name is invalid
-//     */
-//    public void updateForwardIdx(String hTreeName, int pageID, int wordId, int freq, ArrayList<Integer> pos) throws IOException {
-//        // pageId -> (freq, wordId) (sort by term frequency) but not working because we cannot find the wordId for removal
-//        // pageId -> (posting: (wordId, freq), pos) can be used to find the wordId for removal and can sort by frequency
-//        Posting post = new Posting(wordId, freq);
-//        switch (hTreeName) {
-//            case "forwardIdxTitle" -> {
-//                // if this id is not in the forwardIdxTitle, create a new BTree
-//                BTree list;
-//                if (forwardIdxTitle.get(pageID) == null) {
-//                    list = BTree.createInstance(recordManager, new Posting.FreqComparator()); // sort by term frequency
-//                    recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxTitle", list.getRecid());
-//                    forwardIdxTitle.put(pageID, list.getRecid());
-//                }
-//                list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageID));
-//                // remove the old entry with same wordId
-//                list.insert(post, pos, true); // insert the wordId and pos
-//            }
-//            case "forwardIdxBody" -> {
-//                // if this id is not in the forwardIdxBody, create a new BTree
-//                BTree list;
-//                if (forwardIdxBody.get(pageID) == null) {
-//                    list = BTree.createInstance(recordManager, new Posting.FreqComparator()); // sort by term frequency
-//                    recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxBody", list.getRecid());
-//                    forwardIdxBody.put(pageID, list.getRecid());
-//                }
-//                list = BTree.load(recordManager, (Long) forwardIdxBody.get(pageID));
-//                list.insert(post, pos, true);
-//            }
-//            default -> throw new IllegalArgumentException("Invalid hTreeName");
-//        }
-//        recordManager.commit();
-//    }
-
-
-//    public void printAll(String hTreeName) throws IOException {
-//        HTree tree = switch (hTreeName) {
-//            case "url2Id" -> url2Id;
-//            case "id2WebNode" -> id2WebNode;
-//            case "word2IdTitle" -> word2IdTitle;
-//            case "word2IdBody" -> word2IdBody;
-//            case "IdBody2Word" -> IdBody2Word;
-//            case "IdTitle2Word" -> IdTitle2Word;
-//            default -> throw new IllegalArgumentException("Invalid hTreeName");
-//        };
-//        FastIterator iter = tree.keys();
-//        Object key;
-//        while ((key = iter.next()) != null) {
-//            System.out.println(key + " : " + tree.get(key));
-//        }
-//        //recordManager.commit();
-//    }
-//    public void printAllWithBTree(String htreeName) throws IOException{
-//        HTree tree = switch (htreeName) {
-//            case "invertedIdxTitle" -> invertedIdxTitle;
-//            case "invertedIdxBody" -> invertedIdxBody;
-//            case "forwardIdxTitle" -> forwardIdxTitle;
-//            case "forwardIdxBody" -> forwardIdxBody;
-//            default -> throw new IllegalArgumentException("Invalid hTreeName");
-//        };
-//        FastIterator iter = tree.keys();
-//        Object key;
-//        while ((key = iter.next()) != null) {
-//            BTree btree = BTree.load(recordManager, (Long) tree.get(key));
-//            Tuple tuple = new Tuple();
-//            TupleBrowser browser = btree.browse();
-//            while (browser.getNext(tuple)) {
-//                System.out.println("Key: " + key);
-//                ((Posting)tuple.getKey()).printAll();
-//                System.out.println("Value: " + tuple.getValue());
-//            }
-//        }
-//        //recordManager.commit();
-//    }
-//
-//
-//    public int getWordIdTitleFromStem(String stem) throws IOException {
-//        Object wordId = word2IdTitle.get(stem);
-//        //recordManager.commit();
-//        return wordId != null ? (int) wordId : -1;
-//    }
-//
-//    public int getWordIdBodyFromStem(String stem) throws IOException {
-//        Object wordId = word2IdBody.get(stem);
-//        return wordId != null ? (int) wordId : -1;
-//    }
-//
-//    public int getWordIdTitle() {
-//        return wordIdTitle;
-//    }
-//
-//    public int getWordIdBody() {
-//        return wordIdBody;
-//    }
+    public <K, V> void updateEntry(String hTreeName, K key, V value) throws IOException {
+        switch (hTreeName) {
+            case "id2WebNode" -> id2WebNode.put(key, value);
+            default -> throw new IllegalArgumentException("Invalid hTreeName");
+        }
+        recordManager.commit();
+    }
 
     public int getPageIdFromURL(String url) throws IOException {
         Object pageId = url2Id.get(url);
@@ -345,7 +185,7 @@ public class IndexTable {
         return pageId != null ? (int) pageId : -1;
     }
 
-    public int getPageId() {
+    public static int getPageId() {
         return pageId;
     }
 
@@ -432,4 +272,8 @@ public class IndexTable {
         //recordManager.commit();
         return id != null ? (int) id : -1;
     }
+    public void close() throws IOException {
+        recordManager.close();
+    }
+
 }

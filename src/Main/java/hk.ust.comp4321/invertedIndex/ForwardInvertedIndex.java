@@ -14,18 +14,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ForwardInvertedIndex {
-    private RecordManager recordManager;
+    private static RecordManager recordManager;
     // for Indexer:
-    private HTree word2IdTitle; // word to id {using the word to find the wordId}
-    private HTree word2IdBody; // word to id {using the word to find the wordId}
-    private HTree invertedIdxTitle; // wordID to list of {id} (tell which webpages contain the word)
-    private HTree invertedIdxBody; // wordID to list of {id} for that word in body
-    private HTree forwardIdxTitle; // id to wordID list for that page {using the id to find the wordId, sort the wordId by frequency}
-    private HTree forwardIdxBody; // id to wordID list for that page {using the id to find the wordId}
-    private int wordIdTitle; // increase by 1 for each new word
-    private int wordIdBody; // increase by 1 for each new word
-    private HTree IdTitle2Word; // wordId to word {using the wordId to find the word}
-    private HTree IdBody2Word; // wordId to word {using the wordId to find the word}
+    private static HTree word2IdTitle; // word to id {using the word to find the wordId}
+    private static HTree word2IdBody; // word to id {using the word to find the wordId}
+    private static HTree invertedIdxTitle; // wordID to list of {id} (tell which webpages contain the word)
+    private static HTree invertedIdxBody; // wordID to list of {id} for that word in body
+    private static HTree forwardIdxTitle; // id to wordID list for that page {using the id to find the wordId, sort the wordId by frequency}
+    private static HTree forwardIdxBody; // id to wordID list for that page {using the id to find the wordId}
+    private static int wordIdTitle; // increase by 1 for each new word
+    private static int wordIdBody; // increase by 1 for each new word
+    private static HTree IdTitle2Word; // wordId to word {using the wordId to find the word}
+    private static HTree IdBody2Word; // wordId to word {using the wordId to find the word}
 
     public ForwardInvertedIndex(String recordManagerName) throws IOException {
         this.recordManager = RecordManagerFactory.createRecordManager(recordManagerName);
@@ -224,10 +224,12 @@ public class ForwardInvertedIndex {
         return wordIdBody;
     }
 
-    public Map<String, Integer> getKeywordFrequency(int pageId, int numKeywords) throws IOException {
+    //tb=2 : want body only = do not want title
+    //tb=1 : want title only = do not want body
+    public Map<String, Integer> getKeywordFrequency(int pageId, int numKeywords, int tb) throws IOException {
         Hashtable<String, Integer> keywordFrequency = new Hashtable<>();
         long recid = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxTitle");
-        if (recid != 0 && forwardIdxTitle.get(pageId) != null){
+        if (recid != 0 && forwardIdxTitle.get(pageId) != null && tb!=2){
             BTree list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageId));
             TupleBrowser browser = list.browse();
             Tuple tuple = new Tuple();
@@ -242,7 +244,7 @@ public class ForwardInvertedIndex {
 
         }
         long recid2 = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxBody");
-        if (recid2 != 0 && forwardIdxBody.get(pageId) != null){
+        if (recid2 != 0 && forwardIdxBody.get(pageId) != null && tb!=1){
             BTree list2 = BTree.load(recordManager, (Long) forwardIdxBody.get(pageId));
             TupleBrowser browser2 = list2.browse();
             Tuple tuple2 = new Tuple();
@@ -264,6 +266,9 @@ public class ForwardInvertedIndex {
         entries.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
 
         // Convert the sorted entries back into a LinkedHashMap
+        if (numKeywords == -1)
+            return entries.stream()
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new));
         return entries.stream()
                 .limit(numKeywords)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new));
@@ -272,4 +277,7 @@ public class ForwardInvertedIndex {
     public String getWordFromIdBody(int wordId) throws IOException {
         return (String) IdBody2Word.get(wordId);
     }
+//    public String getWordFromIdTitle(int wordId) throws IOException {
+//        return (String) IdTitle2Word.get(wordId);
+//    }
 }

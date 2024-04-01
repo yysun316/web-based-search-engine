@@ -59,7 +59,7 @@ public class ProjectPhase1 {
                     currentWebnode = db1.getEntry(TreeNames.id2WebNode.toString(), pageId, WebNode.class);
                     lastModified = currentWebnode.getLastModifiedDate();
                     pageSize = PageSizeExtractor.extractPageSize(currentUrl);
-                    keyword2Freq = db2.getKeywordFrequency(pageId, numKeywords);
+                    keyword2Freq = db2.getKeywordFrequency(pageId, numKeywords,0);
 //                    System.out.println(db2.getWordFromIdBody(103));
 //                    System.out.println(title);
                     writer.write(title + "\n");

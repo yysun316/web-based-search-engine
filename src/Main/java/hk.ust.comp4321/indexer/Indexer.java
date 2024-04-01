@@ -11,9 +11,9 @@ import java.util.Arrays;
 import java.util.Hashtable;
 
 public class Indexer {
-    StopStem stopStem;
-    IndexTable indexTable;
-    ForwardInvertedIndex forwardInvertedIndex;
+    private static StopStem stopStem;
+    private static IndexTable indexTable;
+    private static ForwardInvertedIndex forwardInvertedIndex;
 
     public Indexer(IndexTable indexTable, ForwardInvertedIndex forwardInvertedIndex) {
         this.indexTable = indexTable;
