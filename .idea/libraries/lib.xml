@@ -1,15 +1,18 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/sax2.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jdbm-1.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/junit.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/htmlparser.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/filterbuilder.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/htmllexer.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/thumbelina.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.servlet-api-3.1.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

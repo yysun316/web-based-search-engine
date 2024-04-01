@@ -5,8 +5,6 @@ import hk.ust.comp4321.indexer.Indexer;
 import hk.ust.comp4321.indexer.StopStem;
 import hk.ust.comp4321.invertedIndex.ForwardInvertedIndex;
 import hk.ust.comp4321.invertedIndex.IndexTable;
-import hk.ust.comp4321.utils.TreeNames;
-import hk.ust.comp4321.utils.WebNode;
 
 import java.io.IOException;
 import java.util.List;
