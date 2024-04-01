@@ -55,37 +55,6 @@ public class LinkExtractor {
                 parId = indexTable.getEntry(TreeNames.url2Id.toString(), parentURL, Integer.class);
                 parentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parId, WebNode.class);
             }
-//            // Compare modified date for visited pages
-//            if (indexTable.getIdFromUrl(parentURL) != -1)
-//                compareVisitedPages(indexTable, url, res, parentID);
-//                // Handle unvisited pages
-//            else {
-//                res.add(url);
-//                WebNode node = new WebNode(indexTable.getPageId(), parentID, url, LastModifiedDateExtractor.extractModifiedDate(url));
-//                indexTable.addEntry(TreeNames.url2Id.toString(), url, indexTable.getPageId());
-//                indexTable.addEntry(TreeNames.id2WebNode.toString(), node.getId(), node);
-//                indexTable.getEntry(TreeNames.id2WebNode.toString(), parentID, WebNode.class).addChild(node.getId());
-//            }
-            // BFS the webpages
-
-            // create parentsExtraChildList which stores parent child relationship that is no longer there and should be removed
-            if (pageStatus == 2) {
-                System.out.println("the page is old");
-                lb.setURL(parentURL);
-                URL_array = lb.getLinks();
-                List<String> parentsExtraChildList = getStrings(parentWebNode, URL_array);
-                // iterate through parentsExtraChildList, get the child, and remove the relationship
-                for (String extraElement : parentsExtraChildList) {
-                    parentWebNode.removeChild(extraElement);
-                    // get child webnode and remove its corresponding parent
-                    WebNode extraWebNode;
-                    int extraId = indexTable.getIdFromUrl(extraElement);
-                    if (extraId != -1) {
-                        extraWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), extraId, WebNode.class);
-                        extraWebNode.removeParent(parentURL);
-                    }
-                }
-            }
 
             // iterate through the list of child url of parent
             // get / initiate the corresponding child webnode and set up the relationship between them
@@ -107,14 +76,19 @@ public class LinkExtractor {
                 int childId = indexTable.getIdFromUrl(childURL);
                 if (childId != -1) {
                     childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
-                    childWebNode.addParent(parentURL);
+                    if((!res.contains(childURL)) && res.contains(parentURL)) {
+                        childWebNode.addParent(parentURL);
+                    }
                 } else {
                     if(indexTable.getPageId() < numPages)
                     {
                         childWebNode = new WebNode(indexTable.getPageId(), childURL, LastModifiedDateExtractor.extractModifiedDate(childURL));
                         indexTable.addEntry(TreeNames.url2Id.toString(), childURL, indexTable.getPageId());
                         indexTable.addEntry(TreeNames.id2WebNode.toString(), childWebNode.getId(), childWebNode);
-                        childWebNode.addParent(parentURL);
+                        if((!res.contains(childURL)) && res.contains(parentURL))
+                        {
+                            childWebNode.addParent(parentURL);
+                        }
                     }
 
                 }

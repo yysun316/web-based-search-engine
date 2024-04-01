@@ -185,7 +185,7 @@ public class IndexTable {
         return pageId != null ? (int) pageId : -1;
     }
 
-    public static int getPageId() {
+    public int getPageId() {
         return pageId;
     }
 

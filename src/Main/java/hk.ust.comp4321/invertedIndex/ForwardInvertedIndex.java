@@ -277,7 +277,7 @@ public class ForwardInvertedIndex {
     public String getWordFromIdBody(int wordId) throws IOException {
         return (String) IdBody2Word.get(wordId);
     }
-//    public String getWordFromIdTitle(int wordId) throws IOException {
-//        return (String) IdTitle2Word.get(wordId);
-//    }
+    public String getWordFromIdTitle(int wordId) throws IOException {
+        return (String) IdTitle2Word.get(wordId);
+    }
 }
