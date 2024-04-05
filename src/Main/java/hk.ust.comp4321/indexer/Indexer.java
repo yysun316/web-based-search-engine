@@ -114,4 +114,5 @@ public class Indexer {
             forwardInvertedIndex.updateForwardIdx(TreeNames.forwardIdxBody.toString(), pageId, wordIdBody, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
         }
     }
+
 }

@@ -19,7 +19,7 @@ public class PageRank1 {
     // If the query contain the stem again, the stem will be rated as more important
     // a0t1b2: title find score for body fill in 2, find score for title fill in 1
     public static List<List<Double>> RankStem(IndexTable indexTable, ForwardInvertedIndex forwardIndexTable, Integer a0t1b2) throws Exception {
-        Integer stemSize = 0;
+        Integer stemSize;
         if (a0t1b2 == 1)
             stemSize = forwardIndexTable.getWordIdTitle();
         else // a0t1b2 == 2
@@ -93,35 +93,59 @@ public class PageRank1 {
         return weight;
     }
 
-    public static List<Double> RankStemWithQuery(IndexTable indexTable, ForwardInvertedIndex forwardIndexTable, String query, Integer a0t1b2, List<List<Double>> weight) throws Exception {
+    public static List<Double> RankStemWithQuery(IndexTable indexTable, ForwardInvertedIndex forwardIndexTable, String query, Integer a0t1b2, List<List<Double>> weight, Integer wp, Integer phalen) throws Exception {
         stopStem = new StopStem("resources/stopwords.txt");
         String[] words = query.split(" ");
         List<String> stemsList = new ArrayList<>(); // convert query to stems and store it here
         List<Integer> frequency = new ArrayList<>(); // in case query contain the stem word more than once, the frequency is stored here
-        for (String word : words)
-        {
-            if (!stopStem.isStopWord(word)) {
-                String curStem = stopStem.stem(word);
-                if(curStem == "")
-                    continue;
+        if(wp == 0) {
+            for (String word : words) {
+                if (!stopStem.isStopWord(word)) {
+                    String curStem = stopStem.stem(word);
+                    if (curStem == "")
+                        continue;
+                    Integer stemIndex = 0;
+                    boolean added = false;
+                    for (String stemElement : stemsList) {
+                        if (stemElement.equals(curStem)) {
+                            added = true;
+                            frequency.set(stemIndex, frequency.get(stemIndex) + 1);
+                            break;
+                        }
+                        stemIndex++;
+                    }
+                    if (added == false) {
+                        stemsList.add(curStem);
+                        frequency.add(1);
+                    }
+                }
+            }
+        }
+        if(wp == 1) {
+            for (int wordpos = 0; wordpos <= (words.length-phalen); wordpos++){
                 Integer stemIndex = 0;
                 boolean added = false;
+                String curStem ="";
+                for (int addwd = 0; addwd < phalen; addwd++)
+                {
+                    curStem = curStem + words[wordpos].toLowerCase();
+                }
+
                 for (String stemElement : stemsList) {
-                    if(stemElement.equals(curStem))
-                    {
+                    if (stemElement.equals(curStem)) {
                         added = true;
                         frequency.set(stemIndex, frequency.get(stemIndex) + 1);
                         break;
                     }
                     stemIndex++;
                 }
-                if(added == false)
-                {
+                if (added == false) {
                     stemsList.add(curStem);
                     frequency.add(1);
                 }
             }
         }
+
         // if we can get no stem from the query
         if(frequency.size()==0)
         {
@@ -264,13 +288,13 @@ public class PageRank1 {
         }
     }
 
-    public static void PageRankByLink(IndexTable indexTable) throws Exception
+    public static void PageRankByLink(IndexTable indexTable, Double dampingFactor) throws Exception
     {
-        Double dampingFactor = 0.5;
         for (int pageid = 0; pageid < indexTable.getPageId(); pageid++)
         {
             WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
-            currentWebNode.updatePagerank(1-dampingFactor);
+            currentWebNode.updatePagerank(currentWebNode.getPagerank()-dampingFactor);
+            indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
             List<String> ParentList = currentWebNode.getParent();
             for (String parentURL : ParentList) {
                 WebNode parentWebNode;
@@ -290,11 +314,20 @@ public class PageRank1 {
                     System.out.println("child is " + currentWebNode.getUrl());
                     continue;
                 }
-
                 currentWebNode.updatePagerank( currentWebNode.getPagerank() + dampingFactor * PageRankIncrease);
+                indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
             }
 //            System.out.println(currentWebNode.getUrl());
 //            System.out.println(currentWebNode.getPagerank());
+        }
+        for (int pageid = 0; pageid < indexTable.getPageId(); pageid++)
+        {
+            WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
+            if(currentWebNode.getPagerank() < 0)
+            {
+                currentWebNode.updatePagerank( 0.0);
+                indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
+            }
         }
     }
 
@@ -309,12 +342,12 @@ public class PageRank1 {
         return linkWeights;
     }
 
-    public static List<Integer> PageRankByBoth(IndexTable indexTable, List<Double> stemRankt, List<Double> stemRankb, Double stemWeightt, Double stemWeightb) throws Exception
+    public static List<Integer> PageRankByBoth(IndexTable indexTable, List<Double> stemRankt, List<Double> stemRankb, List<Double> stemRanktp, List<Double> stemRankbp, Double stemWeightt, Double stemWeightb, Double stemWeighttp, Double stemWeightbp) throws Exception
     {
         List<Double> ratedScore = new ArrayList<>();
         for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
             WebNode webNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
-            ratedScore.add(webNode.getPagerank() + stemWeightt * stemRankt.get(pageid) + stemWeightb * stemRankb.get(pageid));
+            ratedScore.add(webNode.getPagerank() + stemWeightt * stemRankt.get(pageid) + stemWeightb * stemRankb.get(pageid) + stemWeighttp * stemRanktp.get(pageid) + stemWeightbp * stemRankbp.get(pageid));
         }
         List<Integer> indices = new ArrayList<>(ratedScore.size());
         for (int i = 0; i < ratedScore.size(); i++) {
@@ -323,7 +356,5 @@ public class PageRank1 {
         Collections.sort(indices, (a, b) -> Double.compare(ratedScore.get(b), ratedScore.get(a)));
         return indices;
     }
-
-
 }
 

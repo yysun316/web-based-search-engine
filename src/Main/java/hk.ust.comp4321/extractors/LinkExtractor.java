@@ -6,6 +6,7 @@ import hk.ust.comp4321.utils.TreeNames;
 import hk.ust.comp4321.utils.WebNode;
 import org.htmlparser.beans.LinkBean;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -20,6 +21,7 @@ import java.util.Queue;
 
 public class LinkExtractor {
     public static List<String> extractLinks(IndexTable indexTable, String rootURL, int numPages) throws Exception {
+        List<List<String>> pairList = new ArrayList<>();
         List<String> res = new ArrayList<>(numPages); // store the result
         LinkBean lb = new LinkBean();
         URL[] URL_array;
@@ -32,10 +34,6 @@ public class LinkExtractor {
             // get/initiate parent webnode
             WebNode parentWebNode;
             int parId = indexTable.getIdFromUrl(parentURL);
-            // status 0: initiate here
-            // status 1: old page is update
-            // status 2: old page is updated
-            Integer pageStatus = 0;
             if (parId != -1) {
                 // the node already exist
                 parentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parId, WebNode.class);
@@ -44,9 +42,8 @@ public class LinkExtractor {
                 String newDate = LastModifiedDateExtractor.extractModifiedDate(parentURL);
                 if (LastModifiedDateExtractor.getDateInMilliseconds(orignialDate) < LastModifiedDateExtractor.getDateInMilliseconds(newDate)) {
                     parentWebNode.setLastModifiedDate(newDate);
-                    pageStatus = 2;
                 } else {
-                    pageStatus = 1;
+                    continue;
                 }
             } else {
                 parentWebNode = new WebNode(indexTable.getPageId(), parentURL, LastModifiedDateExtractor.extractModifiedDate(parentURL));
@@ -65,45 +62,33 @@ public class LinkExtractor {
                 String childURL = u.toExternalForm();
                 //System.out.println("has got children " + childURL);
                 // if the parent child relationship has been set up previously then we need to do nothing
-                if (parentWebNode.getChildren().contains(childURL)) {
-                    //System.out.println("no need previously added");
-                    if (!res.contains(childURL)) {
-                        queue.add(childURL);
-                    }
-                    continue;
-                }
-                WebNode childWebNode;
-                int childId = indexTable.getIdFromUrl(childURL);
-                if (childId != -1) {
-                    childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
-                    if((!res.contains(childURL)) && res.contains(parentURL)) {
-                        childWebNode.addParent(parentURL);
-                    }
-                } else {
-                    if(indexTable.getPageId() < numPages)
-                    {
-                        childWebNode = new WebNode(indexTable.getPageId(), childURL, LastModifiedDateExtractor.extractModifiedDate(childURL));
-                        indexTable.addEntry(TreeNames.url2Id.toString(), childURL, indexTable.getPageId());
-                        indexTable.addEntry(TreeNames.id2WebNode.toString(), childWebNode.getId(), childWebNode);
-                        if((!res.contains(childURL)) && res.contains(parentURL))
-                        {
-                            childWebNode.addParent(parentURL);
-                        }
-                    }
-
-                }
                 if(!res.contains(childURL))
                 {
                     parentWebNode.addChild(childURL);
+                    List<String> pair = new ArrayList<>();
+                    pair.add(parentURL);
+                    pair.add(childURL);
+                    pairList.add(pair);
                 }
                 if (!res.contains(childURL)) {
                     queue.add(childURL);
                 }
             }
-            //System.out.println(parentWebNode.getChildren());
-            //System.out.println();
         }
+        addParentLinks(indexTable,pairList);
         return res;
+    }
+
+    public static void addParentLinks(IndexTable indexTable, List<List<String>> pairList) throws IOException {
+        for (List<String> pair : pairList)
+        {
+            int childId = indexTable.getIdFromUrl(pair.get(1));
+            if(childId!=-1)
+            {
+                WebNode childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
+                childWebNode.addParent(pair.get(0));
+            }
+        }
     }
 
     private static List<String> getStrings(WebNode parentWebNode, URL[] URL_array) {
