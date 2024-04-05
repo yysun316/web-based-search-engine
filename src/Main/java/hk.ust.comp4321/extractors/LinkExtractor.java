@@ -76,6 +76,7 @@ public class LinkExtractor {
             }
         }
         addParentLinks(indexTable,pairList);
+        System.out.println("res " + res);
         return res;
     }
 

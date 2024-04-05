@@ -25,10 +25,13 @@ public class PageRank1 {
         else // a0t1b2 == 2
             stemSize = forwardIndexTable.getWordIdBody();
 
+        //System.out.println("stemSize " + stemSize);
+        //System.out.println("test page is at " + forwardIndexTable.getWordIdTitleFromStem("test page"));
+
         List<Integer> df = new ArrayList<>(); // number of doc. containing term j
         List<List<Integer>> tflist = new ArrayList<>(); // row:document, col:stemmed query words (number of documents * number of unique stem in query)
         List<Double> idf = new ArrayList<>(); // how many documents contains this stem (length = number of unique stem in query)
-        Integer N = indexTable.getPageId() + 1;
+        Integer N = indexTable.getPageId();
         List<Integer> maxtf = new ArrayList<>(); // the stem that occurs at highest frequency in this document (length = doc len)
 
         for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
@@ -36,7 +39,15 @@ public class PageRank1 {
             List<Integer> tf = new ArrayList<>(); // frequency of term j in document i
             for (int stemID = 0; stemID < stemSize; stemID++) {
                 // set up tf and df
-                Integer frequencyInDoc = keyword2Freq.get(forwardIndexTable.getWordFromIdBody(stemID));
+                Integer frequencyInDoc = null;
+                if (a0t1b2 == 1)
+                    frequencyInDoc = keyword2Freq.get(forwardIndexTable.getWordFromIdTitle(stemID));
+                if(a0t1b2 == 2)
+                    frequencyInDoc = keyword2Freq.get(forwardIndexTable.getWordFromIdBody(stemID));
+                if(frequencyInDoc!=null)
+                {
+                    //System.out.println("not null " + frequencyInDoc);
+                }
                 if (pageid == 0) {
                     df.add(0); // maintain dimension of df = number of unique stem in query so that we can set later
                 }
@@ -49,7 +60,13 @@ public class PageRank1 {
                 }
             }
             tflist.add(tf);
+            Integer sum = 0;
+            for (Integer number : tf) {
+                sum += number;
+            }
+            //System.out.println("sum" + sum + "tf" + tf);
         }
+        //for each term, calculate it's document frequency
         //System.out.println("df" + df);
         // calculate idf ( larger idf means less document contain stem means stem more important)
         for (Integer dfItem : df) {
@@ -71,21 +88,37 @@ public class PageRank1 {
             }
             maxtf.add(firstValue);
         }
-        // improved term weights
-        // wij = (0.5 + 0.5 (tf/maxtf)) * log(1+N/df)
+        // term weights
         List<List<Double>> weight = new ArrayList<>();
         Integer countRow = 0; // document
         for (List<Integer> tfElements : tflist) {
             List<Double> weightOfRow = new ArrayList<>();
             Integer countColumn = 0;
+            //System.out.println("tfElements " + tfElements);
             for (Integer tfElement : tfElements) {
                 Integer maxtfElement = maxtf.get(countRow);
                 Integer dfItem = df.get(countColumn);
-                if (maxtfElement != 0 && N != 0 && dfItem != 0) // avoid divide by zero
-                    weightOfRow.add(0.5 + ((double) tfElement / (double) maxtfElement) * Math.log(1 + N / dfItem));
+                if (maxtfElement != 0) // avoid divide by zero
+                    weightOfRow.add((double) tfElement * idf.get(countColumn)/ (double) maxtfElement);
                 else
-                    weightOfRow.add(0.5);
+                {
+                    //System.out.println("maxtfElement " + maxtfElement);
+                    weightOfRow.add(0.0);
+                }
+
                 countColumn++;
+            }
+            double sum = 0.0;
+            for (Double weight1 : weightOfRow) {
+                sum = sum + weight1;
+            }
+            if(true)
+            {
+                //System.out.println("weightOfRow" + countRow + " sum " + sum + " " + weightOfRow);
+                //System.out.println(forwardIndexTable.getWordFromIdBody(1447));
+                //System.out.println("weightOfRow at row " + countRow + " " +weightOfRow);
+                int length = weightOfRow.size();
+                //System.out.println("Length of the list: " + length);
             }
             countRow++;
             weight.add(weightOfRow);
@@ -98,11 +131,13 @@ public class PageRank1 {
         String[] words = query.split(" ");
         List<String> stemsList = new ArrayList<>(); // convert query to stems and store it here
         List<Integer> frequency = new ArrayList<>(); // in case query contain the stem word more than once, the frequency is stored here
-        if(wp == 0) {
+
+        if(wp == 0)
+        {
             for (String word : words) {
                 if (!stopStem.isStopWord(word)) {
                     String curStem = stopStem.stem(word);
-                    if (curStem == "")
+                    if (curStem.equals(""))
                         continue;
                     Integer stemIndex = 0;
                     boolean added = false;
@@ -121,16 +156,54 @@ public class PageRank1 {
                 }
             }
         }
-        if(wp == 1) {
-            for (int wordpos = 0; wordpos <= (words.length-phalen); wordpos++){
+        if(wp == 1)
+        {
+            int curPos = 0;
+            ArrayList<Integer> pos = new ArrayList<>();
+            pos.add(-1);
+
+            for (String word : words) {
+                if (stopStem.isStopWord(word) || stopStem.stem(word).equals("")) {
+                    pos.add(curPos);
+                }
+                curPos++;
+            }
+
+            ArrayList<String> phrases = new ArrayList<>();
+            pos.add(words.length);
+            for (int i = 0; i < words.length; i++) {
+                words[i] = stopStem.stem(words[i].toLowerCase());
+            }
+            int start = 0;
+            int end = 0;
+            for (int i = 0; i < pos.size(); i++) {
+                end = pos.get(i);
+                if (start == end) {
+                    start = end + 1;
+                } else if (end - start > 1) {
+                    String[] phrase = Arrays.copyOfRange(words, start, end);
+                    //System.out.println("Phrase: " + Arrays.toString(phrase));
+                    for(int t = 2; t <= phrase.length; t++){// length allowed
+                        for (int j = 0; j <= phrase.length - t; j++){ // start position
+                            StringJoiner sj = new StringJoiner(" ");
+                            for (int k = j; k < j+t; k++) {
+                                sj.add(phrase[k]);
+                            }
+                            phrases.add(sj.toString());
+                        }
+                    }
+                }
+                start = end + 1;
+            }
+
+            System.out.println("print query phases");
+            for (String element : phrases) {
+                System.out.println(element);
+            }
+
+            for (String curStem : phrases) {
                 Integer stemIndex = 0;
                 boolean added = false;
-                String curStem ="";
-                for (int addwd = 0; addwd < phalen; addwd++)
-                {
-                    curStem = curStem + words[wordpos].toLowerCase();
-                }
-
                 for (String stemElement : stemsList) {
                     if (stemElement.equals(curStem)) {
                         added = true;
@@ -145,6 +218,8 @@ public class PageRank1 {
                 }
             }
         }
+        System.out.println("stemsList " + stemsList);
+        System.out.println("frequency " + frequency);
 
         // if we can get no stem from the query
         if(frequency.size()==0)
@@ -164,6 +239,9 @@ public class PageRank1 {
         else // a0t1b2 == 2
             stemSize = forwardIndexTable.getWordIdBody();
 
+        //System.out.println("stemSize "+ stemSize);
+        //System.out.println("frequency "+ frequency);
+        //System.out.println("stemsList "+ stemsList);
         for (int stemID = 0; stemID < stemSize; stemID++) {
             Integer frequencyIndex = 0;
             Boolean added = false;
@@ -179,19 +257,39 @@ public class PageRank1 {
                 if (a0t1b2 == 2){
                     if(forwardIndexTable.getWordFromIdBody(stemID).equals(stem))
                     {
+                        //System.out.println("stem " + stem);
+                        //System.out.println("stemID " + stemID);
+                        //System.out.println("forwardIndexTable.getWordFromIdBody(stemID) " + forwardIndexTable.getWordFromIdBody(stemID));
+
                         queryVector.add(frequency.get(frequencyIndex));
+                        //System.out.println("stemID is " + stemID);
                         added = true;
                     }
                 }
-                if(added == false)
-                {
-                    queryVector.add(0);
-                }
                 frequencyIndex++;
             }
-        }
-        System.out.println("queryVector" + queryVector);
+            if(added == false)
+            {
+                queryVector.add(0);
+            }
+            if(stemID<10)
+            {
+                //System.out.println("stemID " + stemID);
+                //System.out.println("queryVector.size() " + queryVector.size());
+            }
 
+        }
+        Integer qs = 0;
+        for (Integer q : queryVector) {
+            qs += q;
+        }
+        //System.out.println("queryVector" + qs + " | " + queryVector);
+        int index = queryVector.indexOf(1);
+        //System.out.println("Index of element 1: " + index);
+        int length = queryVector.size();
+        //System.out.println("Length of the list: " + length);
+
+        //System.out.println("frequency " + frequency);
         Double freqSqSummation = 0.0;
         for(Integer freq : frequency)
         {
@@ -199,17 +297,33 @@ public class PageRank1 {
         }
 
         List<Double> score = new ArrayList<>();
+        Integer countRow = 0;
         for (List<Double> weightOfRow: weight)
         {   Double weightSqSummation = 0.0;
             Double scoreOfRow = 0.0;
             Integer count = 0;
+            //System.out.println("weightOfRowInScore" + countRow + " " + weightOfRow);
             for(Double weightElement : weightOfRow)
             {
+                if(countRow == 1 && count==7)
+                {
+                    //System.out.println("weightElement" + weightElement);
+                    //System.out.println("queryVector.get(count)" + queryVector.get(count));
+                }
+
                 scoreOfRow = scoreOfRow + queryVector.get(count) * weightElement;
                 count++;
                 weightSqSummation += (weightElement*weightElement);
             }
-            score.add(scoreOfRow / (Math.sqrt(weightSqSummation) * Math.sqrt(freqSqSummation)));
+            if(weightSqSummation!=0.0 && freqSqSummation!=0.0)
+                score.add(scoreOfRow / (Math.sqrt(weightSqSummation) * Math.sqrt(freqSqSummation)));
+            else
+            {
+                //System.out.println("weightSqSummation " + weightSqSummation);
+                //System.out.println("freqSqSummation " + freqSqSummation);
+                score.add(0.0);
+            }
+            countRow++;
         }
         System.out.println("score" + score);
         return score;
@@ -284,7 +398,7 @@ public class PageRank1 {
                 count++;
             }
             tflist.add(tf);
-            System.out.println("tf" + pageid + tf + " score" + score.get(pageid));
+            //System.out.println("tf" + pageid + tf + " score" + score.get(pageid));
         }
     }
 
@@ -342,6 +456,7 @@ public class PageRank1 {
         return linkWeights;
     }
 
+    //public static List<Integer> PageRankByBoth(IndexTable indexTable, List<Double> stemRankt, List<Double> stemRankb, Double stemWeightt, Double stemWeightb) throws Exception
     public static List<Integer> PageRankByBoth(IndexTable indexTable, List<Double> stemRankt, List<Double> stemRankb, List<Double> stemRanktp, List<Double> stemRankbp, Double stemWeightt, Double stemWeightb, Double stemWeighttp, Double stemWeightbp) throws Exception
     {
         List<Double> ratedScore = new ArrayList<>();
