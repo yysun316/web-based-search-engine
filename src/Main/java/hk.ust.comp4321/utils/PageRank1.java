@@ -409,7 +409,7 @@ public class PageRank1 {
             WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
             currentWebNode.updatePagerank(currentWebNode.getPagerank()-dampingFactor);
             indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
-            List<String> ParentList = currentWebNode.getParent();
+            List<String> ParentList = currentWebNode.getParentForRanking();
             for (String parentURL : ParentList) {
                 WebNode parentWebNode;
                 int parentId = indexTable.getIdFromUrl(parentURL);

@@ -44,7 +44,7 @@ public class ProjectPhase2 {
             throw new RuntimeException(e);
         }
 
-        int numPages = 15;
+        int numPages = 30;
         List<String> result = crawler1.extractLinks(rootURL, numPages);
         System.out.println(result);
         for (String currentUrl : result) {
@@ -74,9 +74,9 @@ public class ProjectPhase2 {
         //CheckPageRank(db1, db2, "computer dog", 2,scoreb);
         List<Integer> resultRanking = PageRankByBoth(db1, scoret, scoreb, scoretp, scorebp, 0.0, 0.0, 5.0, 3.0);
         //List<Integer> resultRanking = PageRankByBoth(db1, scoret, scoreb, 20.0, 10.0);
-        //System.out.println("resulted ranking is: "+ resultRanking);
-        //for (Integer rankpage : resultRanking)
-        for (int rankpage = 0; rankpage < 10; rankpage++)
+        System.out.println("resulted ranking is: "+ resultRanking);
+        for (Integer rankpage : resultRanking)
+        //for (int rankpage = 0; rankpage < 10; rankpage++)
         {
             WebNode currentWebNode = db1.getEntry(TreeNames.id2WebNode.toString(), rankpage, WebNode.class);
             System.out.println(TitleExtractor.extractTitle(currentWebNode.getUrl()));

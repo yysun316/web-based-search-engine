@@ -22,6 +22,7 @@ import java.util.Queue;
 public class LinkExtractor {
     public static List<String> extractLinks(IndexTable indexTable, String rootURL, int numPages) throws Exception {
         List<List<String>> pairList = new ArrayList<>();
+        List<List<String>> pairListForRanking = new ArrayList<>();
         List<String> res = new ArrayList<>(numPages); // store the result
         LinkBean lb = new LinkBean();
         URL[] URL_array;
@@ -62,6 +63,10 @@ public class LinkExtractor {
                 String childURL = u.toExternalForm();
                 //System.out.println("has got children " + childURL);
                 // if the parent child relationship has been set up previously then we need to do nothing
+                List<String> pairForRanking = new ArrayList<>();
+                pairForRanking.add(parentURL);
+                pairForRanking.add(childURL);
+                pairListForRanking.add(pairForRanking);
                 if(!res.contains(childURL))
                 {
                     parentWebNode.addChild(childURL);
@@ -76,6 +81,7 @@ public class LinkExtractor {
             }
         }
         addParentLinks(indexTable,pairList);
+        addParentLinksForRanking(indexTable, pairListForRanking);
         System.out.println("res " + res);
         return res;
     }
@@ -88,6 +94,27 @@ public class LinkExtractor {
             {
                 WebNode childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
                 childWebNode.addParent(pair.get(0));
+            }
+        }
+    }
+
+    public static void addParentLinksForRanking(IndexTable indexTable, List<List<String>> pairListForRanking) throws IOException {
+        for (List<String> pairForRanking : pairListForRanking)
+        {
+            int childId = indexTable.getIdFromUrl(pairForRanking.get(1));
+            if(childId!=-1)
+            {
+                WebNode childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
+                childWebNode.addParentForRanking(pairForRanking.get(0));
+            }
+        }
+        for (List<String> pairForRanking : pairListForRanking)
+        {
+            int parId = indexTable.getIdFromUrl(pairForRanking.get(0));
+            if(parId!=-1)
+            {
+                WebNode parentWebnode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parId, WebNode.class);
+                parentWebnode.addChildForRanking(pairForRanking.get(1));
             }
         }
     }
