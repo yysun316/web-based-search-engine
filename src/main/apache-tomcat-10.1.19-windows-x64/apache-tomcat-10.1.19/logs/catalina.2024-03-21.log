@@ -1,0 +1,55 @@
+21-Mar-2024 09:26:46.527 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.19
+21-Mar-2024 09:26:46.532 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 19:36:50 UTC
+21-Mar-2024 09:26:46.533 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.19.0
+21-Mar-2024 09:26:46.533 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+21-Mar-2024 09:26:46.533 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+21-Mar-2024 09:26:46.534 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-Mar-2024 09:26:46.534 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+21-Mar-2024 09:26:46.534 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+21-Mar-2024 09:26:46.535 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+21-Mar-2024 09:26:46.535 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+21-Mar-2024 09:26:46.535 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+21-Mar-2024 09:26:46.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\conf\logging.properties
+21-Mar-2024 09:26:46.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Mar-2024 09:26:46.550 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+21-Mar-2024 09:26:46.551 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\temp
+21-Mar-2024 09:26:46.559 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+21-Mar-2024 09:26:46.567 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+21-Mar-2024 09:26:46.826 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+21-Mar-2024 09:26:46.859 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [514] milliseconds
+21-Mar-2024 09:26:46.926 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+21-Mar-2024 09:26:46.926 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.19]
+21-Mar-2024 09:26:46.944 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs]
+21-Mar-2024 09:26:47.368 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs] has finished in [424] ms
+21-Mar-2024 09:26:47.369 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples]
+21-Mar-2024 09:26:47.852 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples] has finished in [483] ms
+21-Mar-2024 09:26:47.852 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager]
+21-Mar-2024 09:26:47.897 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager] has finished in [45] ms
+21-Mar-2024 09:26:47.897 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager]
+21-Mar-2024 09:26:47.938 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager] has finished in [41] ms
+21-Mar-2024 09:26:47.938 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT]
+21-Mar-2024 09:26:47.966 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT] has finished in [28] ms
+21-Mar-2024 09:26:47.970 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+21-Mar-2024 09:26:48.013 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1149] milliseconds
+21-Mar-2024 09:34:28.496 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1]
+21-Mar-2024 09:34:28.524 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1] has finished in [28] ms
+21-Mar-2024 09:34:28.524 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2]
+21-Mar-2024 09:34:28.550 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2] has finished in [26] ms
+21-Mar-2024 09:34:28.550 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3]
+21-Mar-2024 09:34:28.571 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3] has finished in [20] ms
+21-Mar-2024 09:34:28.571 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4]
+21-Mar-2024 09:34:28.594 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4] has finished in [23] ms
+21-Mar-2024 10:16:41.715 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\lab4]
+21-Mar-2024 10:16:41.755 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\mikey\Downloads\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\lab4] has finished in [41] ms
+21-Mar-2024 11:28:01.606 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+21-Mar-2024 11:28:01.648 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+21-Mar-2024 11:28:01.729 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+21-Mar-2024 11:28:01.764 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

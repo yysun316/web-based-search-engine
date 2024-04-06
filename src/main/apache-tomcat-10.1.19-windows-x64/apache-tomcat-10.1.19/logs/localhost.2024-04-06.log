@@ -1,0 +1,2641 @@
+06-Apr-2024 12:05:17.850 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 12:05:17.850 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 12:05:17.851 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4f8969b0')
+06-Apr-2024 12:08:10.300 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 12:08:10.301 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 12:20:12.309 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 12:20:12.309 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 12:20:12.311 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+06-Apr-2024 12:29:00.148 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 12:29:00.148 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 12:29:21.250 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 12:29:21.250 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 12:29:21.252 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+06-Apr-2024 12:30:10.591 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 12:36:19.159 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. java.hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. java.hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 12:36:44.900 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 12:37:07.250 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. java.hk.ust.comp4321 resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. java.hk.ust.comp4321 resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 12:37:28.786 SEVERE [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321 resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321 resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 12:37:31.063 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [org.apache.jasper.JasperException: java.lang.ClassNotFoundException: org.apache.jsp.googleServer_jsp] with root cause
+	java.lang.ClassNotFoundException: org.apache.jsp.googleServer_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:129)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:58)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:151)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:189)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:410)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 12:38:13.104 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:07:52.847 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:07:52.847 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:07:52.849 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5d25e6bb')
+06-Apr-2024 13:07:53.198 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:07:53.198 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:07:58.001 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:08:58.385 SEVERE [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:15:13.173 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:15:13.173 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:15:16.640 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:15:16.641 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:15:16.643 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@f9b7332')
+06-Apr-2024 13:15:25.569 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:18:27.645 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:18:38.298 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:19:00.987 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:19:00.987 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:19:04.506 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:19:04.506 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:19:04.509 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@18e7143f')
+06-Apr-2024 13:19:17.751 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+22:     <%-- JSP code to handle form submission --%>
+23:     <% 
+24:         inputString = request.getParameter("inputString");
+25:         GoogleServlet javaObject = new GoogleServlet();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27:     
+28:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:21:57.249 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:22:01.808 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:24:51.380 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:24:51.380 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:24:55.693 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:24:55.693 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:24:55.695 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@74cec793')
+06-Apr-2024 13:25:04.559 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [13] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+10: <h1>Google</h1>
+11: 
+12: <%
+13:     inputString = request.getParameter("txtname");
+14: 	request.setAttribute("inputString", inputString);
+15: 	request.getRequestDispatcher("/add").forward(request, response);
+16: %>
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+11: 
+12: <%
+13:     inputString = request.getParameter("txtname");
+14: 	request.setAttribute("inputString", inputString);
+15: 	request.getRequestDispatcher("/add").forward(request, response);
+16: %>
+17: 
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+17: 
+18:     <%-- JSP code to handle form submission --%>
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+18:     <%-- JSP code to handle form submission --%>
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+18:     <%-- JSP code to handle form submission --%>
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [22] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+
+
+An error occurred at line: [24] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+
+
+An error occurred at line: [24] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+28:         
+
+
+An error occurred at line: [26] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+28:         
+29:     <%-- HTML form to input the string --%>
+
+
+An error occurred at line: [26] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+28:         
+29:     <%-- HTML form to input the string --%>
+
+
+An error occurred at line: [32] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+29:     <%-- HTML form to input the string --%>
+30:     <form action="" method="post">
+31:         <label for="inputString">Enter a string:</label>
+32:         <input type="text" name="inputString" id="inputString" placeholder="<%= current %>">
+33:         <input type="submit" value="Search">
+34:     </form>   
+35:         
+
+
+An error occurred at line: [37] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+34:     </form>   
+35:         
+36:     <%
+37:         out.println("<p>Input string: " + current + "</p>");
+38:         out.println("<p>Output string: " + "</p>");
+39:         for (String str : outputString) {
+40:             out.println(str+ "<br>");
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [13] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+10: <h1>Google</h1>
+11: 
+12: <%
+13:     inputString = request.getParameter("txtname");
+14: 	request.setAttribute("inputString", inputString);
+15: 	request.getRequestDispatcher("/add").forward(request, response);
+16: %>
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+11: 
+12: <%
+13:     inputString = request.getParameter("txtname");
+14: 	request.setAttribute("inputString", inputString);
+15: 	request.getRequestDispatcher("/add").forward(request, response);
+16: %>
+17: 
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+17: 
+18:     <%-- JSP code to handle form submission --%>
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+18:     <%-- JSP code to handle form submission --%>
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+18:     <%-- JSP code to handle form submission --%>
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [22] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+19:     <% 
+20:         inputString = request.getParameter("inputString");
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+
+
+An error occurred at line: [24] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+
+
+An error occurred at line: [24] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved
+21:         GoogleServlet javaObject = new GoogleServlet();
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+
+
+An error occurred at line: [25] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+22:         ArrayList<String> outputString = javaObject.processInput(current);
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+28:         
+
+
+An error occurred at line: [26] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+28:         
+29:     <%-- HTML form to input the string --%>
+
+
+An error occurred at line: [26] in the jsp file: [/googleServer.jsp]
+inputString cannot be resolved to a variable
+23:     
+24:         if (inputString != null && !inputString.isEmpty()) {
+25:             outputString = javaObject.processInput(inputString);
+26:             current = inputString;}
+27:     %>
+28:         
+29:     <%-- HTML form to input the string --%>
+
+
+An error occurred at line: [32] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+29:     <%-- HTML form to input the string --%>
+30:     <form action="" method="post">
+31:         <label for="inputString">Enter a string:</label>
+32:         <input type="text" name="inputString" id="inputString" placeholder="<%= current %>">
+33:         <input type="submit" value="Search">
+34:     </form>   
+35:         
+
+
+An error occurred at line: [37] in the jsp file: [/googleServer.jsp]
+current cannot be resolved to a variable
+34:     </form>   
+35:         
+36:     <%
+37:         out.println("<p>Input string: " + current + "</p>");
+38:         out.println("<p>Output string: " + "</p>");
+39:         for (String str : outputString) {
+40:             out.println(str+ "<br>");
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:27:58.038 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:27:58.038 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:27:58.040 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5d25e6bb')
+06-Apr-2024 13:27:58.334 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:27:58.334 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:28:01.078 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:28:01.078 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:28:07.119 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:28:07.119 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:28:07.122 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@2c177f9e')
+06-Apr-2024 13:28:21.622 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:30:01.423 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:30:13.269 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:30:13.269 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:30:21.433 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:30:21.433 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:30:21.434 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+06-Apr-2024 13:30:26.160 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+An error occurred at line: [20] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+17:     <%-- JSP code to handle form submission --%>
+18:     <% 
+19:         inputString = request.getParameter("inputString");
+20:         GoogleServlet javaObject = new GoogleServlet();
+21:         ArrayList<String> outputString = javaObject.processInput(current);
+22:     
+23:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:33:20.020 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:33:20.020 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:33:20.022 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4f8969b0')
+06-Apr-2024 13:33:35.106 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:36:33.780 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:36:33.780 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:36:45.125 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:36:45.125 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:36:45.128 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5df417a7')
+06-Apr-2024 13:36:52.643 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.GoogleServlet resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+GoogleServlet cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     GoogleServlet javaObject = new GoogleServlet();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:39:02.078 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:39:02.078 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:39:22.629 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:39:22.629 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:39:22.632 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5db4c359')
+06-Apr-2024 13:39:29.807 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.SearchEngine resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.SearchEngine resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:52:32.869 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:52:32.869 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:52:41.367 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:52:41.367 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:52:41.370 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@7f69d591')
+06-Apr-2024 13:53:19.212 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.SearchEngine resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.SearchEngine resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 13:58:40.129 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 13:58:40.129 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 13:58:46.009 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 13:58:46.010 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 13:58:46.011 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@f9b7332')
+06-Apr-2024 13:58:54.203 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.SearchEngine resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [14] in the generated java file: [C:\Users\mikey\OneDrive\Desktop\DemoApp\DemoApp\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\work\Catalina\localhost\project\org\apache\jsp\googleServer_jsp.java]
+Only a type can be imported. hk.ust.comp4321.SearchEngine resolves to a package
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+An error occurred at line: [14] in the jsp file: [/googleServer.jsp]
+SearchEngine cannot be resolved to a type
+11: 
+12: <%
+13:     String inputString = request.getParameter("inputString");
+14:     SearchEngine javaObject = new SearchEngine();
+15:     String outputString = null;
+16: %>
+17: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 14:05:59.898 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 14:05:59.898 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 14:06:10.404 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 14:06:10.404 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 14:06:10.406 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5df417a7')
+06-Apr-2024 14:06:21.282 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+Type mismatch: cannot convert from ArrayList<String> to String
+18:     <%-- JSP code to handle form submission --%>
+19:     <%
+20:         if (inputString != null && !inputString.isEmpty()) {
+21:             outputString = javaObject.processInput(inputString);
+22:         }
+23:     %>
+24: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+Type mismatch: cannot convert from ArrayList<String> to String
+18:     <%-- JSP code to handle form submission --%>
+19:     <%
+20:         if (inputString != null && !inputString.isEmpty()) {
+21:             outputString = javaObject.processInput(inputString);
+22:         }
+23:     %>
+24: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 14:14:28.594 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 14:14:28.594 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 14:14:35.007 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 14:14:35.007 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 14:14:35.009 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5db4c359')
+06-Apr-2024 14:14:43.040 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+Type mismatch: cannot convert from ArrayList<String> to String
+18:     <%-- JSP code to handle form submission --%>
+19:     <%
+20:         if (inputString != null && !inputString.isEmpty()) {
+21:             outputString = javaObject.processInput(inputString);
+22:         }
+23:     %>
+24: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [21] in the jsp file: [/googleServer.jsp]
+Type mismatch: cannot convert from ArrayList<String> to String
+18:     <%-- JSP code to handle form submission --%>
+19:     <%
+20:         if (inputString != null && !inputString.isEmpty()) {
+21:             outputString = javaObject.processInput(inputString);
+22:         }
+23:     %>
+24: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 14:17:25.429 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 14:17:25.431 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 14:17:31.512 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 14:17:31.512 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 14:17:31.517 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+06-Apr-2024 14:17:36.494 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [/googleServer.jsp] at line [26]
+
+23:     <%
+24:         inputString = request.getParameter("inputString");
+25:         SearchEngine javaObject = new SearchEngine();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27: 
+28:         if (inputString != null && !inputString.isEmpty()) {
+29:             outputString = javaObject.processInput(inputString);
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
+		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:33)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:152)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 14:19:14.113 SEVERE [http-nio-8080-exec-5] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [/googleServer.jsp] at line [26]
+
+23:     <%
+24:         inputString = request.getParameter("inputString");
+25:         SearchEngine javaObject = new SearchEngine();
+26:         ArrayList<String> outputString = javaObject.processInput(current);
+27: 
+28:         if (inputString != null && !inputString.isEmpty()) {
+29:             outputString = javaObject.processInput(inputString);
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
+		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:33)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:152)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+06-Apr-2024 14:19:20.095 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 14:19:20.095 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 14:20:00.840 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 14:20:00.840 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 14:20:00.841 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+06-Apr-2024 14:20:37.346 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 14:20:37.347 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 14:56:07.616 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 14:56:07.616 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 14:56:07.619 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5df417a7')
+06-Apr-2024 14:56:18.369 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 14:56:18.369 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 14:56:31.611 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 14:56:31.611 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 14:56:31.614 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+06-Apr-2024 15:04:24.133 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 15:04:24.133 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 15:04:24.135 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@ce5a68e')
+06-Apr-2024 15:06:42.176 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+06-Apr-2024 15:06:42.176 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+06-Apr-2024 15:06:48.632 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+06-Apr-2024 15:06:48.632 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+06-Apr-2024 15:06:48.635 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@7f69d591')
