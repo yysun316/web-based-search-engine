@@ -11,6 +11,7 @@ import hk.ust.comp4321.invertedIndex.ForwardInvertedIndex;
 import hk.ust.comp4321.invertedIndex.IndexTable;
 import hk.ust.comp4321.utils.TreeNames;
 import hk.ust.comp4321.utils.WebNode;
+import hk.ust.comp4321.utils.WeightDataStorage;
 
 import java.io.IOException;
 import java.util.List;
@@ -24,6 +25,7 @@ public class ProjectPhase2 {
     private static IndexTable db1;
     private static ForwardInvertedIndex db2;
     private static ForwardInvertedIndex db3;
+    private static WeightDataStorage db4;
     private static Indexer indexer;
     private static IndexerPhases indexerPhases;
     private static StopStem stopStem;
@@ -37,6 +39,7 @@ public class ProjectPhase2 {
             db1 = new IndexTable("EmCrawlerDatabase");
             db2 = new ForwardInvertedIndex("EmForwardInvertedIndexDatabase");
             db3 = new ForwardInvertedIndex("EmForwardInvertedIndexDatabasePhases");
+            db4 = new WeightDataStorage("EmWeights");
             indexer = new Indexer(db1, db2);
             indexerPhases = new IndexerPhases(db1, db2, db3);
             crawler1 = new Crawler(db1);
@@ -46,14 +49,17 @@ public class ProjectPhase2 {
 
         int numPages = 30;
         List<String> result = crawler1.extractLinks(rootURL, numPages);
-        System.out.println(result);
-        for (String currentUrl : result) {
-            System.out.println(currentUrl);
-            indexer.index(currentUrl);
-            indexerPhases.indexPhases(currentUrl);
+        if(result.size()>1) // if size == 1, res only contain rootURL which has not been updated
+        {
+            for (String currentUrl : result) {
+                System.out.println(currentUrl);
+                indexer.index(currentUrl);
+                indexerPhases.indexPhases(currentUrl);
+            }
         }
-        System.out.println("cse depart is at " + db3.getWordIdTitleFromStem("cse depart"));
-        System.out.println("cse depart is stemmed as " + db3.getWordFromIdTitle(1));
+
+        //System.out.println("cse depart is at " + db3.getWordIdTitleFromStem("cse depart"));
+        //System.out.println("cse depart is stemmed as " + db3.getWordFromIdTitle(1));
         System.out.println("link weights are: " + getLinkWeights(db1));
         PageRankByLink(db1,0.5);
         System.out.println("link weights are: " + getLinkWeights(db1));
@@ -63,13 +69,17 @@ public class ProjectPhase2 {
         List<List<Double>> weightbp = RankStem(db1,db3,2);
         List<List<Double>> weightt = RankStem(db1,db2,1);
         List<List<Double>> weightb = RankStem(db1,db2,2);
-        List<Double> scoret = RankStemWithQuery(db1,db2,"CSE department of HKUST",1, weightt,0,0);
-        List<Double> scoreb = RankStemWithQuery(db1,db2,"CSE department of HKUST",2, weightb,0,0);
+        db4.updateEntry("weighttp", weighttp);
+        db4.updateEntry("weightbp", weightbp);
+        db4.updateEntry("weightt", weightt);
+        db4.updateEntry("weightb", weightb);
+        List<Double> scoret = RankStemWithQuery(db1,db2,"CSE department of HKUST",1, db4.getEntry("weightt"),0,0);
+        List<Double> scoreb = RankStemWithQuery(db1,db2,"CSE department of HKUST",2, db4.getEntry("weightb"),0,0);
         //System.out.println("hkust got id " + db2.getWordIdBodyFromStem("hkust"));
         //System.out.println("448 is " + db2.getWordFromIdBody(448));
         //System.out.println("1447 is " + db2.getWordFromIdBody(1447));
-        List<Double> scoretp = RankStemWithQuery(db1,db3,"CSE department of HKUST",1, weighttp,1,2);
-        List<Double> scorebp = RankStemWithQuery(db1,db3,"CSE department of HKUST",2, weightbp,1,2);
+        List<Double> scoretp = RankStemWithQuery(db1,db3,"CSE department of HKUST",1, db4.getEntry("weighttp"),1,2);
+        List<Double> scorebp = RankStemWithQuery(db1,db3,"CSE department of HKUST",2, db4.getEntry("weightbp"),1,2);
         //CheckPageRank(db1, db2, "computer dog", 1,scoret);
         //CheckPageRank(db1, db2, "computer dog", 2,scoreb);
         List<Integer> resultRanking = PageRankByBoth(db1, scoret, scoreb, scoretp, scorebp, 0.0, 0.0, 5.0, 3.0);
