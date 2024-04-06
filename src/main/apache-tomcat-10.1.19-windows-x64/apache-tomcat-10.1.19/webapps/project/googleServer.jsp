@@ -19,14 +19,22 @@
 	String inputString = current;
 %>
 
+
+<%
+    ServletContext servletContext = getServletContext();
+    String filePath = servletContext.getRealPath("stopwords.txt");
+%>
+
+
+
     <%-- JSP code to handle form submission --%>
     <%
         inputString = request.getParameter("inputString");
         SearchEngine javaObject = new SearchEngine();
-        ArrayList<String> outputString = javaObject.processInput(current);
+        ArrayList<String> outputString = javaObject.processInput(current, filePath);
 
         if (inputString != null && !inputString.isEmpty()) {
-            outputString = javaObject.processInput(inputString);
+            outputString = javaObject.processInput(inputString, filePath);
             current = inputString;}
     %>
 
@@ -43,6 +51,7 @@
         for (String str : outputString) {
             out.println(str+ "<br>");
         }
+        out.println("filePath " + filePath);
     %>
 
 
