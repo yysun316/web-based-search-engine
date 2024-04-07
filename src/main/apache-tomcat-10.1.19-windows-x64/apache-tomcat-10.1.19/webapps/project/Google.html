@@ -12,8 +12,14 @@
                 margin: 0;
             }
 
-            .container {
+            .titleContainer {
                 text-align: center;
+            }
+
+            .optionContainer {
+                position: fixed;
+                top: 0;
+                right: 0;
             }
 
             .text {
@@ -28,11 +34,9 @@
         </style>
     </head>
 
-
-
 	<body>
 		
-        <div class="container">
+        <div class="titleContainer">
             <h1 class="text">
                 <span style="color: rgba(0, 0, 255, 0.7);">G</span>
                 <span style="color: rgba(255, 0, 0, 0.7);">O</span>
@@ -41,35 +45,25 @@
                 <span style="color: rgba(0, 155, 0, 0.7);">L</span>
                 <span style="color: rgba(255, 0, 0, 0.7);">E</span>
             </h1>
+
             <form method="post" action="googleServer.jsp">
-                Input Text: <input type="text" name="txtname" class="input-box" placeholder="Type here">
-                <input type="submit" value="Search">
+                <div>
+                    <label for="txtname">Input Text:</label>
+                    <input type="text" name="txtname" id="txtname" class="input-box" placeholder="Type here">
+                    <input type="submit" value="Search">
+                </div>
+        </div>
+        <div class="optionContainer">
+                <div style="position: relative;">
+                    <select name="option" id="option" style="position: absolute; right: 0;">
+                        <option value="2">Phase Length <= 2</option>
+                        <option value="3">Phase Length <= 3</option>
+                        <option value="4">Phase Length <= Infinite</option>
+                    </select>
+                </div>
+
             </form>
-            
-        <div>
-		
-		
-	<!-- 
-		
-		<form action="googleServer.jsp" method="post">
-		Enter Query : 
-		<input type = "text" name = "UNAME"><br>
-		<input type = "submit" value="GO">
-		</form>	
-		
-	-->			
-		
-	<!--  
-	
-		<form action="add">
-		Enter 1st number : <input type = "text" name = "num1"><br>
-		Enter 2nd number : <input type = "text" name = "num2"><br>
-		<input type = "submit">
-		</form>	
-	
-	-->		
-		
-		
+        </div>
 		
 	</body>
 </html>

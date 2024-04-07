@@ -49,12 +49,12 @@ public class SearchEngine extends HttpServlet
 	private static Indexer indexer;
 	private static IndexerPhases indexerPhases;
 	
-	public static ArrayList<String> processInput(String input, String phaseLengths, String stoppath) throws Exception {
+	public static ArrayList<WebNode> processInput(String input, String phaseLengths, String stoppath) throws Exception {
 
-		ArrayList<String> result1 = new ArrayList<>();
+		ArrayList<WebNode> result1 = new ArrayList<>();
 		if(phaseLengths == null)
 		{
-			result1.add("error: phaseLength is null, set 2 as default");
+			System.out.println("error: phaseLength is null, set 2 as default");
 			phaseLengths = "2";
 		}
 	    Integer phaseLength = Integer.parseInt(phaseLengths);
@@ -62,7 +62,7 @@ public class SearchEngine extends HttpServlet
 
 		//stopStem = new StopStem("resources/stopwords.txt");
 		stopStem = new StopStem(stoppath);
-		result1.add("VERSION01");
+		System.out.println("VERSION01");
 		try {
 			db1 = new IndexTable("EmCrawlerDatabase");
 			db2 = new ForwardInvertedIndex("EmForwardInvertedIndexDatabase");
@@ -75,9 +75,9 @@ public class SearchEngine extends HttpServlet
 			throw new RuntimeException(e);
 		}
 
-		result1.add("input is " + input);
-		result1.add("option is " + phaseLength);
-		result1.add("");
+		System.out.println("input is " + input);
+		System.out.println("option is " + phaseLength);
+		System.out.println("");
 
 		int numPages = 30;
 		List<String> result2 = crawler1.extractLinks(rootURL, numPages);
@@ -125,8 +125,7 @@ public class SearchEngine extends HttpServlet
 
 		if(input == null)
 		{
-			result1.add("error: input in search engine is null");
-			result1.add("error: so we will not give you any webpage");
+			System.out.println("error: input in search engine is null so we will not give you any webpage");
 			return result1;
 		}
 
@@ -141,37 +140,45 @@ public class SearchEngine extends HttpServlet
 		List<Integer> resultRanking = PageRankByBoth(db1, scoret, scoreb, scoretp, scorebp, 5.0, 3.0, 5.0, 3.0);
 
 		for (Integer rankpage : resultRanking)
-		//for (int rankpage = 0; rankpage < 10; rankpage++)
+//		//for (int rankpage = 0; rankpage < 10; rankpage++)
 		{
 			WebNode currentWebNode = db1.getEntry(TreeNames.id2WebNode.toString(), rankpage, WebNode.class);
-			result1.add(TitleExtractor.extractTitle(currentWebNode.getUrl()));
-			result1.add(currentWebNode.getLastModifiedDate() + " " + String.valueOf(PageSizeExtractor.extractPageSize(currentWebNode.getUrl())));
-			result1.add(currentWebNode.getUrl());
-			Map<String, Integer> keyword2Freq;
-			keyword2Freq = db2.getKeywordFrequency(rankpage, 50, 0);
-			StringBuilder sb = new StringBuilder();
-			keyword2Freq.forEach((k, v) -> sb.append(k).append(" ").append(v).append("; "));
-			result1.add(sb.toString());
-//			for (String parent : currentWebNode.getParent()) {
-//				result1.add("parent " + parent);
-//			}
-//			for (String child : currentWebNode.getChildren()) {
-//				result1.add("child " + child);
-//			}
-//			for (String parent : currentWebNode.getParentForRanking()) {
-//				result1.add("parent for ranking " + parent);
-//			}
-//			for (String child : currentWebNode.getChildForRanking()) {
-//				result1.add("child for ranking " + child);
-//			}
-			result1.add("");
+			result1.add(currentWebNode);
+//			result1.add(TitleExtractor.extractTitle(currentWebNode.getUrl()));
+//			result1.add(currentWebNode.getLastModifiedDate() + " " + String.valueOf(PageSizeExtractor.extractPageSize(currentWebNode.getUrl())));
+//			result1.add(currentWebNode.getUrl());
+//			Map<String, Integer> keyword2Freq;
+//			keyword2Freq = db2.getKeywordFrequency(rankpage, 50, 0);
+//			StringBuilder sb = new StringBuilder();
+//			keyword2Freq.forEach((k, v) -> sb.append(k).append(" ").append(v).append("; "));
+//			result1.add(sb.toString());
+////			for (String parent : currentWebNode.getParent()) {
+////				result1.add("parent " + parent);
+////			}
+////			for (String child : currentWebNode.getChildren()) {
+////				result1.add("child " + child);
+////			}
+////			for (String parent : currentWebNode.getParentForRanking()) {
+////				result1.add("parent for ranking " + parent);
+////			}
+////			for (String child : currentWebNode.getChildForRanking()) {
+////				result1.add("child for ranking " + child);
+////			}
+//			result1.add("");
 		}
+
 
 	    // Return the result vector
 	    return result1;
 	}
 
-
+	public static String nodeKeyWord(WebNode currentW) throws IOException {
+		Map<String, Integer> keyword2Freq;
+		keyword2Freq = db2.getKeywordFrequency(currentW.getId(), 20, 0);
+		StringBuilder sb = new StringBuilder();
+		keyword2Freq.forEach((k, v) -> sb.append(k).append(" ").append(v).append("; "));
+		return sb.toString();
+	}
 
 //	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException
 //	{
