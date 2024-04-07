@@ -23,12 +23,12 @@
             }
 
             .text {
-                font-size: 8vh; /* Adjust the value as needed */
+                font-size: 8vh;
             }
 
             .input-box {
-                width: 20vw; /* Adjust the value as needed */
-                height: 5vh; /* Adjust the value as needed */
+                width: 20vw;
+                height: 5vh;
             }
 
         </style>
@@ -52,18 +52,17 @@
                     <input type="text" name="txtname" id="txtname" class="input-box" placeholder="Type here">
                     <input type="submit" value="Search">
                 </div>
-        </div>
-        <div class="optionContainer">
-                <div style="position: relative;">
-                    <select name="option" id="option" style="position: absolute; right: 0;">
+                <div>
+                <label for="checkboxId">Link based ranking</label>
+                <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
+
+                    <select name="option" id="option">
                         <option value="2">Phase Length <= 2</option>
                         <option value="3">Phase Length <= 3</option>
-                        <option value="4">Phase Length <= Infinite</option>
+                        <option value="-1">Phase Length <= Infinite</option>
                     </select>
                 </div>
-
             </form>
         </div>
-		
 	</body>
 </html>

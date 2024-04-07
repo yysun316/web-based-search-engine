@@ -14,15 +14,31 @@
 <meta charset="ISO-8859-1">
 <script src="jquery"></script>
 <title>Worse than Google</title>
+    <style>
+        .input-box {
+            width: 40vw;
+            height: 5vh;
+        }
+        .optionContainer {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+        .titleText {
+            font-size: 25px;
+        }
+
+    </style>
 </head>
 <body>
-<h1>Google</h1>
 
 <%
 	String current = request.getParameter("txtname");
 	String currentoption = request.getParameter("option");
+	String currentcheckboxValue = request.getParameter("checkboxName");
 	String inputString = current;
 	String selectedOption = currentoption;
+	String checkboxValue = currentcheckboxValue;
 %>
 
 
@@ -37,36 +53,50 @@
     <%
         inputString = request.getParameter("inputString");
         selectedOption = request.getParameter("option");
+        checkboxValue = request.getParameter("checkboxName");
         SearchEngine javaObject = new SearchEngine();
-        ArrayList<WebNode> outputW = javaObject.processInput(current, selectedOption, filePath);
-
+        ArrayList<Double> outputS = javaObject.processInput(current, selectedOption, checkboxValue, filePath);
+        ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+        ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
         if (inputString != null && !inputString.isEmpty()) {
-            out.println("selectedOption is " + selectedOption);
-            outputW = javaObject.processInput(inputString, selectedOption, filePath);
+            outputS = javaObject.processInput(inputString, selectedOption, checkboxValue, filePath);
+            outputI = javaObject.pageRanking(outputS);
+            outputW = javaObject.nodeRanking(outputI);
             current = inputString;}
     %>
 
-    <%-- HTML form to input the string --%>
     <form action="" method="post">
-        <label for="inputString">Enter a string:</label>
-        <input type="text" name="inputString" id="inputString" placeholder="<%= current %>">
+    <h1 style="display: inline; font-size: 2.5em;">Google &nbsp; </h1>
+    <input type="text" name="inputString" id="inputString" class="input-box" placeholder="<%= current %>" style="display: inline;">
 
-    <label for="option">Select an option:</label>
-    <select name="option" id="option">
-        <option value="2">Phase Length <= 2</option>
-        <option value="3">Phase Length <= 3</option>
-        <option value="4">Phase Length <= Infinite</option>
-    </select>
-
+    <div>
+        <select name="option" id="option">
+            <option value="2">Phase Length <= 2</option>
+            <option value="3">Phase Length <= 3</option>
+            <option value="-1">Phase Length <= Infinite</option>
+        </select>
+    <label for="checkboxId">Link based ranking</label>
+    <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
+    <label class="submit"> &nbsp; </label>
     <input type="submit" value="Search">
+    </div>
+
+
 
     </form>
 
     <%
         out.println("<p>Input string: " + current + "</p>");
-        out.println("<p>Output string: " + "</p>");
-        for (WebNode currentW : outputW) {
-            out.println(TitleExtractor.extractTitle(currentW.getUrl()) + "<br>");
+        out.println("<p>Input option: " + currentoption + "</p>");
+        out.println("<p>Checkbox option: " + currentcheckboxValue + "</p>");
+
+        for (int i = 0; i < outputW.size(); i++){
+           WebNode currentW = outputW.get(i);
+           Double currentS = outputS.get(outputI.get(i));
+           out.println("score: " + currentS + "<br>");
+    %>
+            <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+    <%
             String currentURL = currentW.getUrl();
             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
 

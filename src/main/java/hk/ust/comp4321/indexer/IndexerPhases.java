@@ -108,7 +108,10 @@ public class IndexerPhases {
 
     ArrayList<String> findAllPhrases(String[] phrase, Integer maxAllowedLength) {
         ArrayList<String> phrases = new ArrayList<>();
-        for(int i = 2; i <= Math.min(phrase.length, maxAllowedLength); i++){// length allowed
+        int allowed = Math.min(phrase.length, maxAllowedLength);
+        if(maxAllowedLength == -1)
+            allowed = phrase.length;
+        for(int i = 2; i <= allowed; i++){// length allowed
             for (int j = 0; j <= phrase.length - i; j++){ // start position
                 StringJoiner sj = new StringJoiner(" ");
                 for (int k = j; k < j+i; k++) {

@@ -464,15 +464,20 @@ public class PageRank1 {
         return linkWeights;
     }
 
-    //public static List<Integer> PageRankByBoth(IndexTable indexTable, List<Double> stemRankt, List<Double> stemRankb, Double stemWeightt, Double stemWeightb) throws Exception
-    public static List<Integer> PageRankByBoth(IndexTable indexTable, List<Double> stemRankt, List<Double> stemRankb, List<Double> stemRanktp, List<Double> stemRankbp, Double stemWeightt, Double stemWeightb, Double stemWeighttp, Double stemWeightbp) throws Exception
+    public static ArrayList<Double> PageScoreByBoth(IndexTable indexTable, int checked, List<Double> stemRankt, List<Double> stemRankb, List<Double> stemRanktp, List<Double> stemRankbp, Double stemWeightt, Double stemWeightb, Double stemWeighttp, Double stemWeightbp) throws Exception
     {
-        List<Double> ratedScore = new ArrayList<>();
+        ArrayList<Double> ratedScore = new ArrayList<>();
         for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
             WebNode webNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
-            ratedScore.add(webNode.getPagerank() + stemWeightt * stemRankt.get(pageid) + stemWeightb * stemRankb.get(pageid) + stemWeighttp * stemRanktp.get(pageid) + stemWeightbp * stemRankbp.get(pageid));
+            ratedScore.add(webNode.getPagerank() * checked / 3 + stemWeightt * stemRankt.get(pageid) + stemWeightb * stemRankb.get(pageid) + stemWeighttp * stemRanktp.get(pageid) + stemWeightbp * stemRankbp.get(pageid));
         }
-        List<Integer> indices = new ArrayList<>(ratedScore.size());
+        return ratedScore;
+    }
+
+
+    public static ArrayList<Integer> PageRankByBoth(List<Double> ratedScore) throws Exception
+    {
+        ArrayList<Integer> indices = new ArrayList<>(ratedScore.size());
         for (int i = 0; i < ratedScore.size(); i++) {
             indices.add(i);
         }
