@@ -94,6 +94,7 @@ public class LinkExtractor {
             {
                 WebNode childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
                 childWebNode.addParent(pair.get(0));
+                indexTable.updateEntry(TreeNames.id2WebNode.toString(), childId, childWebNode);
             }
         }
     }
@@ -106,6 +107,7 @@ public class LinkExtractor {
             {
                 WebNode childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
                 childWebNode.addParentForRanking(pairForRanking.get(0));
+                indexTable.updateEntry(TreeNames.id2WebNode.toString(), childId, childWebNode);
             }
         }
         for (List<String> pairForRanking : pairListForRanking)
@@ -115,6 +117,7 @@ public class LinkExtractor {
             {
                 WebNode parentWebnode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parId, WebNode.class);
                 parentWebnode.addChildForRanking(pairForRanking.get(1));
+                indexTable.updateEntry(TreeNames.id2WebNode.toString(), parId, parentWebnode);
             }
         }
     }

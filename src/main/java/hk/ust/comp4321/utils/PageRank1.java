@@ -127,8 +127,13 @@ public class PageRank1 {
         return weight;
     }
 
-    public static List<Double> RankStemWithQuery(IndexTable indexTable, ForwardInvertedIndex forwardIndexTable, String query, Integer a0t1b2, List<List<Double>> weight, Integer wp, Integer phalen) throws Exception {
-        stopStem = new StopStem("resources/stopwords.txt");
+    public static List<Double> RankStemWithQuery(IndexTable indexTable, ForwardInvertedIndex forwardIndexTable, String query, Integer a0t1b2, List<List<Double>> weight, Integer wp, Integer phalen, String stoppath) throws Exception {
+        stopStem = new StopStem(stoppath);
+        if(query==null)
+        {
+            System.out.println("error: in RankStemWithQuery query is null");
+            return new ArrayList<>();
+        }
         String[] words = query.split(" ");
         List<String> stemsList = new ArrayList<>(); // convert query to stems and store it here
         List<Integer> frequency = new ArrayList<>(); // in case query contain the stem word more than once, the frequency is stored here

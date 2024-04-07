@@ -16,7 +16,9 @@
 
 <%
 	String current = request.getParameter("txtname");
+	String currentoption = request.getParameter("option");
 	String inputString = current;
+	String selectedOption = currentoption;
 %>
 
 
@@ -30,11 +32,13 @@
     <%-- JSP code to handle form submission --%>
     <%
         inputString = request.getParameter("inputString");
+        selectedOption = request.getParameter("option");
         SearchEngine javaObject = new SearchEngine();
-        ArrayList<String> outputString = javaObject.processInput(current, filePath);
+        ArrayList<String> outputString = javaObject.processInput(current, selectedOption, filePath);
 
         if (inputString != null && !inputString.isEmpty()) {
-            outputString = javaObject.processInput(inputString, filePath);
+            out.println("selectedOption is " + selectedOption);
+            outputString = javaObject.processInput(inputString, selectedOption, filePath);
             current = inputString;}
     %>
 
@@ -42,7 +46,16 @@
     <form action="" method="post">
         <label for="inputString">Enter a string:</label>
         <input type="text" name="inputString" id="inputString" placeholder="<%= current %>">
-        <input type="submit" value="Search">
+
+    <label for="option">Select an option:</label>
+    <select name="option" id="option">
+        <option value="2">Phase Length <= 2</option>
+        <option value="3">Phase Length <= 3</option>
+        <option value="4">Phase Length <= Infinite</option>
+    </select>
+
+    <input type="submit" value="Search">
+
     </form>
 
     <%

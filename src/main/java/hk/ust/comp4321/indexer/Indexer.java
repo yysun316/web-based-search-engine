@@ -15,9 +15,9 @@ public class Indexer {
     private static IndexTable indexTable;
     private static ForwardInvertedIndex forwardInvertedIndex;
 
-    public Indexer(IndexTable indexTable, ForwardInvertedIndex forwardInvertedIndex) {
+    public Indexer(IndexTable indexTable, ForwardInvertedIndex forwardInvertedIndex, String stoppath) {
         this.indexTable = indexTable;
-        stopStem = new StopStem("resources/stopwords.txt");
+        stopStem = new StopStem(stoppath);
         this.forwardInvertedIndex = forwardInvertedIndex;
     }
 

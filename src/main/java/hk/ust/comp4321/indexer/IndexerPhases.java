@@ -22,11 +22,11 @@ public class IndexerPhases {
     private static ForwardInvertedIndex forwardInvertedIndex; //db2
     private static ForwardInvertedIndex forwardInvertedIndexPhrase;// db3
 
-    public IndexerPhases(IndexTable indexTable, ForwardInvertedIndex forwardInvertedIndex, ForwardInvertedIndex forwardInvertedIndexPhrase) {
+    public IndexerPhases(IndexTable indexTable, ForwardInvertedIndex forwardInvertedIndex, ForwardInvertedIndex forwardInvertedIndexPhrase, String stoppath) {
         this.indexTable = indexTable;
         this.forwardInvertedIndex = forwardInvertedIndex;
         this.forwardInvertedIndexPhrase = forwardInvertedIndexPhrase;
-        stopStem = new StopStem("resources/stopwords.txt");
+        stopStem = new StopStem(stoppath);
     }
 
     public void indexPhases(String url, int maxAllowedLength) throws Exception {

@@ -8,6 +8,8 @@ import jdbm.RecordManager;
 import jdbm.RecordManagerFactory;
 import jdbm.htree.HTree;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 public class WeightDataStorage {
     private RecordManager recordManager;
     private HTree weight;
@@ -23,6 +25,7 @@ public class WeightDataStorage {
             weight = HTree.createInstance(recordManager);
             recordManager.setNamedObject("weight", weight.getRecid());
         }
+
     }
 
     public void updateEntry(String matrixName, List<List<Double>> matrix) throws IOException {
@@ -30,11 +33,17 @@ public class WeightDataStorage {
         weight.put(matrixName, matrix);
         recordManager.commit();
     }
-
+    public void updateLenEntry(String matrixName, Integer length) throws IOException {
+        weight.remove(matrixName);
+        weight.put(matrixName, length);
+        recordManager.commit();
+    }
     public List<List<Double>> getEntry(String matrixName) throws IOException {
         return (List<List<Double>>) weight.get(matrixName);
     }
-
+    public Integer getLenEntry(String matrixName) throws IOException {
+        return (Integer) weight.get(matrixName);
+    }
     public void commitAndClose() throws IOException {
         // Commit and close the record manager
         recordManager.commit();
