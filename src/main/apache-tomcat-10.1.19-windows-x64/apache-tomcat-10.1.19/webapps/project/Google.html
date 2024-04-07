@@ -27,8 +27,49 @@
             }
 
             .input-box {
-                width: 20vw;
+                width: 35vw;
                 height: 5vh;
+                border: 2px solid rgba(0, 0, 180, 0.5);
+                border-radius: 15px 0 0 15px;
+                animation: border-color-animation 5s infinite;
+                box-shadow: 0 0 5px rgba(0, 0, 20, 0.3);
+            }
+            @keyframes border-color-animation {
+                0% {
+                    border-color: rgba(0, 0, 255, 0.7);
+                }
+                30% {
+                    border-color: rgba(0, 0, 255, 0.7);
+                }
+                45% {
+                    border-color: rgba(0, 0, 255, 0.5);
+                }
+                50% {
+                    border-color: rgba(0, 70, 255, 0.5);
+                }
+                55% {
+                    border-color: rgba(0, 0, 255, 0.5);
+                }
+                70% {
+                    border-color: rgba(0, 0, 255, 0.7);
+                }
+                100% {
+                    border-color: rgba(0, 0, 255, 0.7);
+                }
+            }
+
+            #submitButton {
+                background-color: rgba(0, 0, 255, 0.5) !important;
+                border-radius: 0 15px 15px 0 !important;
+                border: 2px solid rgba(0, 0, 180, 0.5) !important;
+                animation: border-color-animation 3s infinite !important;
+                height: 6vh !important;
+                box-shadow: 0 0 5px rgba(0, 0, 20, 0.3) !important;
+            }
+
+            #submitButton:hover {
+              background-color: #b3b3b3 !important;
+              border: 2px solid rgba(0, 0, 0, 0.9) !important;
             }
 
         </style>
@@ -46,13 +87,12 @@
                 <span style="color: rgba(255, 0, 0, 0.7);">E</span>
             </h1>
 
-            <form method="post" action="googleServer.jsp">
+            <form method="post" action="googleServer.jsp" style="margin-bottom: 50px;">
                 <div>
-                    <label for="txtname">Input Text:</label>
-                    <input type="text" name="txtname" id="txtname" class="input-box" placeholder="Type here">
-                    <input type="submit" value="Search">
+                    <input type="text" name="txtname" id="txtname" class="input-box" placeholder="  Type here">
+                    <button id="submitButton" type="submit" value="Search"> Search </button>
                 </div>
-                <div>
+                <div style="margin-top: 15px;">
                 <label for="checkboxId">Link based ranking</label>
                 <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
 
