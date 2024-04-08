@@ -62,7 +62,7 @@
           background-color: #f0f0f0;
           border: 1px solid #ccc;
           margin: 10px;
-          border-radius: 3vw;
+          border-radius: 2vw;
           padding: 2vh 2vw !important;
         }
         .titleText {
