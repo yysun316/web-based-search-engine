@@ -15,9 +15,40 @@
 <script src="jquery"></script>
 <title>Worse than Google</title>
     <style>
+        .container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container2 {
+          margin-left: 10%;
+          margin-right: 10%;
+        }
+        .title {
+          font-size: 6vh;;
+          margin-top: 0;
+          margin-bottom: 2px;
+          text-align: center;
+        }
         .input-box {
             width: 40vw;
             height: 5vh;
+            border: 2px solid rgba(0, 0, 180, 0.7);
+            border-radius: 15px 0 0 15px;
+            animation: border-color-animation 5s infinite;
+            box-shadow: 0 0 5px rgba(0, 0, 20, 0.3);
+        }
+        #submitButton {
+            background-color: rgba(0, 0, 255, 0.5) !important;
+            border-radius: 0 15px 15px 0 !important;
+            border: 2px solid rgba(0, 0, 180, 0.5) !important;
+            animation: border-color-animation 3s infinite !important;
+            height: 6vh !important;
+            box-shadow: 0 0 5px rgba(0, 0, 20, 0.3) !important;
+        }
+        #submitButton:hover {
+          background-color: #b3b3b3 !important;
+          border: 2px solid rgba(0, 0, 0, 0.9) !important;
         }
         .optionContainer {
             position: fixed;
@@ -25,9 +56,8 @@
             right: 0;
         }
         .titleText {
-            font-size: 25px;
+            font-size: 1.5rem;
         }
-
     </style>
 </head>
 <body>
@@ -64,27 +94,33 @@
             outputW = javaObject.nodeRanking(outputI);
             current = inputString;}
     %>
-
-    <form action="" method="post">
-    <h1 style="display: inline; font-size: 2.5em;">Google &nbsp; </h1>
-    <input type="text" name="inputString" id="inputString" class="input-box" placeholder="<%= current %>" style="display: inline;">
-
-    <div>
-        <select name="option" id="option">
-            <option value="2">Phase Length <= 2</option>
-            <option value="3">Phase Length <= 3</option>
-            <option value="-1">Phase Length <= Infinite</option>
-        </select>
-    <label for="checkboxId">Link based ranking</label>
-    <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
-    <label class="submit"> &nbsp; </label>
-    <input type="submit" value="Search">
+    <div class="container1">
+        <div>
+          <h1 class="title">Google</h1>
+        </div>
     </div>
+    <div class="container1">
+        <form action="" method="post">
+        <div>
+            <input type="text" name="inputString" id="inputString" class="input-box" placeholder="<%= current %>" style="display: inline;">
+            <button id="submitButton" type="submit" value="Search"> Search </button>
+        </div>
+    </div>
+    <div class="container1">
+        <div>
+            <select name="option" id="option">
+                <option value="2">Phase Length <= 2</option>
+                <option value="3">Phase Length <= 3</option>
+                <option value="-1">Phase Length <= Infinite</option>
+            </select>
+            &nbsp;&nbsp;
+        <label for="checkboxId">Link based ranking</label>
+        <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
 
-
-
-    </form>
-
+        </div>
+        </form>
+    </div>
+    <div class="container2">
     <%
         out.println("<p>Input string: " + current + "</p>");
         out.println("<p>Input option: " + currentoption + "</p>");
@@ -115,7 +151,7 @@
             out.println("<br>");
         }
     %>
-
+    </div>
 
 </body>
 </html>
