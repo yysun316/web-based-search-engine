@@ -129,10 +129,10 @@
         for (int i = 0; i < outputW.size(); i++){
            WebNode currentW = outputW.get(i);
            Double currentS = outputS.get(outputI.get(i));
-           out.println("score: " + currentS + "<br>");
     %>
             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
     <%
+            out.println("score: " + currentS + "<br>");
             String currentURL = currentW.getUrl();
             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
 
