@@ -58,6 +58,13 @@
             top: 0;
             right: 0;
         }
+        .box {
+          background-color: #f0f0f0;
+          border: 1px solid #ccc;
+          margin: 10px;
+          border-radius: 3vw;
+          padding: 2vh 2vw !important;
+        }
         .titleText {
             font-size: 1.5rem;
         }
@@ -133,6 +140,7 @@
            WebNode currentW = outputW.get(i);
            Double currentS = outputS.get(outputI.get(i));
     %>
+            <div class="box">
             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
     <%
             out.println("score: " + currentS + "<br>");
@@ -150,10 +158,10 @@
             for (String childLink : currentW.getParent()) {
                 out.println("children link: " + "<a href=\"" + childLink + "\">" + childLink + "</a><br>");
             }
+            %>
+            </div>
+         <% } %>
 
-            out.println("<br>");
-        }
-    %>
     </div>
 
 </body>
