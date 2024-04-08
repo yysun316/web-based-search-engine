@@ -72,7 +72,42 @@
               border: 2px solid rgba(0, 0, 0, 0.9) !important;
             }
 
+            #popupButton {
+                margin-top: 1vh;
+            }
+
+
+            .popupBox {
+
+            }
+
+
         </style>
+
+        <script>
+
+            var isPopupVisible = false;
+            var popupBoxes = document.getElementsByClassName('popupBox');
+
+            function togglePopup() {
+              for (var i = 0; i < popupBoxes.length; i++) {
+                var popupBox = popupBoxes[i];
+
+                if (isPopupVisible) {
+                  popupBox.style.display = 'none';
+                } else {
+                  popupBox.style.display = 'block';
+                }
+              }
+
+              isPopupVisible = !isPopupVisible;
+            }
+
+            function addValue(value) {
+              document.getElementById('txtname').value += value;
+            }
+        </script>
+
     </head>
 
 	<body>
@@ -87,7 +122,7 @@
                 <span style="color: rgba(255, 0, 0, 0.7);">E</span>
             </h1>
 
-            <form method="post" action="googleServer.jsp" style="margin-bottom: 50px;">
+            <form method="post" action="googleServer.jsp" style="margin-bottom: 0px;">
                 <div>
                     <input type="text" name="txtname" id="txtname" class="input-box" placeholder="  Type here">
                     <button id="submitButton" type="submit" value="Search"> Search </button>
@@ -103,6 +138,14 @@
                     </select>
                 </div>
             </form>
+            <button id="popupButton" onclick="togglePopup()" style="margin-bottom: 1vh;">Suggest Keywords</button>
+            <div class="popupBox">
+                <button onclick="addValue('Hello ')">Hello</button>
+                <button onclick="addValue('World ')">World</button>
+                <button onclick="addValue('COMP4321 ')">COMP4321</button>
+            </div>
+
         </div>
+
 	</body>
 </html>

@@ -37,6 +37,7 @@
             border-radius: 15px 0 0 15px;
             animation: border-color-animation 5s infinite;
             box-shadow: 0 0 5px rgba(0, 0, 20, 0.3);
+            margin-bottom: 2px;
         }
         #submitButton {
             background-color: rgba(0, 0, 255, 0.5) !important;
