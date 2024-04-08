@@ -45,7 +45,9 @@
             border: 2px solid rgba(0, 0, 180, 0.5) !important;
             animation: border-color-animation 3s infinite !important;
             height: 6vh !important;
+            padding: 1vh 2vw !important;
             box-shadow: 0 0 5px rgba(0, 0, 20, 0.3) !important;
+            cursor: pointer !important;
         }
         #submitButton:hover {
           background-color: #b3b3b3 !important;

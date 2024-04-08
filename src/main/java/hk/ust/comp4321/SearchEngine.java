@@ -164,11 +164,4 @@ public class SearchEngine extends HttpServlet
 		return sb.toString();
 	}
 
-//	public void service(HttpServletRequest req, HttpServletResponse res) throws IOException
-//	{
-//		String i = req.getParameter("num1");
-//		String k = i;
-//		 PrintWriter out = res.getWriter();
-//		 out.println("result is " + k);
-//	}
 }
