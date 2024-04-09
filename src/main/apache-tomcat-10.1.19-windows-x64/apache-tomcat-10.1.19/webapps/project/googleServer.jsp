@@ -155,7 +155,7 @@
             for (String parentLink : currentW.getParent()) {
                 out.println("parent link: " + "<a href=\"" + parentLink + "\">" + parentLink + "</a><br>");
             }
-            for (String childLink : currentW.getParent()) {
+            for (String childLink : currentW.getChildren()) {
                 out.println("children link: " + "<a href=\"" + childLink + "\">" + childLink + "</a><br>");
             }
             %>
