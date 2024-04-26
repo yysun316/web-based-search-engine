@@ -152,10 +152,20 @@
 
             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
 
+            int count = 0;
             for (String parentLink : currentW.getParent()) {
+                if (count >= 10) {
+                    break;
+                }
+                count++;
                 out.println("parent link: " + "<a href=\"" + parentLink + "\">" + parentLink + "</a><br>");
             }
+            count = 0;
             for (String childLink : currentW.getChildren()) {
+                if (count >= 10) {
+                    break;
+                }
+                count++;
                 out.println("children link: " + "<a href=\"" + childLink + "\">" + childLink + "</a><br>");
             }
             %>

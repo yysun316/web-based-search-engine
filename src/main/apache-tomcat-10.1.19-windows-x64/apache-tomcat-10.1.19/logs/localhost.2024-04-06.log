@@ -4648,7 +4648,7 @@ Stacktrace:] with root cause
 
 
 Stacktrace:] with root cause
-	java.lang.NullPointerException: Cannot invoke "hk.ust.comp4321.indexer.IndexerPhases.indexPhases(String, int)" because "hk.ust.comp4321.SearchEngine.indexerPhases" is null
+	java.lang.NullPointerException: Cannot invoke "hk.ust.comp4321.indexer.dealWithPhases.indexPhases(String, int)" because "hk.ust.comp4321.SearchEngine.indexerPhases" is null
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:88)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4698,7 +4698,7 @@ Stacktrace:] with root cause
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
 		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
-		at hk.ust.comp4321.indexer.IndexerPhases.<init>(IndexerPhases.java:29)
+		at hk.ust.comp4321.indexer.dealWithPhases.<init>(IndexerPhases.java:29)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:73)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4743,7 +4743,7 @@ Stacktrace:] with root cause
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
 		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
-		at hk.ust.comp4321.indexer.IndexerPhases.<init>(IndexerPhases.java:29)
+		at hk.ust.comp4321.indexer.dealWithPhases.<init>(IndexerPhases.java:29)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:73)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4856,7 +4856,7 @@ Stacktrace:] with root cause
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
 		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
-		at hk.ust.comp4321.indexer.IndexerPhases.<init>(IndexerPhases.java:29)
+		at hk.ust.comp4321.indexer.dealWithPhases.<init>(IndexerPhases.java:29)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:73)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4990,8 +4990,8 @@ Stacktrace:] with root cause
 		at jdbm.htree.HashDirectory.put(HashDirectory.java:261)
 		at jdbm.htree.HTree.put(HTree.java:129)
 		at hk.ust.comp4321.invertedIndex.ForwardInvertedIndex.addEntry(ForwardInvertedIndex.java:116)
-		at hk.ust.comp4321.indexer.IndexerPhases.indexBody(IndexerPhases.java:173)
-		at hk.ust.comp4321.indexer.IndexerPhases.indexPhases(IndexerPhases.java:35)
+		at hk.ust.comp4321.indexer.dealWithPhases.indexBody(IndexerPhases.java:173)
+		at hk.ust.comp4321.indexer.dealWithPhases.indexPhases(IndexerPhases.java:35)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:88)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5043,7 +5043,7 @@ Stacktrace:] with root cause
 		at jdbm.btree.BPage.access$000(BPage.java:79)
 		at jdbm.btree.BPage$Browser.getNext(BPage.java:1167)
 		at hk.ust.comp4321.invertedIndex.ForwardInvertedIndex.getKeywordFrequency(ForwardInvertedIndex.java:251)
-		at hk.ust.comp4321.utils.PageRank1.RankStem(PageRank1.java:38)
+		at hk.ust.comp4321.utils.PageRank.RankStem(PageRank1.java:38)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:98)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5106,7 +5106,7 @@ Stacktrace:] with root cause
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
 		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
-		at hk.ust.comp4321.utils.PageRank1.RankStemWithQuery(PageRank1.java:131)
+		at hk.ust.comp4321.utils.PageRank.RankStemWithQuery(PageRank1.java:131)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:107)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5175,8 +5175,8 @@ Stacktrace:] with root cause
 		at jdbm.recman.CacheRecordManager.updateCacheEntries(CacheRecordManager.java:409)
 		at jdbm.recman.CacheRecordManager.commit(CacheRecordManager.java:340)
 		at hk.ust.comp4321.invertedIndex.ForwardInvertedIndex.updateInvertedIdx(ForwardInvertedIndex.java:172)
-		at hk.ust.comp4321.indexer.IndexerPhases.indexBody(IndexerPhases.java:190)
-		at hk.ust.comp4321.indexer.IndexerPhases.indexPhases(IndexerPhases.java:35)
+		at hk.ust.comp4321.indexer.dealWithPhases.indexBody(IndexerPhases.java:190)
+		at hk.ust.comp4321.indexer.dealWithPhases.indexPhases(IndexerPhases.java:35)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:84)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5228,7 +5228,7 @@ Stacktrace:] with root cause
 		at jdbm.recman.BaseRecordManager.getNamedObject(BaseRecordManager.java:393)
 		at jdbm.recman.CacheRecordManager.getNamedObject(CacheRecordManager.java:370)
 		at hk.ust.comp4321.invertedIndex.ForwardInvertedIndex.getKeywordFrequency(ForwardInvertedIndex.java:231)
-		at hk.ust.comp4321.utils.PageRank1.RankStem(PageRank1.java:38)
+		at hk.ust.comp4321.utils.PageRank.RankStem(PageRank1.java:38)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:93)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5272,7 +5272,7 @@ Stacktrace:] with root cause
 
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "String.split(String)" because "query" is null
-		at hk.ust.comp4321.utils.PageRank1.RankStemWithQuery(PageRank1.java:132)
+		at hk.ust.comp4321.utils.PageRank.RankStemWithQuery(PageRank1.java:132)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:103)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5321,7 +5321,7 @@ Stacktrace:] with root cause
 
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "String.split(String)" because "query" is null
-		at hk.ust.comp4321.utils.PageRank1.RankStemWithQuery(PageRank1.java:132)
+		at hk.ust.comp4321.utils.PageRank.RankStemWithQuery(PageRank1.java:132)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:103)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5365,7 +5365,7 @@ Stacktrace:] with root cause
 
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "String.split(String)" because "query" is null
-		at hk.ust.comp4321.utils.PageRank1.RankStemWithQuery(PageRank1.java:132)
+		at hk.ust.comp4321.utils.PageRank.RankStemWithQuery(PageRank1.java:132)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:103)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5409,7 +5409,7 @@ Stacktrace:] with root cause
 
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "String.split(String)" because "query" is null
-		at hk.ust.comp4321.utils.PageRank1.RankStemWithQuery(PageRank1.java:132)
+		at hk.ust.comp4321.utils.PageRank.RankStemWithQuery(PageRank1.java:132)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:103)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5458,7 +5458,7 @@ Stacktrace:] with root cause
 
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "String.split(String)" because "query" is null
-		at hk.ust.comp4321.utils.PageRank1.RankStemWithQuery(PageRank1.java:132)
+		at hk.ust.comp4321.utils.PageRank.RankStemWithQuery(PageRank1.java:132)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:104)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
