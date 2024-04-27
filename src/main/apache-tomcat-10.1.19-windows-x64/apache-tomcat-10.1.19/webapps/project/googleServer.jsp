@@ -53,11 +53,6 @@
           background-color: #b3b3b3 !important;
           border: 2px solid rgba(0, 0, 0, 0.9) !important;
         }
-        .optionContainer {
-            position: fixed;
-            top: 0;
-            right: 0;
-        }
         .box {
           background-color: #f0f0f0;
           border: 1px solid #ccc;
@@ -74,32 +69,26 @@
 
 <%
 	String current = request.getParameter("txtname");
-	String currentoption = request.getParameter("option");
 	String currentcheckboxValue = request.getParameter("checkboxName");
 	String inputString = current;
-	String selectedOption = currentoption;
 	String checkboxValue = currentcheckboxValue;
 %>
-
 
 <%
     ServletContext servletContext = getServletContext();
     String filePath = servletContext.getRealPath("stopwords.txt");
 %>
 
-
-
     <%-- JSP code to handle form submission --%>
     <%
         inputString = request.getParameter("inputString");
-        selectedOption = request.getParameter("option");
         checkboxValue = request.getParameter("checkboxName");
         SearchEngine javaObject = new SearchEngine();
-        ArrayList<Double> outputS = javaObject.processInput(current, selectedOption, checkboxValue, filePath);
+        ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
         if (inputString != null && !inputString.isEmpty()) {
-            outputS = javaObject.processInput(inputString, selectedOption, checkboxValue, filePath);
+            outputS = javaObject.processInput(inputString, checkboxValue, filePath);
             outputI = javaObject.pageRanking(outputS);
             outputW = javaObject.nodeRanking(outputI);
             current = inputString;}
@@ -118,12 +107,6 @@
     </div>
     <div class="container1">
         <div>
-            <select name="option" id="option">
-                <option value="2">Phase Length <= 2</option>
-                <option value="3">Phase Length <= 3</option>
-                <option value="-1">Phase Length <= Infinite</option>
-            </select>
-            &nbsp;&nbsp;
         <label for="checkboxId">Link based ranking</label>
         <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
 
@@ -133,7 +116,6 @@
     <div class="container2">
     <%
         out.println("<p>Input string: " + current + "</p>");
-        out.println("<p>Input option: " + currentoption + "</p>");
         out.println("<p>Checkbox option: " + currentcheckboxValue + "</p>");
 
         for (int i = 0; i < outputW.size(); i++){

@@ -35,9 +35,8 @@ public class SearchEngine extends HttpServlet
 	private static WeightDataStorage db4;
 	private static Indexer indexer;
 
-	public static ArrayList<Double> processInput(String input, String phaseLengths, String checkboxValue, String stoppath) throws Exception {
+	public static ArrayList<Double> processInput(String input, String checkboxValue, String stoppath) throws Exception {
 
-		Integer phaseLength = Integer.parseInt(phaseLengths);
 		String rootURL = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
 
 		//stopStem = new StopStem("resources/stopwords.txt");
@@ -123,6 +122,7 @@ public class SearchEngine extends HttpServlet
 		ArrayList<Integer> resultRanking = PageRankByBoth(pageScore);
 		return resultRanking;
 	}
+
 	public static ArrayList<WebNode> nodeRanking(ArrayList<Integer> resultRanking) throws Exception {
 		ArrayList<WebNode> resultRankedNodes = new ArrayList<>();
 		for (Integer rankpage : resultRanking)
