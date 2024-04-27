@@ -281,7 +281,21 @@ public class ForwardInvertedIndex {
         return (String) IdTitle2Word.get(wordId);
     }
     // for indexer phrases
-    public BTree getWordsBodyFromPageId(int pageId) throws IOException{
-        return (BTree) forwardIdxBody.get(pageId);
+    public BTree getTreeBodyFromWordId(int wordID) throws IOException{
+        BTree list;
+        if (invertedIdxBody.get(wordID) == null) {
+            return null;
+        }
+        list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordID));
+        return list;
+    }
+    public BTree getTreeTitleFromWordId(int wordID) throws IOException{
+        BTree list;
+        if (invertedIdxTitle.get(wordID) == null) {
+            return null;
+        }
+        list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordID));
+        return list;
+        //return (BTree) invertedIdxTitle.get(wordID);
     }
 }
