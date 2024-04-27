@@ -281,7 +281,10 @@ public class ForwardInvertedIndex {
         return (String) IdTitle2Word.get(wordId);
     }
     // for indexer phrases
-    public BTree getWordsBodyFromPageId(int pageId) throws IOException{
-        return (BTree) forwardIdxBody.get(pageId);
+    public BTree getTreeBodyFromWordId(int wordID) throws IOException{
+        return (BTree) invertedIdxBody.get(wordID);
+    }
+    public BTree getTreeTitleFromWordId(int wordID) throws IOException{
+        return (BTree) invertedIdxTitle.get(wordID);
     }
 }
