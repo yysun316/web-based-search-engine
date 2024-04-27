@@ -33,6 +33,7 @@ public class SearchEngine extends HttpServlet
 	private static WeightDataStorage db4;
 	private static Indexer indexer;
 
+	// the main function to be called by jsp
 	public static ArrayList<Double> processInput(String input, String checkboxValue, String stoppath) throws Exception {
 
 		String rootURL = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
@@ -88,12 +89,14 @@ public class SearchEngine extends HttpServlet
 		return pageScore;
 	}
 
+	// to help rank webnodes in jsp call PageRankByBoth
 	public static ArrayList<Integer> pageRanking(ArrayList<Double> pageScore) throws Exception {
 		System.out.println("pageScore for ranking " + pageScore);
 		ArrayList<Integer> resultRanking = PageRankByBoth(pageScore);
 		return resultRanking;
 	}
 
+	// to help rank webnodes in jsp by helping it get the corresponding webnode
 	public static ArrayList<WebNode> nodeRanking(ArrayList<Integer> resultRanking) throws Exception {
 		ArrayList<WebNode> resultRankedNodes = new ArrayList<>();
 		for (Integer rankpage : resultRanking)
@@ -104,6 +107,7 @@ public class SearchEngine extends HttpServlet
 		return resultRankedNodes;
 	}
 
+	// to help print out keystems for each webpage in jsp
 	public static String nodeKeyWord(WebNode currentW) throws IOException {
 		Map<String, Integer> keyword2Freq;
 		keyword2Freq = db2.getKeywordFrequency(currentW.getId(), 20, 0);

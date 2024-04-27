@@ -55,14 +55,6 @@ public class WebNode implements Serializable {
         return parent;
     }
 
-    public void removeChild(String child) {
-        children.remove(child);
-    }
-
-    public void removeParent(String par) {
-        parent.remove(par);
-    }
-
     public int getId() {
         return id;
     }
@@ -94,9 +86,11 @@ public class WebNode implements Serializable {
     public void setLastModifiedDate(String lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
+
     public void updatePagerank(Double newRank) {
         this.pageRank = newRank;
     }
+
     public Double getPagerank() {
         return this.pageRank;
     }

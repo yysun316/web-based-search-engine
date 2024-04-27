@@ -58,10 +58,8 @@ public class LinkExtractor {
             // get / initiate the corresponding child webnode and set up the relationship between them
             lb.setURL(parentURL);
             URL_array = lb.getLinks();
-            //System.out.println("parent URL " + parentURL);
             for (URL u : URL_array) {
                 String childURL = u.toExternalForm();
-                //System.out.println("has got children " + childURL);
                 // if the parent child relationship has been set up previously then we need to do nothing
                 List<String> pairForRanking = new ArrayList<>();
                 pairForRanking.add(parentURL);
@@ -86,6 +84,12 @@ public class LinkExtractor {
         return res;
     }
 
+    // Parent links and Child links are the ones to be displayed in the webpage
+    // and the one for ranking is not to be displayed
+    // the main difference is the one for ranking can contain child pointing back to parent
+    // which is necessary when calculating the probability a user press the link and go to a page
+
+    // helper function: to be called in extractLinks
     public static void addParentLinks(IndexTable indexTable, List<List<String>> pairList) throws IOException {
         for (List<String> pair : pairList)
         {
@@ -99,6 +103,7 @@ public class LinkExtractor {
         }
     }
 
+    // helper function: to be called in extractLinks
     public static void addParentLinksForRanking(IndexTable indexTable, List<List<String>> pairListForRanking) throws IOException {
         for (List<String> pairForRanking : pairListForRanking)
         {
@@ -120,20 +125,5 @@ public class LinkExtractor {
                 indexTable.updateEntry(TreeNames.id2WebNode.toString(), parId, parentWebnode);
             }
         }
-    }
-
-    private static List<String> getStrings(WebNode parentWebNode, URL[] URL_array) {
-        List<String> parentsExtraChildList = new ArrayList<>();
-        for (String element : parentWebNode.getChildren()) {
-            parentsExtraChildList.add(new String(element));
-        }
-        for (URL u : URL_array) {
-            String childURL = u.toExternalForm();
-            parentsExtraChildList.remove(childURL);
-        }
-        if (parentsExtraChildList.size() != 0) {
-            //System.out.println("something needs to be removed");
-        }
-        return parentsExtraChildList;
     }
 }
