@@ -25,13 +25,13 @@ public class IndexerTest {
         indexTable = new IndexTable("IndexerTest");
         crawler = new Crawler(indexTable);
         forwardInvertedIndex = new ForwardInvertedIndex("ForwardInvertedIndexTest");
-        indexer = new Indexer(indexTable, forwardInvertedIndex, stopPath);
+        indexer = new Indexer(forwardInvertedIndex);
     }
 
     @Test
     public void testIndex() {
         try {
-            String root = "https://www.cse.ust.hk/~kwtleung/COMP4321/ust_cse.htm";
+            String root = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
             int numPages = 300;
             System.out.println("Extracting links from " + root + "...");
             long startTime1 = System.currentTimeMillis();
@@ -45,11 +45,12 @@ public class IndexerTest {
             Thread thread = new Thread(listFutureTask);
             thread.start();
             List<HashMap<Integer, String[]>> result = listFutureTask.get();
+//            checkPreprocessedData(result);
+            Indexer.indexTable = indexTable;
             indexer.setProcessedData(result);
-            indexer.start();
-            indexer.join();
+            indexer.run(); // for simplicity, we call run() directly instead of creating a new thread
+            // Call checkDB() after indexing is complete
             checkDB();
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,5 +63,19 @@ public class IndexerTest {
             System.out.println("Number of entries in the forward inverted index: " + forwardInvertedIndex.getKeywordFrequency(i, 10, -1));
         }
 
+    }
+
+    public void checkPreprocessedData(List<HashMap<Integer, String[]>> result) {
+        System.out.println("Checking the preprocessed data...");
+        System.out.println("Number of title entries: " + result.get(0).size());
+        System.out.println("Number of body entries: " + result.get(1).size());
+
+        for (int i = 0; i < result.get(0).size(); i++) {
+            System.out.println("Title of page " + i + ": " + String.join(" ", result.get(0).get(i)));
+        }
+
+        for (int i = 0; i < result.get(1).size(); i++) {
+            System.out.println("Body of page " + i + ": " + String.join(" ", result.get(1).get(i)));
+        }
     }
 }

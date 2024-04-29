@@ -53,9 +53,9 @@ public class Preprocessor implements Callable<List<HashMap<Integer, String[]>>> 
             body.putAll(future.get());
         }
         System.out.println(title.size() + " pages preprocessed");
-        System.out.println(title.get(0).length + " words in the first page");
-        System.out.println(title.get(1).length + " words in the second page");
-        System.out.println("First pageid is " + title.keySet().toArray()[0]);
+//        System.out.println(title.get(0).length + " words in the first page");
+//        System.out.println(title.get(1).length + " words in the second page");
+//        System.out.println("First pageid is " + title.keySet().toArray()[0]);
         long endTime = System.currentTimeMillis();
         System.out.println("Preprocessing took " + (endTime - startTime) + "ms");
 
@@ -68,7 +68,6 @@ public class Preprocessor implements Callable<List<HashMap<Integer, String[]>>> 
     public HashMap<Integer, String[]> processTitle(String url) throws Exception {
         int pageId = indexTable.getPageIdFromURL(url);
         if (pageId == -1) throw new Exception("Page ID not found");
-
         String[] words = Arrays.stream(TitleExtractor.extractTitle(url)
                         .split("[\\s\\p{Punct}&&[^-]]+"))
                 .filter(word -> !word.trim().isEmpty())
@@ -90,6 +89,7 @@ public class Preprocessor implements Callable<List<HashMap<Integer, String[]>>> 
                 .map(String::toLowerCase)
                 .filter(word -> !stopStem.isStopWord(word))
                 .map(stopStem::stem)
+                .filter(word -> !word.trim().isEmpty())
                 .toArray(String[]::new);
 
         HashMap<Integer, String[]> result = new HashMap<>();

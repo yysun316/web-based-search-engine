@@ -170,6 +170,41 @@ public class ForwardInvertedIndex {
         recordManager.commit();
     }
 
+    public <K, V> void addEntryToWord2IdTitle(K key, V value) throws IOException {
+        if (word2IdTitle.get(key) == null) {
+            word2IdTitle.put(key, value);
+            wordIdTitle++;
+        } else {
+            System.out.println(key + " already exists in word2IdTitle table");
+        }
+    }
+
+    public <K, V> void addEntryToWord2IdBody(K key, V value) throws IOException {
+        if (word2IdBody.get(key) == null) {
+            word2IdBody.put(key, value);
+            wordIdBody++;
+        } else {
+            System.out.println(key + " already exists in word2IdBody table");
+        }
+    }
+
+    public <K, V> void addEntryToIdTitle2Word(K key, V value) throws IOException {
+        if (IdTitle2Word.get(key) == null) {
+            IdTitle2Word.put(key, value);
+        } else {
+            System.out.println(key + " already exists in IdTitle2Word table");
+        }
+    }
+
+    public <K, V> void addEntryToIdBody2Word(K key, V value) throws IOException {
+        if (IdBody2Word.get(key) == null) {
+            IdBody2Word.put(key, value);
+        } else {
+            System.out.println(key + " already exists in IdBody2Word table");
+        }
+    }
+
+
     /***
      * Update an entry in the hTree
      * @param hTreeName the name of the hTree
@@ -213,6 +248,30 @@ public class ForwardInvertedIndex {
         recordManager.commit();
     }
 
+    public void updateInvertedIdxTitle(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
+        Posting post = new Posting(pageId, freq);
+        BTree list;
+        if (invertedIdxTitle.get(wordId) == null) {
+            list = BTree.createInstance(recordManager, new Posting.IdComparator());
+            recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxTitle", list.getRecid());
+            invertedIdxTitle.put(wordId, list.getRecid());
+        }
+        list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordId));
+        list.insert(post, pos, true);
+    }
+
+    public void updateInvertedIdxBody(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
+        Posting post = new Posting(pageId, freq);
+        BTree list;
+        if (invertedIdxBody.get(wordId) == null) {
+            list = BTree.createInstance(recordManager, new Posting.IdComparator());
+            recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxBody", list.getRecid());
+            invertedIdxBody.put(wordId, list.getRecid());
+        }
+        list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordId));
+        list.insert(post, pos, true);
+    }
+
     /***
      * Update an entry in the hTree
      * @param hTreeName  the name of the hTree
@@ -253,6 +312,30 @@ public class ForwardInvertedIndex {
             default -> throw new IllegalArgumentException("Invalid hTreeName");
         }
         recordManager.commit();
+    }
+
+    public void updateForwardIdxTitle(int pageID, int wordId, int freq, ArrayList<Integer> pos) throws IOException {
+        Posting post = new Posting(wordId, freq);
+        BTree list;
+        if (forwardIdxTitle.get(pageID) == null) {
+            list = BTree.createInstance(recordManager, new Posting.FreqComparator());
+            recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxTitle", list.getRecid());
+            forwardIdxTitle.put(pageID, list.getRecid());
+        }
+        list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageID));
+        list.insert(post, pos, true);
+    }
+
+    public void updateForwardIdxBody(int pageID, int wordId, int freq, ArrayList<Integer> pos) throws IOException {
+        Posting post = new Posting(wordId, freq);
+        BTree list;
+        if (forwardIdxBody.get(pageID) == null) {
+            list = BTree.createInstance(recordManager, new Posting.FreqComparator());
+            recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxBody", list.getRecid());
+            forwardIdxBody.put(pageID, list.getRecid());
+        }
+        list = BTree.load(recordManager, (Long) forwardIdxBody.get(pageID));
+        list.insert(post, pos, true);
     }
 
     /***
