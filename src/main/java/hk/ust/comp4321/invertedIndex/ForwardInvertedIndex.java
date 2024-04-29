@@ -13,20 +13,36 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/***
+ * The class to manage the database for inverted index.
+ * The database contains six hTrees: word2IdTitle, word2IdBody, invertedIdxTitle, invertedIdxBody, forwardIdxTitle, forwardIdxBody, IdTitle2Word, IdBody2Word.
+ * word2IdTitle: word to id
+ * word2IdBody: word to id
+ * invertedIdxTitle: word ID to a BTree. Each entry: (page ID, freq) -> positions
+ * invertedIdxBody: word ID to a BTree. Each entry: (page ID, freq) -> positions
+ * forwardIdxTitle: page ID to a BTree. Each entry (wordId, freq) -> positions
+ * forwardIdxBody: page ID to a BTree. Each entry (wordId, freq) -> position
+ * IdTitle2Word: wordId to word
+ * IdBody2Word: wordId to word
+ */
 public class ForwardInvertedIndex {
     private RecordManager recordManager;
-    // for Indexer:
-    private HTree word2IdTitle; // word to id {using the word to find the wordId}
-    private HTree word2IdBody; // word to id {using the word to find the wordId}
-    private HTree invertedIdxTitle; // wordID to list of {id} (tell which webpages contain the word)
-    private HTree invertedIdxBody; // wordID to list of {id} for that word in body
-    private HTree forwardIdxTitle; // id to wordID list for that page {using the id to find the wordId, sort the wordId by frequency}
-    private HTree forwardIdxBody; // id to wordID list for that page {using the id to find the wordId}
-    private int wordIdTitle; // increase by 1 for each new word
-    private int wordIdBody; // increase by 1 for each new word
-    private HTree IdTitle2Word; // wordId to word {using the wordId to find the word}
-    private HTree IdBody2Word; // wordId to word {using the wordId to find the word}
+    private HTree word2IdTitle;
+    private HTree word2IdBody;
+    private HTree invertedIdxTitle;
+    private HTree invertedIdxBody;
+    private HTree forwardIdxTitle;
+    private HTree forwardIdxBody;
+    private int wordIdTitle;
+    private int wordIdBody;
+    private HTree IdTitle2Word;
+    private HTree IdBody2Word;
 
+    /***
+     * Constructor of the class
+     * @param recordManagerName the name of the record manager
+     * @throws IOException if the record manager is not found
+     */
     public ForwardInvertedIndex(String recordManagerName) throws IOException {
         this.recordManager = RecordManagerFactory.createRecordManager(recordManagerName);
 
@@ -91,6 +107,12 @@ public class ForwardInvertedIndex {
         wordIdBody = getSize(word2IdBody);
     }
 
+    /***
+     * Get the size of the hTree
+     * @param tree the hTree
+     * @return the size of the hTree
+     * @throws IOException if the hTree is not found
+     */
     public static int getSize(HTree tree) throws IOException {
         FastIterator iter = tree.keys();
         Object key;
@@ -100,6 +122,16 @@ public class ForwardInvertedIndex {
         }
         return count;
     }
+
+    /***
+     * Add an entry to the hTree (excluding invertedIdx and forwardIdx)
+     * @param hTreeName the name of the hTree
+     * @param key the key of the value
+     * @param value the value of the key
+     * @param <K> the type of the key
+     * @param <V> the type of the value
+     * @throws IOException if the tree name is invalid
+     */
 
     public <K, V> void addEntry(String hTreeName, K key, V value) throws IOException {
         switch (hTreeName) {
@@ -138,6 +170,15 @@ public class ForwardInvertedIndex {
         recordManager.commit();
     }
 
+    /***
+     * Update an entry in the hTree
+     * @param hTreeName the name of the hTree
+     * @param wordId the wordId
+     * @param pageId the pageId
+     * @param freq the frequency of the word
+     * @param pos the position of the word
+     * @throws IOException if the tree name is invalid
+     */
     public void updateInvertedIdx(String hTreeName, int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
         // Posting: pageId, freq
         // wordId -> (posting, pos)
@@ -172,6 +213,15 @@ public class ForwardInvertedIndex {
         recordManager.commit();
     }
 
+    /***
+     * Update an entry in the hTree
+     * @param hTreeName  the name of the hTree
+     * @param pageID the pageId
+     * @param wordId the wordId
+     * @param freq the frequency of the word
+     * @param pos the position of the word
+     * @throws IOException if the tree name is invalid
+     */
     public void updateForwardIdx(String hTreeName, int pageID, int wordId, int freq, ArrayList<Integer> pos) throws IOException {
         // pageId -> (freq, wordId) (sort by term frequency) but not working because we cannot find the wordId for removal
         // pageId -> (posting: (wordId, freq), pos) can be used to find the wordId for removal and can sort by frequency
@@ -205,31 +255,59 @@ public class ForwardInvertedIndex {
         recordManager.commit();
     }
 
+    /***
+     * Remove an entry in the hTree
+     * @param stem the word
+     * @return the wordId
+     * @throws IOException if the word is not found
+     */
     public int getWordIdTitleFromStem(String stem) throws IOException {
         Object wordId = word2IdTitle.get(stem);
-        //recordManager.commit();
         return wordId != null ? (int) wordId : -1;
     }
 
+    /***
+     * Get the wordId of the title
+     * @return the wordId of the title
+     */
     public int getWordIdTitle() {
         return wordIdTitle;
     }
 
+    /***
+     * Get the wordId of the body
+     * @param stem the word
+     * @return the wordId
+     * @throws IOException if the word is not found
+     */
     public int getWordIdBodyFromStem(String stem) throws IOException {
         Object wordId = word2IdBody.get(stem);
         return wordId != null ? (int) wordId : -1;
     }
 
+    /***
+     * Get the wordId of the body
+     * @return the wordId of the body
+     */
+
     public int getWordIdBody() {
         return wordIdBody;
     }
 
-    //tb=2 : want body only = do not want title
-    //tb=1 : want title only = do not want body
+    /***
+     * Get the frequency of the keywords in the page
+     * @param pageId the pageId
+     * @param numKeywords the number of keywords
+     * @param tb the type of the body
+     *       tb=2 : want body only = do not want title
+     *       tb=1 : want title only = do not want body
+     * @return the frequency of the keywords
+     * @throws IOException if the pageId is not found
+     */
     public Map<String, Integer> getKeywordFrequency(int pageId, int numKeywords, int tb) throws IOException {
         Hashtable<String, Integer> keywordFrequency = new Hashtable<>();
         long recid = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxTitle");
-        if (recid != 0 && forwardIdxTitle.get(pageId) != null && tb!=2){
+        if (recid != 0 && forwardIdxTitle.get(pageId) != null && tb != 2) {
             BTree list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageId));
             TupleBrowser browser = list.browse();
             Tuple tuple = new Tuple();
@@ -238,13 +316,12 @@ public class ForwardInvertedIndex {
                 String keyword = (String) IdTitle2Word.get(post.getId());
                 if (keywordFrequency.containsKey(keyword))
                     keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
-                else
-                    keywordFrequency.put(keyword, post.getFreq());
+                else keywordFrequency.put(keyword, post.getFreq());
             }
 
         }
         long recid2 = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxBody");
-        if (recid2 != 0 && forwardIdxBody.get(pageId) != null && tb!=1){
+        if (recid2 != 0 && forwardIdxBody.get(pageId) != null && tb != 1) {
             BTree list2 = BTree.load(recordManager, (Long) forwardIdxBody.get(pageId));
             TupleBrowser browser2 = list2.browse();
             Tuple tuple2 = new Tuple();
@@ -253,8 +330,7 @@ public class ForwardInvertedIndex {
                 String keyword = (String) IdBody2Word.get(post.getId());
                 if (keywordFrequency.containsKey(keyword))
                     keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
-                else
-                    keywordFrequency.put(keyword, post.getFreq());
+                else keywordFrequency.put(keyword, post.getFreq());
             }
         }
 
@@ -267,21 +343,37 @@ public class ForwardInvertedIndex {
 
         // Convert the sorted entries back into a LinkedHashMap
         if (numKeywords == -1)
-            return entries.stream()
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new));
-        return entries.stream()
-                .limit(numKeywords)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new));
+            return entries.stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new));
+        return entries.stream().limit(numKeywords).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> b, LinkedHashMap::new));
     }
 
+    /***
+     * Get the word from the wordId
+     * @param wordId the wordId
+     * @return the word
+     * @throws IOException if the wordId is not found
+     */
     public String getWordFromIdBody(int wordId) throws IOException {
         return (String) IdBody2Word.get(wordId);
     }
+
+    /***
+     * Get the word from the wordId
+     * @param wordId the wordId
+     * @return the word
+     * @throws IOException if the wordId is not found
+     */
     public String getWordFromIdTitle(int wordId) throws IOException {
         return (String) IdTitle2Word.get(wordId);
     }
-    // for indexer phrases
-    public BTree getTreeBodyFromWordId(int wordID) throws IOException{
+
+    /***
+     * Get the list of pageId from the wordId
+     * @param wordID the wordId
+     * @return the list of pageId
+     * @throws IOException if the wordId is not found
+     */
+    public BTree getTreeBodyFromWordId(int wordID) throws IOException {
         BTree list;
         if (invertedIdxBody.get(wordID) == null) {
             return null;
@@ -289,13 +381,91 @@ public class ForwardInvertedIndex {
         list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordID));
         return list;
     }
-    public BTree getTreeTitleFromWordId(int wordID) throws IOException{
+
+    /***
+     * Get the list of pageId from the wordId
+     * @param wordID the wordId
+     * @return the list of pageId
+     * @throws IOException if the wordId is not found
+     */
+    public BTree getTreeTitleFromWordId(int wordID) throws IOException {
         BTree list;
         if (invertedIdxTitle.get(wordID) == null) {
             return null;
         }
         list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordID));
         return list;
-        //return (BTree) invertedIdxTitle.get(wordID);
+    }
+
+    /***
+     * Get invertedIdxTitle hTree
+     * @return invertedIdxTitle
+     */
+    public HTree getInvertedIdxTitle() {
+        return invertedIdxTitle;
+    }
+
+    /***
+     * Get invertedIdxBody hTree
+     * @return invertedIdxBody
+     */
+    public HTree getInvertedIdxBody() {
+        return invertedIdxBody;
+    }
+
+    /***
+     * Get forwardIdxTitle hTree
+     * @return forwardIdxTitle
+     */
+    public HTree getForwardIdxTitle() {
+        return forwardIdxTitle;
+    }
+
+    /***
+     * Get forwardIdxBody hTree
+     * @return forwardIdxBody
+     */
+    public HTree getForwardIdxBody() {
+        return forwardIdxBody;
+    }
+
+    /***
+     * Get word2IdTitle hTree
+     * @return word2IdTitle
+     */
+    public HTree getWord2IdTitle() {
+        return word2IdTitle;
+    }
+
+    /***
+     * Get word2IdBody hTree
+     * @return word2IdBody
+     */
+    public HTree getWord2IdBody() {
+        return word2IdBody;
+    }
+
+    /***
+     * Get IdTitle2Word hTree
+     * @return IdTitle2Word
+     */
+    public HTree getIdTitle2Word() {
+        return IdTitle2Word;
+    }
+
+    /***
+     * Get IdBody2Word hTree
+     * @return IdBody2Word
+     */
+    public HTree getIdBody2Word() {
+        return IdBody2Word;
+    }
+
+    /***
+     * Close the record manager
+     * @throws IOException if the record manager is not found
+     */
+    public void close() throws IOException {
+        recordManager.close();
     }
 }

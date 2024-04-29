@@ -6,7 +6,17 @@ import org.htmlparser.util.NodeList;
 
 import java.net.URL;
 
+/***
+ * The class to extract the title of a webpage
+
+ */
 public class TitleExtractor {
+    /***
+     * Extract the title of a webpage
+     * @param url the URL of the webpage
+     * @return the title of the webpage
+     * @throws Exception if the title cannot be extracted
+     */
     public static String extractTitle(String url) throws Exception {
             // Create a Parser object and fetch the HTML content from the URL
             Parser parser = new Parser(new URL(url).openConnection());

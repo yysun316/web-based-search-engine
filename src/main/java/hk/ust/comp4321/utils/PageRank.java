@@ -196,20 +196,26 @@ public class PageRank {
 
     public static void PageRankByLink(IndexTable indexTable, Double dampingFactor) throws Exception
     {
-        for (int pageid = 0; pageid < indexTable.getPageId(); pageid++)
-        {
+        for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
             WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
-            currentWebNode.updatePagerank(1-dampingFactor);
+            currentWebNode.updatePagerank(1.0);
             indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
-            List<String> ParentList = currentWebNode.getParentForRanking();
-            for (String parentURL : ParentList) {
-                WebNode parentWebNode;
-                int parentId = indexTable.getIdFromUrl(parentURL);
-                parentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parentId, WebNode.class);
-                Double ParentPageRank = parentWebNode.getPagerank();
-                Double PageRankIncrease = ParentPageRank / parentWebNode.getChildForRanking().size();
-                currentWebNode.updatePagerank( currentWebNode.getPagerank() + dampingFactor * PageRankIncrease);
+        }
+        for (int count = 0; count < 2; count++) {
+            for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
+                WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
+                currentWebNode.updatePagerank(currentWebNode.getPagerank() - dampingFactor);
                 indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
+                List<String> ParentList = currentWebNode.getParentForRanking();
+                for (String parentURL : ParentList) {
+                    WebNode parentWebNode;
+                    int parentId = indexTable.getIdFromUrl(parentURL);
+                    parentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parentId, WebNode.class);
+                    Double ParentPageRank = parentWebNode.getPagerank();
+                    Double PageRankIncrease = ParentPageRank / parentWebNode.getChildForRanking().size();
+                    currentWebNode.updatePagerank(currentWebNode.getPagerank() + dampingFactor * PageRankIncrease);
+                    indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
+                }
             }
         }
     }
