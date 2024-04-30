@@ -177,6 +177,7 @@ public class ForwardInvertedIndex {
         } else {
             System.out.println(key + " already exists in word2IdTitle table");
         }
+        recordManager.commit();
     }
 
     public <K, V> void addEntryToWord2IdBody(K key, V value) throws IOException {
@@ -186,6 +187,7 @@ public class ForwardInvertedIndex {
         } else {
             System.out.println(key + " already exists in word2IdBody table");
         }
+        recordManager.commit();
     }
 
     public <K, V> void addEntryToIdTitle2Word(K key, V value) throws IOException {
@@ -194,6 +196,7 @@ public class ForwardInvertedIndex {
         } else {
             System.out.println(key + " already exists in IdTitle2Word table");
         }
+        recordManager.commit();
     }
 
     public <K, V> void addEntryToIdBody2Word(K key, V value) throws IOException {
@@ -202,140 +205,155 @@ public class ForwardInvertedIndex {
         } else {
             System.out.println(key + " already exists in IdBody2Word table");
         }
-    }
-
-
-    /***
-     * Update an entry in the hTree
-     * @param hTreeName the name of the hTree
-     * @param wordId the wordId
-     * @param pageId the pageId
-     * @param freq the frequency of the word
-     * @param pos the position of the word
-     * @throws IOException if the tree name is invalid
-     */
-    public void updateInvertedIdx(String hTreeName, int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
-        // Posting: pageId, freq
-        // wordId -> (posting, pos)
-        Posting post = new Posting(pageId, freq);
-        switch (hTreeName) {
-            case "invertedIdxTitle" -> {
-                // if this wordIdTitle is not in the invertedIdxTitle, create a new BTree
-                BTree list;
-                if (invertedIdxTitle.get(wordId) == null) { // it stores the record.
-                    list = BTree.createInstance(recordManager, new Posting.IdComparator()); // sort by pageId
-                    recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxTitle", list.getRecid()); // name of list is wordId
-                    invertedIdxTitle.put(wordId, list.getRecid()); // add the name of the list to the invertedIdxTitle
-                }
-                list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordId)); // load the list
-                // if the pageId is already in the list (when page has modification)
-                list.insert(post, pos, true);
-            }
-            case "invertedIdxBody" -> {
-                // if this wordIdBody is not in the invertedIdxBody, create a new BTree
-                BTree list;
-                if (invertedIdxBody.get(wordId) == null) {
-                    // wordIdBody, {((id, pos), frequency), (...), ...}
-                    list = BTree.createInstance(recordManager, new Posting.IdComparator());
-                    recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxBody", list.getRecid());
-                    invertedIdxBody.put(wordId, list.getRecid());
-                }
-                list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordId));
-                list.insert(post, pos, true);
-            }
-            default -> throw new IllegalArgumentException("Invalid hTreeName");
-        }
         recordManager.commit();
     }
 
-    public void updateInvertedIdxTitle(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
-        Posting post = new Posting(pageId, freq);
-        BTree list;
+
+
+//    public void updateInvertedIdx(String hTreeName, int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
+//        // Posting: pageId, freq
+//        // wordId -> (posting, pos)
+//        Posting post = new Posting(pageId, freq);
+//        switch (hTreeName) {
+//            case "invertedIdxTitle" -> {
+//                // if this wordIdTitle is not in the invertedIdxTitle, create a new BTree
+//                BTree list;
+//                if (invertedIdxTitle.get(wordId) == null) { // it stores the record.
+//                    list = BTree.createInstance(recordManager, new Posting.IdComparator()); // sort by pageId
+//                    recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxTitle", list.getRecid()); // name of list is wordId
+//                    invertedIdxTitle.put(wordId, list.getRecid()); // add the name of the list to the invertedIdxTitle
+//                }
+//                list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordId)); // load the list
+//                // if the pageId is already in the list (when page has modification)
+//                list.insert(post, pos, true);
+//            }
+//            case "invertedIdxBody" -> {
+//                // if this wordIdBody is not in the invertedIdxBody, create a new BTree
+//                BTree list;
+//                if (invertedIdxBody.get(wordId) == null) {
+//                    // wordIdBody, {((id, pos), frequency), (...), ...}
+//                    list = BTree.createInstance(recordManager, new Posting.IdComparator());
+//                    recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxBody", list.getRecid());
+//                    invertedIdxBody.put(wordId, list.getRecid());
+//                }
+//                list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordId));
+//                list.insert(post, pos, true);
+//            }
+//            default -> throw new IllegalArgumentException("Invalid hTreeName");
+//        }
+//        recordManager.commit();
+//    }
+
+//    public void updateInvertedIdxTitle(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
+//        Posting post = new Posting(pageId, freq);
+//        BTree list;
+//        if (invertedIdxTitle.get(wordId) == null) {
+//            list = BTree.createInstance(recordManager, new Posting.IdComparator());
+//            recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxTitle", list.getRecid());
+//            invertedIdxTitle.put(wordId, list.getRecid());
+//        }
+//        list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordId));
+//        list.insert(post, pos, true);
+//        recordManager.commit();
+//    }
+//
+//    public void updateInvertedIdxBody(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
+//        Posting post = new Posting(pageId, freq);
+//        BTree list;
+//        if (invertedIdxBody.get(wordId) == null) {
+//            list = BTree.createInstance(recordManager, new Posting.IdComparator());
+//            recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxBody", list.getRecid());
+//            invertedIdxBody.put(wordId, list.getRecid());
+//        }
+//        list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordId));
+//        list.insert(post, pos, true);
+//        recordManager.commit();
+//    }
+//
+//    public void updateInvertedIdxTitle(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
+//        Posting post = new Posting(pageId, freq);
+//        if (invertedIdxTitle.get(wordId) == null) {
+//            invertedIdxTitle.put(wordId, new TreeMap<>(new Posting.IdComparator()));
+//        }
+//        TreeMap<Posting, ArrayList<Integer>> postingsList = (TreeMap<Posting, ArrayList<Integer>>) invertedIdxTitle.get(wordId);
+//        postingsList.put(post, pos);
+//        recordManager.commit();
+//    }
+//
+//    public void updateInvertedIdxBody(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
+//        Posting post = new Posting(pageId, freq);
+//        if (invertedIdxBody.get(wordId) == null) {
+//            invertedIdxBody.put(wordId, new TreeMap<>(new Posting.IdComparator()));
+//        }
+//        TreeMap<Posting, ArrayList<Integer>> postingsList = (TreeMap<Posting, ArrayList<Integer>>) invertedIdxBody.get(wordId);
+//        postingsList.put(post, pos);
+//        recordManager.commit();
+//    }
+
+    public void updateInvertedIdxTitle(int wordId, int pageId, ArrayList<Integer> pos) throws IOException { // wordId -> (pageId, pos)
+        // Get the map of pageId to frequency and positions for the given wordId
         if (invertedIdxTitle.get(wordId) == null) {
-            list = BTree.createInstance(recordManager, new Posting.IdComparator());
-            recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxTitle", list.getRecid());
-            invertedIdxTitle.put(wordId, list.getRecid());
+            invertedIdxTitle.put(wordId, new HashMap<>());
         }
-        list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordId));
-        list.insert(post, pos, true);
-    }
+        HashMap<Integer, ArrayList<Integer>> pageIdFreqPosMap = (HashMap<Integer, ArrayList<Integer>>) invertedIdxTitle.get(wordId);
 
-    public void updateInvertedIdxBody(int wordId, int pageId, int freq, ArrayList<Integer> pos) throws IOException {
-        Posting post = new Posting(pageId, freq);
-        BTree list;
-        if (invertedIdxBody.get(wordId) == null) {
-            list = BTree.createInstance(recordManager, new Posting.IdComparator());
-            recordManager.setNamedObject(((Integer) wordId) + "InvertedIdxBody", list.getRecid());
-            invertedIdxBody.put(wordId, list.getRecid());
-        }
-        list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordId));
-        list.insert(post, pos, true);
-    }
+        // Update the frequency and positions for the pageId
+        pageIdFreqPosMap.put(pageId, pos);
 
-    /***
-     * Update an entry in the hTree
-     * @param hTreeName  the name of the hTree
-     * @param pageID the pageId
-     * @param wordId the wordId
-     * @param freq the frequency of the word
-     * @param pos the position of the word
-     * @throws IOException if the tree name is invalid
-     */
-    public void updateForwardIdx(String hTreeName, int pageID, int wordId, int freq, ArrayList<Integer> pos) throws IOException {
-        // pageId -> (freq, wordId) (sort by term frequency) but not working because we cannot find the wordId for removal
-        // pageId -> (posting: (wordId, freq), pos) can be used to find the wordId for removal and can sort by frequency
-        Posting post = new Posting(wordId, freq);
-        switch (hTreeName) {
-            case "forwardIdxTitle" -> {
-                // if this id is not in the forwardIdxTitle, create a new BTree
-                BTree list;
-                if (forwardIdxTitle.get(pageID) == null) {
-                    list = BTree.createInstance(recordManager, new Posting.FreqComparator()); // sort by term frequency
-                    recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxTitle", list.getRecid());
-                    forwardIdxTitle.put(pageID, list.getRecid());
-                }
-                list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageID));
-                // remove the old entry with same wordId
-                list.insert(post, pos, true); // insert the wordId and pos
-            }
-            case "forwardIdxBody" -> {
-                // if this id is not in the forwardIdxBody, create a new BTree
-                BTree list;
-                if (forwardIdxBody.get(pageID) == null) {
-                    list = BTree.createInstance(recordManager, new Posting.FreqComparator()); // sort by term frequency
-                    recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxBody", list.getRecid());
-                    forwardIdxBody.put(pageID, list.getRecid());
-                }
-                list = BTree.load(recordManager, (Long) forwardIdxBody.get(pageID));
-                list.insert(post, pos, true);
-            }
-            default -> throw new IllegalArgumentException("Invalid hTreeName");
-        }
+        // Update the invertedIdxTitle with the new pageIdFreqPosMap
+        invertedIdxTitle.put(wordId, pageIdFreqPosMap);
+
         recordManager.commit();
     }
 
-    public void updateForwardIdxTitle(int pageID, int wordId, int freq, ArrayList<Integer> pos) throws IOException {
-        Posting post = new Posting(wordId, freq);
-        BTree list;
-        if (forwardIdxTitle.get(pageID) == null) {
-            list = BTree.createInstance(recordManager, new Posting.FreqComparator());
-            recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxTitle", list.getRecid());
-            forwardIdxTitle.put(pageID, list.getRecid());
+    public void updateInvertedIdxBody(int wordId, int pageId, ArrayList<Integer> pos) throws IOException { // wordId -> (pageId, pos)
+        // Get the map of pageId to frequency and positions for the given wordId
+        if (invertedIdxBody.get(wordId) == null) {
+            invertedIdxBody.put(wordId, new HashMap<>());
         }
-        list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageID));
-        list.insert(post, pos, true);
+        HashMap<Integer, ArrayList<Integer>> pageIdFreqPosMap = (HashMap<Integer, ArrayList<Integer>>) invertedIdxBody.get(wordId);
+
+        // Update the frequency and positions for the pageId
+        pageIdFreqPosMap.put(pageId, pos);
+
+        // Update the invertedIdxBody with the new pageIdFreqPosMap
+        invertedIdxBody.put(wordId, pageIdFreqPosMap);
+
+        recordManager.commit();
     }
 
-    public void updateForwardIdxBody(int pageID, int wordId, int freq, ArrayList<Integer> pos) throws IOException {
-        Posting post = new Posting(wordId, freq);
-        BTree list;
-        if (forwardIdxBody.get(pageID) == null) {
-            list = BTree.createInstance(recordManager, new Posting.FreqComparator());
-            recordManager.setNamedObject(((Integer) pageID) + "ForwardIdxBody", list.getRecid());
-            forwardIdxBody.put(pageID, list.getRecid());
+
+
+    public void updateForwardIdxTitle(int pageID, int wordId, int freq) throws IOException {
+        // Get the map of wordId to frequency for the given pageID
+        if (forwardIdxTitle.get(pageID) == null) {
+            forwardIdxTitle.put(pageID, new HashMap<>());
         }
-        list = BTree.load(recordManager, (Long) forwardIdxBody.get(pageID));
-        list.insert(post, pos, true);
+        HashMap<Integer, Integer> wordIdFreqMap = (HashMap<Integer, Integer>) forwardIdxTitle.get(pageID);
+
+        // Update the frequency for the wordId
+        wordIdFreqMap.put(wordId, freq);
+
+        // Update the forwardIdxTitle with the new wordIdFreqMap
+        forwardIdxTitle.put(pageID, wordIdFreqMap);
+
+        recordManager.commit();
+    }
+
+    public void updateForwardIdxBody(int pageID, int wordId, int freq) throws IOException {
+        // Get the map of wordId to frequency for the given pageID
+        if (forwardIdxBody.get(pageID) == null) {
+            forwardIdxBody.put(pageID, new HashMap<>());
+        }
+        HashMap<Integer, Integer> wordIdFreqMap = (HashMap<Integer, Integer>) forwardIdxBody.get(pageID);
+
+        // Update the frequency for the wordId
+        wordIdFreqMap.put(wordId, freq);
+
+        // Update the forwardIdxBody with the new wordIdFreqMap
+        forwardIdxBody.put(pageID, wordIdFreqMap);
+
+        recordManager.commit();
     }
 
     /***
@@ -389,34 +407,20 @@ public class ForwardInvertedIndex {
      */
     public Map<String, Integer> getKeywordFrequency(int pageId, int numKeywords, int tb) throws IOException {
         Hashtable<String, Integer> keywordFrequency = new Hashtable<>();
-        long recid = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxTitle");
-        if (recid != 0 && forwardIdxTitle.get(pageId) != null && tb != 2) {
-            BTree list = BTree.load(recordManager, (Long) forwardIdxTitle.get(pageId));
-            TupleBrowser browser = list.browse();
-            Tuple tuple = new Tuple();
-            while (browser.getNext(tuple)) {
-                Posting post = (Posting) tuple.getKey();
-                String keyword = (String) IdTitle2Word.get(post.getId());
-                if (keywordFrequency.containsKey(keyword))
-                    keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
-                else keywordFrequency.put(keyword, post.getFreq());
-            }
-
-        }
-        long recid2 = recordManager.getNamedObject(((Integer) pageId) + "ForwardIdxBody");
-        if (recid2 != 0 && forwardIdxBody.get(pageId) != null && tb != 1) {
-            BTree list2 = BTree.load(recordManager, (Long) forwardIdxBody.get(pageId));
-            TupleBrowser browser2 = list2.browse();
-            Tuple tuple2 = new Tuple();
-            while (browser2.getNext(tuple2)) {
-                Posting post = (Posting) tuple2.getKey();
-                String keyword = (String) IdBody2Word.get(post.getId());
-                if (keywordFrequency.containsKey(keyword))
-                    keywordFrequency.put(keyword, keywordFrequency.get(keyword) + post.getFreq());
-                else keywordFrequency.put(keyword, post.getFreq());
+        if (forwardIdxTitle.get(pageId) != null && tb != 2) {
+            HashMap<Integer, Integer> wordIdFreqMap = (HashMap<Integer, Integer>) forwardIdxTitle.get(pageId);
+            for (Map.Entry<Integer, Integer> entry : wordIdFreqMap.entrySet()) {
+                String keyword = (String) IdTitle2Word.get(entry.getKey());
+                keywordFrequency.put(keyword, entry.getValue());
             }
         }
-
+        if (forwardIdxBody.get(pageId) != null && tb != 1) {
+            HashMap<Integer, Integer> wordIdFreqMap = (HashMap<Integer, Integer>) forwardIdxBody.get(pageId);
+            for (Map.Entry<Integer, Integer> entry : wordIdFreqMap.entrySet()) {
+                String keyword = (String) IdBody2Word.get(entry.getKey());
+                keywordFrequency.put(keyword, keywordFrequency.getOrDefault(keyword, 0) + entry.getValue());
+            }
+        }
 
         // Convert the Hashtable into a List of entries
         List<Map.Entry<String, Integer>> entries = new ArrayList<>(keywordFrequency.entrySet());
@@ -471,7 +475,7 @@ public class ForwardInvertedIndex {
      * @return the list of pageId
      * @throws IOException if the wordId is not found
      */
-    public BTree getTreeTitleFromWordId(int wordID) throws IOException {
+    public BTree getTreeTitleFromWordId(int wordID) throws IOException { // TODO: change
         BTree list;
         if (invertedIdxTitle.get(wordID) == null) {
             return null;
@@ -550,5 +554,77 @@ public class ForwardInvertedIndex {
      */
     public void close() throws IOException {
         recordManager.close();
+    }
+
+    public void checkInvertedIdx() throws IOException {
+        System.out.println("Checking the inverted index for title...");
+        HTree title = getInvertedIdxTitle();
+        FastIterator titleBrowser = title.keys();
+        Object key;
+        while ((key = titleBrowser.next()) != null) {
+            int wordId = (int) key;
+            System.out.println("word: " + getWordFromIdTitle(wordId));
+            BTree list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordId));
+            TupleBrowser browser = list.browse();
+            Tuple tuple = new Tuple();
+            while (browser.getNext(tuple)) {
+                Posting post = (Posting) tuple.getKey();
+                System.out.print("pageId: " + post.getId() + ", freq: " + post.getFreq() + ", ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Checking the inverted index for body...");
+        HTree body = getInvertedIdxBody();
+        FastIterator bodyBrowser = body.keys();
+        while ((key = bodyBrowser.next()) != null) {
+            int wordId = (int) key;
+            System.out.println("word: " + getWordFromIdBody(wordId));
+            BTree list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordId));
+            TupleBrowser browser = list.browse();
+            Tuple tuple = new Tuple();
+            while (browser.getNext(tuple)) {
+                Posting post = (Posting) tuple.getKey();
+                System.out.print("pageId: " + post.getId() + ", freq: " + post.getFreq() + ", ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void checkInvertedIdx2() {
+        try {
+            System.out.println("Checking the inverted index for title...");
+            HTree title = getInvertedIdxTitle();
+            FastIterator titleBrowser = title.keys();
+            Object key;
+            while ((key = titleBrowser.next()) != null) {
+                int wordId = (int) key;
+                System.out.print("word: " + getWordFromIdTitle(wordId));
+                HashMap<Integer, ArrayList<Integer>> pageIdFreqPosMap = (HashMap<Integer, ArrayList<Integer>>) invertedIdxTitle.get(wordId);
+                for (Map.Entry<Integer, ArrayList<Integer>> entry : pageIdFreqPosMap.entrySet()) {
+                    int pageId = entry.getKey();
+                    int freq = entry.getValue().size();
+                    System.out.print("pageId: " + pageId + ", freq: " + freq + ", ");
+                }
+                System.out.println();
+            }
+
+            System.out.println("Checking the inverted index for body...");
+            HTree body = getInvertedIdxBody();
+            FastIterator bodyBrowser = body.keys();
+            while ((key = bodyBrowser.next()) != null) {
+                int wordId = (int) key;
+                System.out.print("word: " + getWordFromIdBody(wordId));
+                HashMap<Integer, ArrayList<Integer>> pageIdFreqPosMap = (HashMap<Integer, ArrayList<Integer>>) invertedIdxBody.get(wordId);
+                for (Map.Entry<Integer, ArrayList<Integer>> entry : pageIdFreqPosMap.entrySet()) {
+                    int pageId = entry.getKey();
+                    int freq = entry.getValue().size();
+                    System.out.print("pageId: " + pageId + ", freq: " + freq + ", ");
+                }
+                System.out.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

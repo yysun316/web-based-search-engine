@@ -32,7 +32,7 @@ public class IndexerTest {
     public void testIndex() {
         try {
             String root = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
-            int numPages = 300;
+            int numPages = 20;
             System.out.println("Extracting links from " + root + "...");
             long startTime1 = System.currentTimeMillis();
             List<String> links = crawler.extractLinks(root, numPages);
@@ -49,7 +49,6 @@ public class IndexerTest {
             Indexer.indexTable = indexTable;
             indexer.setProcessedData(result);
             indexer.run(); // for simplicity, we call run() directly instead of creating a new thread
-            // Call checkDB() after indexing is complete
             checkDB();
 
         } catch (Exception e) {
@@ -62,7 +61,8 @@ public class IndexerTest {
         for (int i = 0; i < indexTable.getPageId(); i++) {
             System.out.println("Number of entries in the forward inverted index: " + forwardInvertedIndex.getKeywordFrequency(i, 10, -1));
         }
-
+//        forwardInvertedIndex.checkInvertedIdx();
+        forwardInvertedIndex.checkInvertedIdx2();
     }
 
     public void checkPreprocessedData(List<HashMap<Integer, String[]>> result) {
@@ -78,4 +78,5 @@ public class IndexerTest {
             System.out.println("Body of page " + i + ": " + String.join(" ", result.get(1).get(i)));
         }
     }
+
 }

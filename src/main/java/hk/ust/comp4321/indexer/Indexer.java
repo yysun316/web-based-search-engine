@@ -3,7 +3,6 @@ package hk.ust.comp4321.indexer;
 import hk.ust.comp4321.invertedIndex.ForwardInvertedIndex;
 import hk.ust.comp4321.invertedIndex.IndexTable;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -32,7 +31,7 @@ public class Indexer implements Runnable {
 
     @Override
     public void run() {
-        ExecutorService executorService = Executors.newFixedThreadPool(1);
+        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         long startTime = System.currentTimeMillis();
         for (Map.Entry<Integer, String[]> entry : preprocessedData.get(0).entrySet()) {
             executorService.execute(() -> {
@@ -69,16 +68,11 @@ public class Indexer implements Runnable {
         } catch (
                 Exception e) {
             throw new RuntimeException(e);
-        } finally {
+        }
+        if (!executorService.isTerminated()) {
+            System.err.println("Indexing took too long, terminating executor service.");
             executorService.shutdownNow();
         }
-        try {
-            checkDB();
-        } catch (
-                IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     private void indexTitle(Integer pageId, String[] words) throws Exception {
@@ -86,24 +80,23 @@ public class Indexer implements Runnable {
         int pos = 0; // position of the word in the title
         Hashtable<Integer, ArrayList<Integer>> wordId2Pos = new Hashtable<>(); // wordIdTitle -> positions
         for (String word : words) {
-            // If exists in the word2IdTitle table, get the wordId; otherwise, add it to the tables
             if (forwardInvertedIndex.getWordIdTitleFromStem(word) == -1) {
                 forwardInvertedIndex.addEntryToWord2IdTitle(word, forwardInvertedIndex.getWordIdTitle());
                 forwardInvertedIndex.addEntryToIdTitle2Word(forwardInvertedIndex.getWordIdTitleFromStem(word), word);
             }
-            // Find all the positions of the stem in the title
             int wordIdTitle = forwardInvertedIndex.getWordIdTitleFromStem(word);
             ArrayList<Integer> tmpPos = wordId2Pos.computeIfAbsent(wordIdTitle, k -> new ArrayList<>());
             tmpPos.add(pos);
             pos++;
         }
-        // 5. Insert the wordIdTitle and positions into the inverted index
         for (int wordIdTitle : wordId2Pos.keySet()) {
-            forwardInvertedIndex.updateInvertedIdxTitle(wordIdTitle, pageId, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
+//            forwardInvertedIndex.updateInvertedIdxTitle(wordIdTitle, pageId, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
+            forwardInvertedIndex.updateInvertedIdxTitle(wordIdTitle, pageId, wordId2Pos.get(wordIdTitle));
         }
-        // 6. Insert the wordIdTitle and id into the forward index
         for (int wordIdTitle : wordId2Pos.keySet()) {
-            forwardInvertedIndex.updateForwardIdxTitle(pageId, wordIdTitle, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
+//            forwardInvertedIndex.updateForwardIdxTitle(pageId, wordIdTitle, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle))
+//            ;
+            forwardInvertedIndex.updateForwardIdxTitle(pageId, wordIdTitle, wordId2Pos.get(wordIdTitle).size());
         }
     }
 
@@ -111,32 +104,22 @@ public class Indexer implements Runnable {
         int pos = 0; // position of the word in the body
         Hashtable<Integer, ArrayList<Integer>> wordId2Pos = new Hashtable<>(); // wordIdBody -> positions
         for (String word : words) {
-            // If exists in the word2IdBody table, get the wordId; otherwise, add it to the tables
             if (forwardInvertedIndex.getWordIdBodyFromStem(word) == -1) {
                 forwardInvertedIndex.addEntryToWord2IdBody(word, forwardInvertedIndex.getWordIdBody());
                 forwardInvertedIndex.addEntryToIdBody2Word(forwardInvertedIndex.getWordIdBodyFromStem(word), word);
             }
-            // 4. Find all the positions of the word in the body
             int wordIdBody = forwardInvertedIndex.getWordIdBodyFromStem(word);
             ArrayList<Integer> tmpPos = wordId2Pos.computeIfAbsent(wordIdBody, k -> new ArrayList<>());
             tmpPos.add(pos);
             pos++;
         }
-        // Insert the wordIdBody and positions into the inverted index
         for (int wordIdBody : wordId2Pos.keySet()) {
-            forwardInvertedIndex.updateInvertedIdxBody(wordIdBody, pageId, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
+//            forwardInvertedIndex.updateInvertedIdxBody(wordIdBody, pageId, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
+            forwardInvertedIndex.updateInvertedIdxBody(wordIdBody, pageId, wordId2Pos.get(wordIdBody));
         }
-        // Insert the wordIdBody and id into the forward index
         for (int wordIdBody : wordId2Pos.keySet()) {
-            forwardInvertedIndex.updateForwardIdxBody(pageId, wordIdBody, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
+//            forwardInvertedIndex.updateForwardIdxBody(pageId, wordIdBody, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
+            forwardInvertedIndex.updateForwardIdxBody(pageId, wordIdBody, wordId2Pos.get(wordIdBody).size());
         }
-    }
-
-    public static void checkDB() throws IOException {
-        System.out.println("Checking the database...");
-        for (int i = 0; i < indexTable.getPageId(); i++) {
-            System.out.println("Number of entries in the forward inverted index: " + forwardInvertedIndex.getKeywordFrequency(i, 10, -1));
-        }
-
     }
 }

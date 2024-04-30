@@ -23,26 +23,19 @@ public class Preprocessor implements Callable<List<HashMap<Integer, String[]>>> 
     @Override
     public List<HashMap<Integer, String[]>> call() throws Exception {
         ExecutorService executorService1 = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        ExecutorService executorService2 = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         List<Future<HashMap<Integer, String[]>>> futureTitle = new ArrayList<>();
         List<Future<HashMap<Integer, String[]>>> futureBody = new ArrayList<>();
         long startTime = System.currentTimeMillis();
         for (String url : urls) {
-            futureBody.add(executorService2.submit(() -> processBody(url)));
+            futureBody.add(executorService1.submit(() -> processBody(url)));
             futureTitle.add(executorService1.submit(() -> processTitle(url)));
         }
 
         executorService1.shutdown();
-        executorService2.shutdown();
         boolean terminated1 = executorService1.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        boolean terminated2 = executorService1.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         if (!terminated1) {
             System.err.println("Preprocessing took too long, terminating executor service.");
             executorService1.shutdownNow();
-        }
-        if (!terminated2){
-            System.err.println("Preprocessing took too long, terminating executor service.");
-            executorService2.shutdownNow();
         }
         HashMap<Integer, String[]> title = new HashMap<>();
         HashMap<Integer, String[]> body = new HashMap<>();
@@ -52,13 +45,8 @@ public class Preprocessor implements Callable<List<HashMap<Integer, String[]>>> 
         for (Future<HashMap<Integer, String[]>> future : futureBody) {
             body.putAll(future.get());
         }
-        System.out.println(title.size() + " pages preprocessed");
-//        System.out.println(title.get(0).length + " words in the first page");
-//        System.out.println(title.get(1).length + " words in the second page");
-//        System.out.println("First pageid is " + title.keySet().toArray()[0]);
         long endTime = System.currentTimeMillis();
         System.out.println("Preprocessing took " + (endTime - startTime) + "ms");
-
         List<HashMap<Integer, String[]>> result = new ArrayList<>();
         result.add(title);
         result.add(body);
