@@ -4648,7 +4648,7 @@ Stacktrace:] with root cause
 
 
 Stacktrace:] with root cause
-	java.lang.NullPointerException: Cannot invoke "hk.ust.comp4321.indexer.dealWithPhases.indexPhases(String, int)" because "hk.ust.comp4321.SearchEngine.indexerPhases" is null
+	java.lang.NullPointerException: Cannot invoke "hk.ust.comp4321.indexer.PhasesSearch.indexPhases(String, int)" because "hk.ust.comp4321.SearchEngine.indexerPhases" is null
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:88)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4698,7 +4698,7 @@ Stacktrace:] with root cause
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
 		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
-		at hk.ust.comp4321.indexer.dealWithPhases.<init>(IndexerPhases.java:29)
+		at hk.ust.comp4321.indexer.PhasesSearch.<init>(IndexerPhases.java:29)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:73)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4743,7 +4743,7 @@ Stacktrace:] with root cause
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
 		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
-		at hk.ust.comp4321.indexer.dealWithPhases.<init>(IndexerPhases.java:29)
+		at hk.ust.comp4321.indexer.PhasesSearch.<init>(IndexerPhases.java:29)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:73)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4856,7 +4856,7 @@ Stacktrace:] with root cause
 Stacktrace:] with root cause
 	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
 		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
-		at hk.ust.comp4321.indexer.dealWithPhases.<init>(IndexerPhases.java:29)
+		at hk.ust.comp4321.indexer.PhasesSearch.<init>(IndexerPhases.java:29)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:73)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -4990,8 +4990,8 @@ Stacktrace:] with root cause
 		at jdbm.htree.HashDirectory.put(HashDirectory.java:261)
 		at jdbm.htree.HTree.put(HTree.java:129)
 		at hk.ust.comp4321.invertedIndex.ForwardInvertedIndex.addEntry(ForwardInvertedIndex.java:116)
-		at hk.ust.comp4321.indexer.dealWithPhases.indexBody(IndexerPhases.java:173)
-		at hk.ust.comp4321.indexer.dealWithPhases.indexPhases(IndexerPhases.java:35)
+		at hk.ust.comp4321.indexer.PhasesSearch.indexBody(IndexerPhases.java:173)
+		at hk.ust.comp4321.indexer.PhasesSearch.indexPhases(IndexerPhases.java:35)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:88)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
@@ -5175,8 +5175,8 @@ Stacktrace:] with root cause
 		at jdbm.recman.CacheRecordManager.updateCacheEntries(CacheRecordManager.java:409)
 		at jdbm.recman.CacheRecordManager.commit(CacheRecordManager.java:340)
 		at hk.ust.comp4321.invertedIndex.ForwardInvertedIndex.updateInvertedIdx(ForwardInvertedIndex.java:172)
-		at hk.ust.comp4321.indexer.dealWithPhases.indexBody(IndexerPhases.java:190)
-		at hk.ust.comp4321.indexer.dealWithPhases.indexPhases(IndexerPhases.java:35)
+		at hk.ust.comp4321.indexer.PhasesSearch.indexBody(IndexerPhases.java:190)
+		at hk.ust.comp4321.indexer.PhasesSearch.indexPhases(IndexerPhases.java:35)
 		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:84)
 		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:161)
 		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)

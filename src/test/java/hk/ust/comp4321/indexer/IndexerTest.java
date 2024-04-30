@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class IndexerTest {
     private Indexer indexer;
-    private String stopPath = "resources/stopwords.txt";
     private Crawler crawler;
     private ForwardInvertedIndex forwardInvertedIndex;
     private IndexTable indexTable;
@@ -32,7 +31,7 @@ public class IndexerTest {
     public void testIndex() {
         try {
             String root = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
-            int numPages = 20;
+            int numPages = 300;
             System.out.println("Extracting links from " + root + "...");
             long startTime1 = System.currentTimeMillis();
             List<String> links = crawler.extractLinks(root, numPages);
@@ -40,15 +39,16 @@ public class IndexerTest {
             System.out.println("Time taken to extract links: " + (endTime1 - startTime1) + "ms");
             assertNotNull(links);
 
-            Preprocessor preprocessor = new Preprocessor(links, indexTable);
+            Preprocessor preprocessor = new Preprocessor(links, indexTable, "resources/stopwords.txt");
             FutureTask<List<HashMap<Integer, String[]>>> listFutureTask = new FutureTask<>(preprocessor);
             Thread thread = new Thread(listFutureTask);
             thread.start();
             List<HashMap<Integer, String[]>> result = listFutureTask.get();
-//            checkPreprocessedData(result);
+            System.out.println("Time taken to preprocess data: " + (System.currentTimeMillis() - endTime1) + "ms");
             Indexer.indexTable = indexTable;
             indexer.setProcessedData(result);
             indexer.run(); // for simplicity, we call run() directly instead of creating a new thread
+            System.out.println("Time taken to index data: " + (System.currentTimeMillis() - endTime1) + "ms");
             checkDB();
 
         } catch (Exception e) {
@@ -61,22 +61,6 @@ public class IndexerTest {
         for (int i = 0; i < indexTable.getPageId(); i++) {
             System.out.println("Number of entries in the forward inverted index: " + forwardInvertedIndex.getKeywordFrequency(i, 10, -1));
         }
-//        forwardInvertedIndex.checkInvertedIdx();
-        forwardInvertedIndex.checkInvertedIdx2();
+        forwardInvertedIndex.checkInvertedIdx();
     }
-
-    public void checkPreprocessedData(List<HashMap<Integer, String[]>> result) {
-        System.out.println("Checking the preprocessed data...");
-        System.out.println("Number of title entries: " + result.get(0).size());
-        System.out.println("Number of body entries: " + result.get(1).size());
-
-        for (int i = 0; i < result.get(0).size(); i++) {
-            System.out.println("Title of page " + i + ": " + String.join(" ", result.get(0).get(i)));
-        }
-
-        for (int i = 0; i < result.get(1).size(); i++) {
-            System.out.println("Body of page " + i + ": " + String.join(" ", result.get(1).get(i)));
-        }
-    }
-
 }

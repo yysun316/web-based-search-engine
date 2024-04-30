@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [01/May/2024:01:59:25 +0800] "GET /project/ HTTP/1.1" 404 764
+0:0:0:0:0:0:0:1 - - [01/May/2024:01:59:33 +0800] "GET /project/Google.html HTTP/1.1" 200 3396
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:00:07 +0800] "POST /project/googleServer.jsp HTTP/1.1" 500 2960
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:03:38 +0800] "POST /project/googleServer.jsp HTTP/1.1" 500 2960
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:04:06 +0800] "GET /project/Google.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:04:07 +0800] "GET /favicon.ico HTTP/1.1" 200 21630
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:04:11 +0800] "POST /project/googleServer.jsp HTTP/1.1" 500 2950
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:07:03 +0800] "POST /project/googleServer.jsp HTTP/1.1" 500 2950
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:07:47 +0800] "GET /project/Google.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:08:08 +0800] "POST /project/googleServer.jsp HTTP/1.1" 500 2950
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:19:42 +0800] "GET /project/Google.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:29:56 +0800] "POST /project/googleServer.jsp HTTP/1.1" 500 3212
+0:0:0:0:0:0:0:1 - - [01/May/2024:02:43:59 +0800] "POST /project/googleServer.jsp HTTP/1.1" 500 3250

@@ -13,11 +13,12 @@ import java.util.concurrent.*;
 public class Preprocessor implements Callable<List<HashMap<Integer, String[]>>> {
     private List<String> urls;
     private IndexTable indexTable;
-    private StopStem stopStem = new StopStem("resources/stopwords.txt");
+    private StopStem stopStem;
 
-    public Preprocessor(List<String> urls, IndexTable indexTable) {
+    public Preprocessor(List<String> urls, IndexTable indexTable, String stopPath) {
         this.urls = urls;
         this.indexTable = indexTable;
+        stopStem = new StopStem(stopPath);
     }
 
     @Override

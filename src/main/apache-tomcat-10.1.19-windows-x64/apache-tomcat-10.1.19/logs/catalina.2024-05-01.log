@@ -1,0 +1,220 @@
+01-May-2024 01:59:18.026 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.19
+01-May-2024 01:59:18.037 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 19:36:50 UTC
+01-May-2024 01:59:18.037 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.19.0
+01-May-2024 01:59:18.038 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+01-May-2024 01:59:18.038 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+01-May-2024 01:59:18.038 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-May-2024 01:59:18.039 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+01-May-2024 01:59:18.039 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+01-May-2024 01:59:18.039 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-May-2024 01:59:18.040 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 01:59:18.040 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 01:59:18.068 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\conf\logging.properties
+01-May-2024 01:59:18.068 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-May-2024 01:59:18.068 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-May-2024 01:59:18.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-May-2024 01:59:18.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-May-2024 01:59:18.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-May-2024 01:59:18.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-May-2024 01:59:18.071 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-May-2024 01:59:18.071 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-May-2024 01:59:18.071 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 01:59:18.072 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 01:59:18.073 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\temp
+01-May-2024 01:59:18.290 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+01-May-2024 01:59:18.307 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+01-May-2024 01:59:18.931 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-May-2024 01:59:19.023 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1418] milliseconds
+01-May-2024 01:59:19.300 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-May-2024 01:59:19.301 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.19]
+01-May-2024 01:59:19.330 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs]
+01-May-2024 01:59:20.268 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs] has finished in [929] ms
+01-May-2024 01:59:20.269 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1]
+01-May-2024 01:59:20.385 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1] has finished in [113] ms
+01-May-2024 01:59:20.386 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2]
+01-May-2024 01:59:20.442 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2] has finished in [56] ms
+01-May-2024 01:59:20.444 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3]
+01-May-2024 01:59:20.508 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3] has finished in [64] ms
+01-May-2024 01:59:20.511 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4]
+01-May-2024 01:59:20.568 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4] has finished in [58] ms
+01-May-2024 01:59:20.571 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples]
+01-May-2024 01:59:23.077 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples] has finished in [2,508] ms
+01-May-2024 01:59:23.079 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager]
+01-May-2024 01:59:23.226 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager] has finished in [147] ms
+01-May-2024 01:59:23.227 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager]
+01-May-2024 01:59:23.374 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager] has finished in [147] ms
+01-May-2024 01:59:23.375 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project]
+01-May-2024 01:59:25.219 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-May-2024 01:59:25.232 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project] has finished in [1,856] ms
+01-May-2024 01:59:25.233 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT]
+01-May-2024 01:59:25.321 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT] has finished in [88] ms
+01-May-2024 01:59:25.336 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-May-2024 01:59:25.432 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [6402] milliseconds
+01-May-2024 02:03:56.827 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:03:56.839 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-May-2024 02:03:56.932 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:03:56.953 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:04:02.789 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.19
+01-May-2024 02:04:02.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 19:36:50 UTC
+01-May-2024 02:04:02.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.19.0
+01-May-2024 02:04:02.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+01-May-2024 02:04:02.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+01-May-2024 02:04:02.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-May-2024 02:04:02.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+01-May-2024 02:04:02.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+01-May-2024 02:04:02.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-May-2024 02:04:02.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:04:02.806 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:04:02.831 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\conf\logging.properties
+01-May-2024 02:04:02.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-May-2024 02:04:02.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-May-2024 02:04:02.832 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-May-2024 02:04:02.833 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-May-2024 02:04:02.833 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-May-2024 02:04:02.834 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-May-2024 02:04:02.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-May-2024 02:04:02.835 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-May-2024 02:04:02.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:04:02.836 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:04:02.837 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\temp
+01-May-2024 02:04:02.843 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+01-May-2024 02:04:02.853 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+01-May-2024 02:04:03.429 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:04:03.481 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1100] milliseconds
+01-May-2024 02:04:03.652 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-May-2024 02:04:03.653 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.19]
+01-May-2024 02:04:03.683 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs]
+01-May-2024 02:04:04.576 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs] has finished in [892] ms
+01-May-2024 02:04:04.578 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1]
+01-May-2024 02:04:04.680 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1] has finished in [101] ms
+01-May-2024 02:04:04.681 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2]
+01-May-2024 02:04:04.769 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2] has finished in [89] ms
+01-May-2024 02:04:04.770 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3]
+01-May-2024 02:04:04.839 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3] has finished in [70] ms
+01-May-2024 02:04:04.841 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4]
+01-May-2024 02:04:04.898 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4] has finished in [58] ms
+01-May-2024 02:04:04.902 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples]
+01-May-2024 02:04:05.935 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples] has finished in [1,033] ms
+01-May-2024 02:04:05.936 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager]
+01-May-2024 02:04:06.061 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager] has finished in [124] ms
+01-May-2024 02:04:06.062 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager]
+01-May-2024 02:04:06.151 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager] has finished in [89] ms
+01-May-2024 02:04:06.152 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project]
+01-May-2024 02:04:06.622 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-May-2024 02:04:06.631 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project] has finished in [479] ms
+01-May-2024 02:04:06.633 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT]
+01-May-2024 02:04:06.702 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT] has finished in [66] ms
+01-May-2024 02:04:06.731 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:04:06.805 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [3320] milliseconds
+01-May-2024 02:07:23.000 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:07:23.007 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-May-2024 02:07:23.038 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:07:23.046 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:07:43.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.19
+01-May-2024 02:07:43.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 19:36:50 UTC
+01-May-2024 02:07:43.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.19.0
+01-May-2024 02:07:43.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+01-May-2024 02:07:43.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+01-May-2024 02:07:43.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-May-2024 02:07:43.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+01-May-2024 02:07:43.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+01-May-2024 02:07:43.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-May-2024 02:07:43.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:07:43.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:07:43.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\conf\logging.properties
+01-May-2024 02:07:43.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-May-2024 02:07:43.814 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:07:43.815 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\temp
+01-May-2024 02:07:43.818 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+01-May-2024 02:07:43.822 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+01-May-2024 02:07:44.048 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:07:44.078 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [417] milliseconds
+01-May-2024 02:07:44.167 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-May-2024 02:07:44.167 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.19]
+01-May-2024 02:07:44.177 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs]
+01-May-2024 02:07:44.534 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs] has finished in [357] ms
+01-May-2024 02:07:44.535 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1]
+01-May-2024 02:07:44.576 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1] has finished in [41] ms
+01-May-2024 02:07:44.577 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2]
+01-May-2024 02:07:44.606 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2] has finished in [29] ms
+01-May-2024 02:07:44.608 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3]
+01-May-2024 02:07:44.635 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3] has finished in [27] ms
+01-May-2024 02:07:44.636 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4]
+01-May-2024 02:07:44.666 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4] has finished in [30] ms
+01-May-2024 02:07:44.667 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples]
+01-May-2024 02:07:45.078 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples] has finished in [411] ms
+01-May-2024 02:07:45.079 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager]
+01-May-2024 02:07:45.117 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager] has finished in [39] ms
+01-May-2024 02:07:45.118 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager]
+01-May-2024 02:07:45.158 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager] has finished in [40] ms
+01-May-2024 02:07:45.159 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project]
+01-May-2024 02:07:45.345 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-May-2024 02:07:45.349 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project] has finished in [189] ms
+01-May-2024 02:07:45.349 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT]
+01-May-2024 02:07:45.368 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT] has finished in [19] ms
+01-May-2024 02:07:45.372 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:07:45.398 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1317] milliseconds
+01-May-2024 02:18:15.856 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:18:15.864 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-May-2024 02:18:15.890 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:18:15.896 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:19:35.188 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.19
+01-May-2024 02:19:35.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 19:36:50 UTC
+01-May-2024 02:19:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.19.0
+01-May-2024 02:19:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+01-May-2024 02:19:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+01-May-2024 02:19:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+01-May-2024 02:19:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+01-May-2024 02:19:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.2+13-LTS-58
+01-May-2024 02:19:35.193 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+01-May-2024 02:19:35.194 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:19:35.194 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:19:35.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\conf\logging.properties
+01-May-2024 02:19:35.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-May-2024 02:19:35.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-May-2024 02:19:35.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-May-2024 02:19:35.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-May-2024 02:19:35.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-May-2024 02:19:35.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-May-2024 02:19:35.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-May-2024 02:19:35.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-May-2024 02:19:35.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:19:35.203 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19
+01-May-2024 02:19:35.204 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\temp
+01-May-2024 02:19:35.206 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.7] using APR version [1.7.4].
+01-May-2024 02:19:35.210 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.13 30 Jan 2024]
+01-May-2024 02:19:35.414 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:19:35.431 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [373] milliseconds
+01-May-2024 02:19:35.508 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-May-2024 02:19:35.508 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.19]
+01-May-2024 02:19:35.516 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs]
+01-May-2024 02:19:35.858 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\docs] has finished in [342] ms
+01-May-2024 02:19:35.858 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1]
+01-May-2024 02:19:35.899 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example1] has finished in [40] ms
+01-May-2024 02:19:35.899 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2]
+01-May-2024 02:19:35.924 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example2] has finished in [25] ms
+01-May-2024 02:19:35.925 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3]
+01-May-2024 02:19:35.950 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example3] has finished in [23] ms
+01-May-2024 02:19:35.950 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4]
+01-May-2024 02:19:35.971 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\example4] has finished in [21] ms
+01-May-2024 02:19:35.972 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples]
+01-May-2024 02:19:36.360 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\examples] has finished in [387] ms
+01-May-2024 02:19:36.361 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager]
+01-May-2024 02:19:36.400 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\host-manager] has finished in [40] ms
+01-May-2024 02:19:36.401 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager]
+01-May-2024 02:19:36.434 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\manager] has finished in [33] ms
+01-May-2024 02:19:36.434 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project]
+01-May-2024 02:19:36.610 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-May-2024 02:19:36.615 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\project] has finished in [180] ms
+01-May-2024 02:19:36.615 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT]
+01-May-2024 02:19:36.635 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Desktop\project_10-3\project_10-3\src\main\apache-tomcat-10.1.19-windows-x64\apache-tomcat-10.1.19\webapps\ROOT] has finished in [20] ms
+01-May-2024 02:19:36.638 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+01-May-2024 02:19:36.665 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1231] milliseconds

@@ -1,0 +1,341 @@
+01-May-2024 01:59:23.029 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 01:59:23.029 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 01:59:23.040 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@f9b7332')
+01-May-2024 02:00:07.918 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [/googleServer.jsp] at line [87]
+
+84:         inputString = request.getParameter("inputString");
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+88:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+89:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+90:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
+		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
+		at hk.ust.comp4321.indexer.Preprocessor.<init>(Preprocessor.java:16)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:56)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:222)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 02:03:38.154 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [/googleServer.jsp] at line [87]
+
+84:         inputString = request.getParameter("inputString");
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+88:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+89:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+90:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
+		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
+		at hk.ust.comp4321.indexer.Preprocessor.<init>(Preprocessor.java:16)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:56)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:222)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 02:03:56.889 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 02:03:56.889 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 02:04:05.907 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 02:04:05.907 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 02:04:05.911 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5db4c359')
+01-May-2024 02:04:11.837 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [87]
+
+84:         inputString = request.getParameter("inputString");
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+88:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+89:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+90:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
+		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
+		at hk.ust.comp4321.indexer.Preprocessor.<init>(Preprocessor.java:16)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:56)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:222)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 02:07:03.643 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [87]
+
+84:         inputString = request.getParameter("inputString");
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+88:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+89:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+90:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
+		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
+		at hk.ust.comp4321.indexer.Preprocessor.<init>(Preprocessor.java:16)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:56)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:222)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 02:07:23.023 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 02:07:23.023 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 02:07:45.067 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 02:07:45.067 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 02:07:45.069 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+01-May-2024 02:08:08.065 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [87]
+
+84:         inputString = request.getParameter("inputString");
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+88:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+89:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+90:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.io.BufferedReader.readLine()" because "br" is null
+		at hk.ust.comp4321.indexer.StopStem.<init>(StopStem.java:29)
+		at hk.ust.comp4321.indexer.Preprocessor.<init>(Preprocessor.java:16)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:56)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:222)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 02:18:15.880 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 02:18:15.880 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 02:19:36.348 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 02:19:36.348 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 02:19:36.351 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@f9b7332')
+01-May-2024 02:29:56.543 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [87]
+
+84:         inputString = request.getParameter("inputString");
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+88:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+89:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+90:         if (inputString != null && !inputString.isEmpty()) {
+
+
+Stacktrace:] with root cause
+	java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+		at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+		at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+		at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+		at java.base/java.util.Objects.checkIndex(Objects.java:385)
+		at java.base/java.util.ArrayList.get(ArrayList.java:427)
+		at hk.ust.comp4321.utils.PageRank.PageScoreByBoth(PageRank.java:230)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:104)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:222)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 02:43:59.178 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [/googleServer.jsp] at line [88]
+
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+
+
+Stacktrace:] with root cause
+	java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+		at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+		at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+		at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+		at java.base/java.util.Objects.checkIndex(Objects.java:385)
+		at java.base/java.util.ArrayList.get(ArrayList.java:427)
+		at hk.ust.comp4321.utils.PageRank.PageScoreByBoth(PageRank.java:230)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:104)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:223)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
