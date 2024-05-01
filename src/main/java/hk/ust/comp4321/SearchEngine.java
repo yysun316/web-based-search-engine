@@ -33,7 +33,7 @@ public class SearchEngine extends HttpServlet {
 
     // the main function to be called by jsp
     public static ArrayList<Double> processInput(String input, String checkboxValue, String stopPath) throws Exception {
-
+        input = input.toLowerCase();
         String rootURL = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
 
         stopStem = new StopStem(stopPath);
