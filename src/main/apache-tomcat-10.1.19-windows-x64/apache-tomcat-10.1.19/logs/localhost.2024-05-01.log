@@ -809,3 +809,632 @@ Stacktrace:
 		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 20:33:10.850 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:33:10.850 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:33:10.854 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@71e5f61d')
+01-May-2024 20:33:41.106 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:            Double currentS = outputS.get(outputI.get(i));
+131:     %>
+132:             <div class="box">
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [136] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [140] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+140:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+141: 
+142:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+143: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:            Double currentS = outputS.get(outputI.get(i));
+131:     %>
+132:             <div class="box">
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [136] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [140] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+140:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+141: 
+142:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+143: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+01-May-2024 20:34:37.568 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 20:34:37.568 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 20:34:49.254 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:34:49.254 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:34:49.255 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@172ca72b')
+01-May-2024 20:34:55.015 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [88] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+
+
+An error occurred at line: [89] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+92:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+
+
+An error occurred at line: [90] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+87:         out.println("inputString: " + inputString + "<br>");
+88:         outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+92:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+93:         out.println("outputW finished" + "<br>");
+
+
+An error occurred at line: [95] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+92:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+93:         out.println("outputW finished" + "<br>");
+94:         if (inputString != null && !inputString.isEmpty()) {
+95:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+96:             outputI = javaObject.pageRanking(outputS);
+97:             outputW = javaObject.nodeRanking(outputI);
+98:             current = inputString;}
+
+
+An error occurred at line: [96] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+93:         out.println("outputW finished" + "<br>");
+94:         if (inputString != null && !inputString.isEmpty()) {
+95:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+96:             outputI = javaObject.pageRanking(outputS);
+97:             outputW = javaObject.nodeRanking(outputI);
+98:             current = inputString;}
+99:     %>
+
+
+An error occurred at line: [127] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved
+124: 
+125:         for (int i = 0; i < outputW.size(); i++){
+126:            WebNode currentW = outputW.get(i);
+127:            Double currentS = outputS.get(outputI.get(i));
+128:     %>
+129:             <div class="box">
+130:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+
+
+An error occurred at line: [130] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+127:            Double currentS = outputS.get(outputI.get(i));
+128:     %>
+129:             <div class="box">
+130:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+131:     <%
+132:             out.println("score: " + currentS + "<br>");
+133:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+131:     <%
+132:             out.println("score: " + currentS + "<br>");
+133:             String currentURL = currentW.getUrl();
+134:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+135: 
+136:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [137] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+134:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+135: 
+136:             out.println(currentW.getLastModifiedDate());
+137:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+138: 
+139:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+140: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [88] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+
+
+An error occurred at line: [89] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+92:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+
+
+An error occurred at line: [90] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+87:         out.println("inputString: " + inputString + "<br>");
+88:         outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+92:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+93:         out.println("outputW finished" + "<br>");
+
+
+An error occurred at line: [95] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+92:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+93:         out.println("outputW finished" + "<br>");
+94:         if (inputString != null && !inputString.isEmpty()) {
+95:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+96:             outputI = javaObject.pageRanking(outputS);
+97:             outputW = javaObject.nodeRanking(outputI);
+98:             current = inputString;}
+
+
+An error occurred at line: [96] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+93:         out.println("outputW finished" + "<br>");
+94:         if (inputString != null && !inputString.isEmpty()) {
+95:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+96:             outputI = javaObject.pageRanking(outputS);
+97:             outputW = javaObject.nodeRanking(outputI);
+98:             current = inputString;}
+99:     %>
+
+
+An error occurred at line: [127] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved
+124: 
+125:         for (int i = 0; i < outputW.size(); i++){
+126:            WebNode currentW = outputW.get(i);
+127:            Double currentS = outputS.get(outputI.get(i));
+128:     %>
+129:             <div class="box">
+130:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+
+
+An error occurred at line: [130] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+127:            Double currentS = outputS.get(outputI.get(i));
+128:     %>
+129:             <div class="box">
+130:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+131:     <%
+132:             out.println("score: " + currentS + "<br>");
+133:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+131:     <%
+132:             out.println("score: " + currentS + "<br>");
+133:             String currentURL = currentW.getUrl();
+134:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+135: 
+136:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [137] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+134:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+135: 
+136:             out.println(currentW.getLastModifiedDate());
+137:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+138: 
+139:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+140: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+01-May-2024 20:36:06.107 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:            Double currentS = outputS.get(outputI.get(i));
+131:     %>
+132:             <div class="box">
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [136] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [140] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+140:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+141: 
+142:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+143: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:            Double currentS = outputS.get(outputI.get(i));
+131:     %>
+132:             <div class="box">
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [136] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [140] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+140:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+141: 
+142:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+143: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+01-May-2024 20:37:57.479 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 20:37:57.479 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 20:38:02.815 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:38:02.815 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:38:02.817 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@2ce86164')
+01-May-2024 20:38:13.674 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:            Double currentS = outputS.get(outputI.get(i));
+131:     %>
+132:             <div class="box">
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [136] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [140] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+140:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+141: 
+142:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+143: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [133] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+130:            Double currentS = outputS.get(outputI.get(i));
+131:     %>
+132:             <div class="box">
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+
+
+An error occurred at line: [136] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+133:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+134:     <%
+135:             out.println("score: " + currentS + "<br>");
+136:             String currentURL = currentW.getUrl();
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+
+
+An error occurred at line: [140] in the jsp file: [/googleServer.jsp]
+The method getUrl() is undefined for the type WebNode
+137:             out.println("URL: " + "<a href=\"" + currentURL + "\">" + currentURL + "</a><br>");
+138: 
+139:             out.println(currentW.getLastModifiedDate());
+140:             out.println(" &nbsp; size: " + String.valueOf(PageSizeExtractor.extractPageSize(currentW.getUrl())) + "<br>");
+141: 
+142:             out.println(javaObject.nodeKeyWord(currentW) + "<br>");
+143: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+01-May-2024 20:39:12.837 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:39:12.837 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:39:12.839 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5bda80bf')
+01-May-2024 20:44:51.712 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 20:44:51.712 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 20:44:54.703 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:44:54.703 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:44:54.705 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5bda80bf')
+01-May-2024 20:45:10.879 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [98]
+
+95:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+96:         out.println("outputW finished" + "<br>");
+97:         if (inputString != null && !inputString.isEmpty()) {
+98:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+99:             outputI = javaObject.pageRanking(outputS);
+100:             outputW = javaObject.nodeRanking(outputI);
+101:             current = inputString;}
+
+
+Stacktrace:] with root cause
+	java.lang.NullPointerException: Cannot invoke "java.util.List.isEmpty()" because "links" is null
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:56)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:233)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+01-May-2024 20:47:59.378 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:47:59.378 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:47:59.380 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@1c98290c')
+01-May-2024 20:48:07.405 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 20:48:07.405 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 20:48:11.311 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:48:11.311 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:48:11.313 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5bda80bf')
+01-May-2024 20:51:22.218 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 20:51:22.219 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 20:51:33.066 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 20:51:33.066 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 20:51:33.067 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5e8f9e2d')

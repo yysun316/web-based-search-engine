@@ -73,9 +73,6 @@ public class SearchEngine extends HttpServlet {
         if (!links.isEmpty())
         {
             pageUpdated = true;
-            for (String currentUrl : links) {
-                System.out.println(currentUrl);
-            }
             PageRankByLink(indexTable, 0.5);
         }
         long endTime4 = System.currentTimeMillis();

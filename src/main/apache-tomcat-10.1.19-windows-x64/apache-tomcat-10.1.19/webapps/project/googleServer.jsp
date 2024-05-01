@@ -84,16 +84,12 @@
         inputString = request.getParameter("inputString");
         checkboxValue = request.getParameter("checkboxName");
         SearchEngine javaObject = new SearchEngine();
-        out.println("inputString: " + inputString + "<br>");
         ArrayList<Double> outputS = new ArrayList<>();
         if (current != null && !current.isEmpty()) {
             outputS = javaObject.processInput(current, checkboxValue, filePath);
         }
-        out.println("outputS: " + outputS + "<br>");
         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
-        out.println("outputI finished" + "<br>");
         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
-        out.println("outputW finished" + "<br>");
         if (inputString != null && !inputString.isEmpty()) {
             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
             outputI = javaObject.pageRanking(outputS);
@@ -122,9 +118,6 @@
     </div>
     <div class="container2">
     <%
-        out.println("<p>Input string: " + current + "</p>");
-        out.println("<p>Checkbox option: " + currentcheckboxValue + "</p>");
-
         for (int i = 0; i < outputW.size(); i++){
            WebNode currentW = outputW.get(i);
            Double currentS = outputS.get(outputI.get(i));
