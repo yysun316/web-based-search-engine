@@ -52,22 +52,23 @@ public class SearchEngine extends HttpServlet {
         List<String> links = crawler.extractLinks(rootURL, numPages);
         long endTime1 = System.currentTimeMillis();
         System.out.println("Time taken to extract links: " + (endTime1 - startTime1) + "ms");
+        long endTime3 = endTime1;
+        if (!links.isEmpty()) {
+            Preprocessor preprocessor = new Preprocessor(links, indexTable, stopPath);
+            FutureTask<List<HashMap<Integer, String[]>>> listFutureTask = new FutureTask<>(preprocessor);
+            Thread thread = new Thread(listFutureTask);
+            thread.start();
+            List<HashMap<Integer, String[]>> preprocessedData = listFutureTask.get();
+            long endTime2 = System.currentTimeMillis();
+            System.out.println("Time taken to preprocess data: " + (endTime2 - endTime1) + "ms");
 
-        Preprocessor preprocessor = new Preprocessor(links, indexTable, stopPath);
-        FutureTask<List<HashMap<Integer, String[]>>> listFutureTask = new FutureTask<>(preprocessor);
-        Thread thread = new Thread(listFutureTask);
-        thread.start();
-        List<HashMap<Integer, String[]>> preprocessedData = listFutureTask.get();
-        long endTime2 = System.currentTimeMillis();
-        System.out.println("Time taken to preprocess data: " + (endTime2 - endTime1) + "ms");
-
-        indexer.setProcessedData(preprocessedData);
-        Thread thread1 = new Thread(indexer);
-        thread1.start();
-        thread1.join(); // May change later
-        long endTime3 = System.currentTimeMillis();
-        System.out.println("Time taken to index data: " + (endTime3 - endTime2) + "ms");
-
+            indexer.setProcessedData(preprocessedData);
+            Thread thread1 = new Thread(indexer);
+            thread1.start();
+            thread1.join(); // May change later
+            endTime3 = System.currentTimeMillis();
+            System.out.println("Time taken to index data: " + (endTime3 - endTime2) + "ms");
+        }
         boolean pageUpdated = false;
         if (!links.isEmpty())
         {
