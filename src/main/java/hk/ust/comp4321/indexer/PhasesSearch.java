@@ -11,6 +11,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PhasesSearch {
+    /***
+     * Get the phrases in the query
+     * @param query query
+     * @param stopStem stopStem
+     * @return the phrases in the query
+     */
     public static ArrayList<String> getPhases(String query, StopStem stopStem) {
         ArrayList<String> arrayPhase = new ArrayList<>();
         Pattern pattern = Pattern.compile("\"([^\"]*)\"");
@@ -37,90 +43,16 @@ public class PhasesSearch {
         return arrayPhase;
     }
 
-//    public static ArrayList<Double> weightIncreaseByPhase(IndexTable db1, ForwardInvertedIndex db2, String query,StopStem stopStem, int tb) throws IOException {
-//        ArrayList<String> phrases = getPhases(query, stopStem);
-//        int pageIdLimit = db1.getPageId();
-//        ArrayList<Double> weights = new ArrayList<>(Collections.nCopies(pageIdLimit, 0.0));
-//        Double weightPhase = 3.0;
-//        for (String phrase : phrases) {
-//            String[] words = phrase.split(" ");
-//            int wordsLength = words.length;
-//            BTree btreestemofpage1 = null;
-//            BTree btreestemofpage2 = null;
-//            BTree btreestemofpage3 = null;
-//            ArrayList<Integer> position1 = null;
-//            ArrayList<Integer> position2 = null;
-//            ArrayList<Integer> position3 = null;
-//            if(wordsLength>0) {
-//                if(tb == 1) {
-//                    btreestemofpage1 = db2.getTreeTitleFromWordId(db2.getWordIdTitleFromStem(words[0]));
-//                    if(wordsLength>1) {
-//                        btreestemofpage2 = db2.getTreeTitleFromWordId(db2.getWordIdTitleFromStem(words[1]));
-//                    }
-//                    if(wordsLength>2) {
-//                        btreestemofpage3 = db2.getTreeTitleFromWordId(db2.getWordIdTitleFromStem(words[2]));
-//                    }
-//                }
-//
-//                if(tb == 2) {
-//                    btreestemofpage1 = db2.getTreeBodyFromWordId(db2.getWordIdBodyFromStem(words[0]));
-//                    if(wordsLength>1)
-//                    {
-//                        btreestemofpage2 = db2.getTreeBodyFromWordId(db2.getWordIdBodyFromStem(words[1]));
-//                    }
-//                    if(wordsLength>2)
-//                    {
-//                        btreestemofpage3 = db2.getTreeBodyFromWordId(db2.getWordIdBodyFromStem(words[2]));
-//                    }
-//                }
-//
-//                if(btreestemofpage1 == null) {
-//                    continue;
-//                }
-//
-//                TupleBrowser browser1 = btreestemofpage1.browse();
-//                Tuple tuple1 = new Tuple();
-//                while(browser1.getNext(tuple1)) {
-//                    Posting post = (Posting) tuple1.getKey(); // post are doc that contain word[0]
-//                    Object posOb1 = btreestemofpage1.find(post); // this document this word where appear?
-//                    position1 = (ArrayList<Integer>) posOb1;
-//                    if(wordsLength>1) {
-//                        if(btreestemofpage2 == null) {
-//                            continue;
-//                        }
-//                        Object posOb2 = btreestemofpage2.find(post); // this document this word where appear?
-//                        position2 = (ArrayList<Integer>) posOb2;
-//                    }
-//                    if(wordsLength>2) {
-//                        Object posOb3 = btreestemofpage3.find(post); // this document this word where appear?
-//                        position3 = (ArrayList<Integer>) posOb3;
-//                    }
-//                    int id = post.getId();
-//                    for (int element : position1) {
-//                        if (wordsLength==1){
-//                            weights.set(id, weights.get(id) + weightPhase);
-//                            continue;
-//                        }
-//                        if(position2!=null&&wordsLength==2)
-//                        {
-//                            if (position2.contains(element+1)){
-//                                weights.set(id, weights.get(id) + weightPhase);
-//                                continue;
-//                            }
-//                        }
-//                        if(position3!=null&&wordsLength==3)
-//                        {
-//                            if (position2.contains(element+1)&&(position3.contains(element+2))){
-//                                weights.set(id, weights.get(id) + weightPhase);
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return weights;
-//    }
-
+    /***
+     * Increase the weight of the pages that contain the phrases in the query
+     * @param indexTable indexTable
+     * @param forwardInvertedIndex forwardInvertedIndex
+     * @param query query
+     * @param stopStem stopStem
+     * @param tb tb
+     * @return the weights of the pages
+     * @throws IOException if the weight cannot be increased
+     */
     public static ArrayList<Double> weightIncreaseByPhase
             (IndexTable indexTable,
              ForwardInvertedIndex forwardInvertedIndex,

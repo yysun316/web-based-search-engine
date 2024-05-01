@@ -9,9 +9,19 @@ public class StopStem {
     private Porter porter;
     private HashSet<String> stopWords;
 
+    /***
+     * Check if the word is a stop word
+     * @param str the word
+     * @return true if the word is a stop word, false otherwise
+     */
     public boolean isStopWord(String str) {
         return stopWords.contains(str);
     }
+
+    /***
+     * Constructor of StopStem
+     * @param str the path of the stop words
+     */
     public StopStem(String str) {
         super();
         porter = new Porter();
@@ -35,6 +45,11 @@ public class StopStem {
         }
     }
 
+    /***
+     * Stem the word
+     * @param str the word
+     * @return the stemmed word
+     */
     public String stem(String str) {
         return porter.stripAffixes(str);
     }

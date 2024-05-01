@@ -110,14 +110,24 @@ public class SearchEngine extends HttpServlet {
         return pageScore;
     }
 
-    // to help rank webnodes in jsp call PageRankByBoth
+    /***
+     * Rank the webnodes by pageRank
+     * @param pageScore the pageScore of the webnodes
+     * @return the ranking of the webnodes
+     * @throws Exception if the pageScore is not found
+     */
     public static ArrayList<Integer> pageRanking(ArrayList<Double> pageScore) throws Exception {
         System.out.println("pageScore for ranking " + pageScore);
         ArrayList<Integer> resultRanking = PageRankByBoth(pageScore);
         return resultRanking;
     }
 
-    // to help rank webnodes in jsp by helping it get the corresponding webnode
+    /***
+     * Get the webnodes from the ranking
+     * @param resultRanking the ranking of the webnodes
+     * @return the webnodes
+     * @throws Exception if the webnodes are not found
+     */
     public static ArrayList<WebNode> nodeRanking(ArrayList<Integer> resultRanking) throws Exception {
         ArrayList<WebNode> resultRankedNodes = new ArrayList<>();
         for (Integer rankpage : resultRanking) {

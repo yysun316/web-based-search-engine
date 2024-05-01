@@ -362,19 +362,11 @@ public class ForwardInvertedIndex {
     }
 
     /***
-     * Get the list of pageId from the wordId
+     * Get the pageId and positions of the word in the title
      * @param wordID the wordId
-     * @return the list of pageId
+     * @return the pageId and positions of the word
      * @throws IOException if the wordId is not found
      */
-//    public BTree getTreeBodyFromWordId(int wordID) throws IOException {
-//        BTree list;
-//        if (invertedIdxBody.get(wordID) == null) {
-//            return null;
-//        }
-//        list = BTree.load(recordManager, (Long) invertedIdxBody.get(wordID));
-//        return list;
-//    }
     public HashMap<Integer, ArrayList<Integer>> getPageIDPosFromWordIdTitle(int wordID) throws IOException {
         if (invertedIdxTitle.get(wordID) == null) {
             return null;
@@ -382,14 +374,12 @@ public class ForwardInvertedIndex {
         return (HashMap<Integer, ArrayList<Integer>>) invertedIdxTitle.get(wordID);
     }
 
-//    public BTree getTreeTitleFromWordId(int wordID) throws IOException { // TODO: change
-//        BTree list;
-//        if (invertedIdxTitle.get(wordID) == null) {
-//            return null;
-//        }
-//        list = BTree.load(recordManager, (Long) invertedIdxTitle.get(wordID));
-//        return list;
-//    }
+    /***
+     * Get the pageId and positions of the word in the body
+     * @param wordID the wordId
+     * @return the pageId and positions of the word
+     * @throws IOException if the wordId is not found
+     */
     public HashMap<Integer, ArrayList<Integer>> getPageIDPosFromWordIdBody(int wordID) throws IOException {
         if (invertedIdxBody.get(wordID) == null) {
             return null;

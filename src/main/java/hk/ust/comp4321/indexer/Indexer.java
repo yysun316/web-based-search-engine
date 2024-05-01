@@ -32,7 +32,6 @@ public class Indexer implements Runnable {
     @Override
     public void run() {
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        long startTime = System.currentTimeMillis();
         for (Map.Entry<Integer, String[]> entry : preprocessedData.get(0).entrySet()) {
             executorService.execute(() -> {
                 try {
@@ -57,21 +56,12 @@ public class Indexer implements Runnable {
                 }
             });
         }
-        long endTime = System.currentTimeMillis();
         try {
             executorService.shutdown();
-            System.out.println("Title indexing completed");
-            boolean terminated = executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-            System.out.println("Indexing took " + (endTime - startTime) + "ms");
-            System.out.println("Title indexing completed");
-            System.out.println("Body indexing completed");
+            executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
         } catch (
                 Exception e) {
             throw new RuntimeException(e);
-        }
-        if (!executorService.isTerminated()) {
-            System.err.println("Indexing took too long, terminating executor service.");
-            executorService.shutdownNow();
         }
     }
 
@@ -90,12 +80,9 @@ public class Indexer implements Runnable {
             pos++;
         }
         for (int wordIdTitle : wordId2Pos.keySet()) {
-//            forwardInvertedIndex.updateInvertedIdxTitle(wordIdTitle, pageId, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle));
             forwardInvertedIndex.updateInvertedIdxTitle(wordIdTitle, pageId, wordId2Pos.get(wordIdTitle));
         }
         for (int wordIdTitle : wordId2Pos.keySet()) {
-//            forwardInvertedIndex.updateForwardIdxTitle(pageId, wordIdTitle, wordId2Pos.get(wordIdTitle).size(), wordId2Pos.get(wordIdTitle))
-//            ;
             forwardInvertedIndex.updateForwardIdxTitle(pageId, wordIdTitle, wordId2Pos.get(wordIdTitle).size());
         }
     }
@@ -114,11 +101,9 @@ public class Indexer implements Runnable {
             pos++;
         }
         for (int wordIdBody : wordId2Pos.keySet()) {
-//            forwardInvertedIndex.updateInvertedIdxBody(wordIdBody, pageId, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
             forwardInvertedIndex.updateInvertedIdxBody(wordIdBody, pageId, wordId2Pos.get(wordIdBody));
         }
         for (int wordIdBody : wordId2Pos.keySet()) {
-//            forwardInvertedIndex.updateForwardIdxBody(pageId, wordIdBody, wordId2Pos.get(wordIdBody).size(), wordId2Pos.get(wordIdBody));
             forwardInvertedIndex.updateForwardIdxBody(pageId, wordIdBody, wordId2Pos.get(wordIdBody).size());
         }
     }
