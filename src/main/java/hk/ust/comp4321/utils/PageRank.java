@@ -246,8 +246,6 @@ public class PageRank {
             }
         }
     }
-    //
-    //
     /***
      * PageScoreByBoth gets the scores acquired in the aspect of stem, phases and links based ranking
      * It summarizes the above and provide an overall score for each page

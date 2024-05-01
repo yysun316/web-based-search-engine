@@ -69,7 +69,7 @@ public class SearchEngine extends HttpServlet {
         System.out.println("Time taken to index data: " + (endTime3 - endTime2) + "ms");
 
         boolean pageUpdated = false;
-        if (!links.isEmpty()) // if size == 1, res only contain rootURL which has not been updated
+        if (!links.isEmpty())
         {
             pageUpdated = true;
             for (String currentUrl : links) {
@@ -79,7 +79,9 @@ public class SearchEngine extends HttpServlet {
             }
             PageRankByLink(indexTable, 0.5);
         }
-        System.out.println("PageRanking done");
+        long endTime4 = System.currentTimeMillis();
+        System.out.println("Time taken to update page rank by link: " + (endTime4 - endTime3) + "ms");
+
         if (pageUpdated == true) {
             List<List<Double>> weightt = RankStem(indexTable, forwardInvertedIndex, 1);
             List<List<Double>> weightb = RankStem(indexTable, forwardInvertedIndex, 2);
@@ -87,20 +89,24 @@ public class SearchEngine extends HttpServlet {
             weightDataStorage.updateEntry("weightt", weightt);
             weightDataStorage.updateEntry("weightb", weightb);
         }
+        long endTime5 = System.currentTimeMillis();
+        System.out.println("Time taken to update weightDataStorage: " + (endTime5 - endTime4) + "ms");
 
         if (input == null) {
             System.out.println("error: input in search engine is null so we will not give you any webpage");
             return new ArrayList<>();
         }
-
         int checked = 1;
         if (checkboxValue == null)
             checked = 0;
-
         List<Double> scoret = RankStemWithQuery(indexTable, forwardInvertedIndex, input, 1, weightDataStorage.getEntry("weightt"), stopPath);
         List<Double> scoreb = RankStemWithQuery(indexTable, forwardInvertedIndex, input, 2, weightDataStorage.getEntry("weightb"), stopPath);
+        long endTime6 = System.currentTimeMillis();
+        System.out.println("Time taken to rank stem with query: " + (endTime6 - endTime5) + "ms");
         ArrayList<Double> scoretp = weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 1);
         ArrayList<Double> scorebp = weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 2);
+        long endTime7 = System.currentTimeMillis();
+        System.out.println("Time taken to rank weight increase by phase: " + (endTime7 - endTime6) + "ms");
         ArrayList<Double> pageScore = PageScoreByBoth(indexTable, checked, scoret, scoreb, scoretp, scorebp, 5.0, 3.0, 5.0, 3.0);
         return pageScore;
     }
