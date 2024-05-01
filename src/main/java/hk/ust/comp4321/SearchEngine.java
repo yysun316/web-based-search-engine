@@ -2,6 +2,7 @@ package hk.ust.comp4321;
 
 import hk.ust.comp4321.crawler.Crawler;
 import hk.ust.comp4321.indexer.Indexer;
+import hk.ust.comp4321.indexer.PhasesSearch;
 import hk.ust.comp4321.indexer.Preprocessor;
 import hk.ust.comp4321.indexer.StopStem;
 import hk.ust.comp4321.invertedIndex.ForwardInvertedIndex;
@@ -19,8 +20,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.FutureTask;
 
-import static hk.ust.comp4321.indexer.PhasesSearch.weightIncreaseByPhase;
 import static hk.ust.comp4321.utils.PageRank.*;
+
 
 @WebServlet("/add")
 public class SearchEngine extends HttpServlet {
@@ -99,8 +100,8 @@ public class SearchEngine extends HttpServlet {
         List<Double> scoreb = RankStemWithQuery(indexTable, forwardInvertedIndex, input, 2, weightDataStorage.getEntry("weightb"), stopPath);
         long endTime6 = System.currentTimeMillis();
         System.out.println("Time taken to rank stem with query: " + (endTime6 - endTime5) + "ms");
-        ArrayList<Double> scoretp = weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 1);
-        ArrayList<Double> scorebp = weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 2);
+        ArrayList<Double> scoretp = PhasesSearch.weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 1);
+        ArrayList<Double> scorebp = PhasesSearch.weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 2);
         long endTime7 = System.currentTimeMillis();
         System.out.println("Time taken to rank weight increase by phase: " + (endTime7 - endTime6) + "ms");
         ArrayList<Double> pageScore = PageScoreByBoth(indexTable, checked, scoret, scoreb, scoretp, scorebp, 5.0, 3.0, 5.0, 3.0);

@@ -20,15 +20,25 @@ public class Indexer implements Runnable {
 
     public static IndexTable indexTable;
 
-
+    /***
+     * Constructor
+     * @param forwardInvertedIndex forward inverted index
+     */
     public Indexer(ForwardInvertedIndex forwardInvertedIndex) {
         Indexer.forwardInvertedIndex = forwardInvertedIndex;
     }
 
+    /***
+     * Set the preprocessed data
+     * @param preprocessedData preprocessed data
+     */
     public void setProcessedData(List<HashMap<Integer, String[]>> preprocessedData) {
         this.preprocessedData = preprocessedData;
     }
 
+    /***
+     * Index the title and body of a webpage
+     */
     @Override
     public void run() {
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
@@ -65,6 +75,12 @@ public class Indexer implements Runnable {
         }
     }
 
+    /***
+     * Index the title of a webpage
+     * @param pageId page id
+     * @param words words in the title
+     * @throws Exception if the word cannot be indexed
+     */
     private void indexTitle(Integer pageId, String[] words) throws Exception {
         if (words.length == 0) return;
         int pos = 0; // position of the word in the title
@@ -87,6 +103,12 @@ public class Indexer implements Runnable {
         }
     }
 
+    /***
+     * Index the body of a webpage
+     * @param pageId page id
+     * @param words words in the body
+     * @throws Exception if the word cannot be indexed
+     */
     private void indexBody(Integer pageId, String[] words) throws Exception {
         int pos = 0; // position of the word in the body
         Hashtable<Integer, ArrayList<Integer>> wordId2Pos = new Hashtable<>(); // wordIdBody -> positions
