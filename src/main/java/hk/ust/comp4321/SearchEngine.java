@@ -75,15 +75,13 @@ public class SearchEngine extends HttpServlet {
             pageUpdated = true;
             for (String currentUrl : links) {
                 System.out.println(currentUrl);
-                PageRankByLink(indexTable, 0.5);
-                PageRankByLink(indexTable, 0.5);
             }
             PageRankByLink(indexTable, 0.5);
         }
         long endTime4 = System.currentTimeMillis();
         System.out.println("Time taken to update page rank by link: " + (endTime4 - endTime3) + "ms");
 
-        if (pageUpdated == true) {
+        if (pageUpdated) {
             List<List<Double>> weightt = RankStem(indexTable, forwardInvertedIndex, 1);
             List<List<Double>> weightb = RankStem(indexTable, forwardInvertedIndex, 2);
 
@@ -129,7 +127,12 @@ public class SearchEngine extends HttpServlet {
         return resultRankedNodes;
     }
 
-    // to help print out keystems for each webpage in jsp
+    /***
+     * Get the keyword of the node
+     * @param currentW the node
+     * @return the keyword of the node
+     * @throws IOException if the keyword is not found
+     */
     public static String nodeKeyWord(WebNode currentW) throws IOException {
         Map<String, Integer> keyword2Freq;
         keyword2Freq = forwardInvertedIndex.getKeywordFrequency(currentW.getId(), 20, 0);

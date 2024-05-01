@@ -5,6 +5,7 @@ import hk.ust.comp4321.invertedIndex.IndexTable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -129,7 +130,7 @@ public class PhasesSearch {
         Double weightPhase = 3.0;
         ArrayList<String> phrases = getPhases(query, stopStem);
         int pageIdLimit = indexTable.getPageId();
-        ArrayList<Double> weights = new ArrayList<>();
+        ArrayList<Double> weights = new ArrayList<>(Collections.nCopies(pageIdLimit, 0.0));
         for (String phrase: phrases)
         {
             String[] words = phrase.split(" ");

@@ -85,7 +85,10 @@
         checkboxValue = request.getParameter("checkboxName");
         SearchEngine javaObject = new SearchEngine();
         out.println("inputString: " + inputString + "<br>");
-        ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+        ArrayList<Double> outputS = new ArrayList<>();
+        if (current != null && !current.isEmpty()) {
+            outputS = javaObject.processInput(current, checkboxValue, filePath);
+        }
         out.println("outputS: " + outputS + "<br>");
         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
         out.println("outputI finished" + "<br>");

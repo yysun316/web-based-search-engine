@@ -339,3 +339,473 @@ Stacktrace:] with root cause
 		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 13:28:57.323 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 13:28:57.324 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 13:28:57.325 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5df417a7')
+01-May-2024 13:29:15.484 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [88]
+
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+
+
+Stacktrace:] with root cause
+	java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+		at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+		at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+		at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+		at java.base/java.util.Objects.checkIndex(Objects.java:385)
+		at java.base/java.util.ArrayList.get(ArrayList.java:427)
+		at hk.ust.comp4321.utils.PageRank.PageScoreByBoth(PageRank.java:270)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:110)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:223)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 13:37:26.940 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 13:37:26.941 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 13:37:26.943 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+01-May-2024 13:48:24.649 SEVERE [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [88]
+
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+
+
+Stacktrace:] with root cause
+	java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+		at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+		at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+		at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+		at java.base/java.util.Objects.checkIndex(Objects.java:385)
+		at java.base/java.util.ArrayList.get(ArrayList.java:427)
+		at hk.ust.comp4321.utils.PageRank.PageScoreByBoth(PageRank.java:270)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:110)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:223)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 14:09:28.162 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 14:09:28.162 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 14:09:51.762 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 14:09:51.762 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 14:09:51.768 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+01-May-2024 14:20:09.055 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+01-May-2024 14:20:09.055 INFO [Thread-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+01-May-2024 14:23:29.356 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 14:23:29.356 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 14:23:29.362 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@18e7143f')
+01-May-2024 14:27:09.964 SEVERE [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [An exception occurred processing [googleServer.jsp] at line [88]
+
+85:         checkboxValue = request.getParameter("checkboxName");
+86:         SearchEngine javaObject = new SearchEngine();
+87:         out.println("inputString: " + inputString + "<br>");
+88:         ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+89:         out.println("outputS: " + outputS + "<br>");
+90:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+91:         out.println("outputI finished" + "<br>");
+
+
+Stacktrace:] with root cause
+	java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+		at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+		at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+		at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+		at java.base/java.util.Objects.checkIndex(Objects.java:385)
+		at java.base/java.util.ArrayList.get(ArrayList.java:427)
+		at hk.ust.comp4321.utils.PageRank.PageScoreByBoth(PageRank.java:270)
+		at hk.ust.comp4321.SearchEngine.processInput(SearchEngine.java:109)
+		at org.apache.jsp.googleServer_jsp._jspService(googleServer_jsp.java:223)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:456)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 15:02:39.864 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 15:02:39.864 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 15:02:39.867 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@1cb3ec38')
+01-May-2024 16:23:34.108 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 16:23:34.108 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 16:23:34.111 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@1cb3ec38')
+01-May-2024 16:52:09.409 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2024 16:52:09.410 INFO [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2024 16:52:09.414 INFO [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@209775a9')
+01-May-2024 16:59:09.071 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [91] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+88:         if (current != null && !current.isEmpty()) {
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+
+
+An error occurred at line: [92] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+
+
+An error occurred at line: [97] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+
+
+An error occurred at line: [98] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+101:     %>
+
+
+An error occurred at line: [129] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved
+126: 
+127:         for (int i = 0; i < outputW.size(); i++){
+128:            WebNode currentW = outputW.get(i);
+129:            Double currentS = outputS.get(outputI.get(i));
+130:     %>
+131:             <div class="box">
+132:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [91] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+88:         if (current != null && !current.isEmpty()) {
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+
+
+An error occurred at line: [92] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+
+
+An error occurred at line: [97] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+
+
+An error occurred at line: [98] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+101:     %>
+
+
+An error occurred at line: [129] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved
+126: 
+127:         for (int i = 0; i < outputW.size(); i++){
+128:            WebNode currentW = outputW.get(i);
+129:            Double currentS = outputS.get(outputI.get(i));
+130:     %>
+131:             <div class="box">
+132:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)
+01-May-2024 16:59:51.001 SEVERE [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/project] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [91] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+88:         if (current != null && !current.isEmpty()) {
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+
+
+An error occurred at line: [92] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+
+
+An error occurred at line: [97] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+
+
+An error occurred at line: [98] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+101:     %>
+
+
+An error occurred at line: [129] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved
+126: 
+127:         for (int i = 0; i < outputW.size(); i++){
+128:            WebNode currentW = outputW.get(i);
+129:            Double currentS = outputS.get(outputI.get(i));
+130:     %>
+131:             <div class="box">
+132:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [91] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+88:         if (current != null && !current.isEmpty()) {
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+
+
+An error occurred at line: [92] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+89:             ArrayList<Double> outputS = javaObject.processInput(current, checkboxValue, filePath);
+90:         }
+91:         out.println("outputS: " + outputS + "<br>");
+92:         ArrayList<Integer> outputI = javaObject.pageRanking(outputS);
+93:         out.println("outputI finished" + "<br>");
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+
+
+An error occurred at line: [97] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+94:         ArrayList<WebNode> outputW = javaObject.nodeRanking(outputI);
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+
+
+An error occurred at line: [98] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved to a variable
+95:         out.println("outputW finished" + "<br>");
+96:         if (inputString != null && !inputString.isEmpty()) {
+97:             outputS = javaObject.processInput(inputString, checkboxValue, filePath);
+98:             outputI = javaObject.pageRanking(outputS);
+99:             outputW = javaObject.nodeRanking(outputI);
+100:             current = inputString;}
+101:     %>
+
+
+An error occurred at line: [129] in the jsp file: [/googleServer.jsp]
+outputS cannot be resolved
+126: 
+127:         for (int i = 0; i < outputW.size(); i++){
+128:            WebNode currentW = outputW.get(i);
+129:            Double currentS = outputS.get(outputI.get(i));
+130:     %>
+131:             <div class="box">
+132:             <span class="titleText"><%= TitleExtractor.extractTitle(currentW.getUrl()) %></span><br>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:214)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:513)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:402)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:356)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:603)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:396)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:380)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:328)
+		at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1583)

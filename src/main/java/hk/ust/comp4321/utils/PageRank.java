@@ -225,14 +225,14 @@ public class PageRank {
     {
         for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
             WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
-            currentWebNode.updatePagerank(1.0);
+            currentWebNode.updatePagerank(1.0); // the rank used for calculation
             indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
         }
-        for (int count = 0; count < 2; count++) {
+        int pageIdLimit = indexTable.getPageId();
+        ArrayList<Double> tempPageRank = new ArrayList<>(Collections.nCopies(pageIdLimit, 1.0 - dampingFactor));
+        for (int count = 0; count < 5; count++) {
             for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
                 WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
-                currentWebNode.updatePagerank(currentWebNode.getPagerank() - dampingFactor);
-                indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
                 List<String> ParentList = currentWebNode.getParentForRanking();
                 for (String parentURL : ParentList) {
                     WebNode parentWebNode;
@@ -240,9 +240,13 @@ public class PageRank {
                     parentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parentId, WebNode.class);
                     Double ParentPageRank = parentWebNode.getPagerank();
                     Double PageRankIncrease = ParentPageRank / parentWebNode.getChildForRanking().size();
-                    currentWebNode.updatePagerank(currentWebNode.getPagerank() + dampingFactor * PageRankIncrease);
-                    indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
+                    tempPageRank.set(pageid, tempPageRank.get(pageid) + dampingFactor * PageRankIncrease);
                 }
+            }
+            for (int pageid = 0; pageid < indexTable.getPageId(); pageid++) {
+                WebNode currentWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), pageid, WebNode.class);
+                currentWebNode.updatePagerank(tempPageRank.get(pageid));
+                indexTable.updateEntry(TreeNames.id2WebNode.toString(), pageid, currentWebNode);
             }
         }
     }

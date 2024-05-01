@@ -18,8 +18,8 @@ public class Crawler {
         try {
             return LinkExtractor.extractLinks(db, root, numPages);
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("Error in extractLinks of Crawler");
+            e.printStackTrace();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
