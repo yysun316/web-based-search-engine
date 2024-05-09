@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.FutureTask;
+import jdbm.htree.HTree;
 
 import static hk.ust.comp4321.utils.PageRank.*;
 
@@ -35,6 +36,10 @@ public class SearchEngine extends HttpServlet {
     // the main function to be called by jsp
     public static ArrayList<Double> processInput(String input, String checkboxValue, String stopPath) throws Exception {
         input = input.toLowerCase();
+        input = input.replaceAll("[\\s\\p{Punct}&&[^-\"]]+", " ");
+        System.out.println();
+        System.out.println("processed input is " + input);
+        System.out.println();
         String rootURL = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
 
         stopStem = new StopStem(stopPath);
@@ -104,7 +109,10 @@ public class SearchEngine extends HttpServlet {
         ArrayList<Double> scorebp = PhasesSearch.weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 2);
         long endTime7 = System.currentTimeMillis();
         System.out.println("Time taken to rank weight increase by phase: " + (endTime7 - endTime6) + "ms");
-        ArrayList<Double> pageScore = PageScoreByBoth(indexTable, checked, scoret, scoreb, scoretp, scorebp, 5.0, 3.0, 5.0, 3.0);
+        ArrayList<Double> pageScore = PageScoreByBoth(indexTable, checked, scoret, scoreb, scoretp, scorebp, 3.0, 1.0, 2.0, 1.0);
+        //System.out.println("root title weight");
+        //System.out.println(weightDataStorage.getEntry("weightt"));
+
         return pageScore;
     }
 
@@ -115,7 +123,6 @@ public class SearchEngine extends HttpServlet {
      * @throws Exception if the pageScore is not found
      */
     public static ArrayList<Integer> pageRanking(ArrayList<Double> pageScore) throws Exception {
-        System.out.println("pageScore for ranking " + pageScore);
         ArrayList<Integer> resultRanking = PageRankByBoth(pageScore);
         return resultRanking;
     }
@@ -143,7 +150,7 @@ public class SearchEngine extends HttpServlet {
      */
     public static String nodeKeyWord(WebNode currentW) throws IOException {
         Map<String, Integer> keyword2Freq;
-        keyword2Freq = forwardInvertedIndex.getKeywordFrequency(currentW.getId(), 20, 0);
+        keyword2Freq = forwardInvertedIndex.getKeywordFrequency(currentW.getId(), 5, 0);
         StringBuilder sb = new StringBuilder();
         keyword2Freq.forEach((k, v) -> sb.append(k).append(" ").append(v).append("; "));
         return sb.toString();

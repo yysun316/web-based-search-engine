@@ -205,7 +205,6 @@ public class PageRank {
                 score.add(0.0);
             }
         }
-        System.out.println("score" + score);
         return score;
     }
 
@@ -285,9 +284,14 @@ public class PageRank {
     {
         ArrayList<Integer> indices = new ArrayList<>(ratedScore.size());
         for (int i = 0; i < ratedScore.size(); i++) {
+            if(ratedScore.get(i) == 0.0)
+                continue;
             indices.add(i);
         }
         indices.sort((a, b) -> Double.compare(ratedScore.get(b), ratedScore.get(a)));
+        if (indices.size() > 50) {
+            indices.subList(50, indices.size()).clear();
+        }
         return indices;
     }
 }

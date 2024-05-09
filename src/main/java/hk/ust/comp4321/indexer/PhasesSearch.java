@@ -59,7 +59,7 @@ public class PhasesSearch {
      String query,
      StopStem stopStem,
      int tb) throws IOException {
-        Double weightPhase = 3.0;
+        Double weightPhase = 1.0;
         ArrayList<String> phrases = getPhases(query, stopStem);
         int pageIdLimit = indexTable.getPageId();
         ArrayList<Double> weights = new ArrayList<>(Collections.nCopies(pageIdLimit, 0.0));
