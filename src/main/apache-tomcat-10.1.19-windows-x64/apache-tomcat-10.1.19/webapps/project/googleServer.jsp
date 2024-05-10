@@ -24,6 +24,11 @@
           margin-left: 10%;
           margin-right: 10%;
         }
+        .container3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .title {
           font-size: 6vh;;
           margin-top: 0;
@@ -63,12 +68,41 @@
         .titleText {
             font-size: 1.5rem;
         }
+        #popupButton {
+            margin-top: 1vh;
+        }
+        .popupBox {
+            display : none;
+        }
     </style>
+
+    <script>
+        var isPopupVisible = false;
+        var popupBoxes = document.getElementsByClassName('popupBox');
+
+
+        function togglePopup() {
+          for (var i = 0; i < popupBoxes.length; i++) {
+            var popupBox = popupBoxes[i];
+
+            if (isPopupVisible) {
+              popupBox.style.display = 'none';
+            } else {
+              popupBox.style.display = 'block';
+            }
+          }
+          isPopupVisible = !isPopupVisible;
+        }
+        function addValue(value) {
+          document.getElementById('inputString').value += value;
+        }
+
+    </script>
 </head>
 <body>
 
 <%
-	String current = request.getParameter("txtname");
+	String current = request.getParameter("inputString");
 	String currentcheckboxValue = request.getParameter("checkboxName");
 	String inputString = current;
 	String checkboxValue = currentcheckboxValue;
@@ -102,7 +136,7 @@
         </div>
     </div>
     <div class="container1">
-        <form action="" method="post">
+        <form id='formid' action="" method="post">
         <div>
             <input type="text" name="inputString" id="inputString" class="input-box" placeholder="<%= current %>" style="display: inline;">
             <button id="submitButton" type="submit" value="Search"> Search </button>
@@ -110,12 +144,33 @@
     </div>
     <div class="container1">
         <div>
-        <label for="checkboxId">Link based ranking</label>
-        <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
-
+            <label for="checkboxId">Link based ranking</label>
+            <input type="checkbox" name="checkboxName" id="checkboxId" value="checkboxValue">
         </div>
         </form>
     </div>
+
+    <div class="container3">
+        <button id="popupButton" onclick="togglePopup()" style="margin-bottom: 1vh;">Suggest Keywords</button>
+        <div class="popupBox">
+        <%
+            String[] arrayName = new String[Math.min(outputW.size(),3)];
+            for (int i = 0; i < Math.min(outputW.size(),3); i++){
+                WebNode currentW = outputW.get(i);
+                arrayName[i] = javaObject.nodeKeyWord(currentW);
+                if (arrayName[i].equals("")) {
+                    continue;
+                }
+                String result = arrayName[i].substring(0, arrayName[i].indexOf(" ")) + " ";
+                arrayName[i] = result;
+        %>
+        <button onclick="addValue('<%= arrayName[i] %>')"><%= arrayName[i] %></button>
+        <%
+            }
+        %>
+        </div>
+    </div>
+
     <div class="container2">
     <%
         for (int i = 0; i < outputW.size(); i++){
@@ -150,10 +205,28 @@
                 count++;
                 out.println("children link: " + "<a href=\"" + childLink + "\">" + childLink + "</a><br>");
             }
+            String getSimilarPages = javaObject.nodeKeyWord(currentW);
             %>
-            </div>
-         <% } %>
+            <script>
+              var getSimilarPages = '<%= getSimilarPages %>';
 
+              // Remove numbers and semicolons from the string
+              var cleanString = getSimilarPages.replace(/\d+;/g, '').replace(/;/g, '');
+
+              document.getElementById("myDiv").textContent = cleanString;
+            </script>
+            <a class="similarPages" href="javascript:void(0);" onclick="submitForm(cleanString)">Get similar pages</a>
+            <script>
+                function submitForm(value) {
+                console.log("called");
+                document.getElementById('inputString').value += value;
+                  document.getElementById("formid").submit();
+                }
+            </script>
+
+            </div>
+
+         <% } %>
     </div>
 
 </body>
