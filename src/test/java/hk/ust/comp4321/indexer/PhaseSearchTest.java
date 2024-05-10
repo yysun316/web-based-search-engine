@@ -44,7 +44,7 @@ class PhaseSearchTest {
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("thi is a test", "anoth test phrase"));
 
         // Call the method to test
-        ArrayList<String> result = PhasesSearch.getPhases(query, stopStem);
+        ArrayList<String> result = PhrasesSearch.getPhrases(query, stopStem);
 
         // Check if the result matches the expected output
         assertEquals(expected, result);
@@ -71,7 +71,7 @@ class PhaseSearchTest {
         String query = "\"hong kong\"";
         ArrayList<Double> expected = new ArrayList<>(Arrays.asList(6.0));
         ArrayList<Double> result =
-                PhasesSearch.weightIncreaseByPhase
+                PhrasesSearch.weightIncreaseByPhrase
                         (indexTable, forwardInvertedIndex, query, stopStem, 2);
         Assertions.assertEquals(expected, result, "The result is correct.");
     }

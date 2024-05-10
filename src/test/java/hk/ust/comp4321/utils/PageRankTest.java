@@ -2,7 +2,6 @@ package hk.ust.comp4321.utils;
 
 import hk.ust.comp4321.crawler.Crawler;
 import hk.ust.comp4321.indexer.Indexer;
-import hk.ust.comp4321.indexer.PhasesSearch;
 import hk.ust.comp4321.indexer.Preprocessor;
 import hk.ust.comp4321.indexer.StopStem;
 import hk.ust.comp4321.invertedIndex.ForwardInvertedIndex;
@@ -16,12 +15,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
-import static hk.ust.comp4321.indexer.PhasesSearch.weightIncreaseByPhase;
+import static hk.ust.comp4321.indexer.PhrasesSearch.weightIncreaseByPhrase;
 import static hk.ust.comp4321.utils.PageRank.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PageRankTest {
 
@@ -67,8 +64,8 @@ class PageRankTest {
         weightDataStorage.updateEntry("weightb", weightb);
         List<Double> scoret = RankStemWithQuery(indexTable, forwardInvertedIndex, query, 1, weightDataStorage.getEntry("weightt"), "resources/stopwords.txt");
         List<Double> scoreb = RankStemWithQuery(indexTable, forwardInvertedIndex, query, 2, weightDataStorage.getEntry("weightb"), "resources/stopwords.txt");
-        ArrayList<Double> scoretp = weightIncreaseByPhase(indexTable, forwardInvertedIndex, query, stopStem, 1);
-        ArrayList<Double> scorebp = weightIncreaseByPhase(indexTable, forwardInvertedIndex, query, stopStem, 2);
+        ArrayList<Double> scoretp = weightIncreaseByPhrase(indexTable, forwardInvertedIndex, query, stopStem, 1);
+        ArrayList<Double> scorebp = weightIncreaseByPhrase(indexTable, forwardInvertedIndex, query, stopStem, 2);
         ArrayList<Double> pageScore = PageScoreByBoth(indexTable, 1, scoret, scoreb, scoretp, scorebp, 5.0, 3.0, 5.0, 3.0);
         ArrayList<Integer> resultRanking = PageRankByBoth(pageScore);
         ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(0));

@@ -2,7 +2,7 @@ package hk.ust.comp4321;
 
 import hk.ust.comp4321.crawler.Crawler;
 import hk.ust.comp4321.indexer.Indexer;
-import hk.ust.comp4321.indexer.PhasesSearch;
+import hk.ust.comp4321.indexer.PhrasesSearch;
 import hk.ust.comp4321.indexer.Preprocessor;
 import hk.ust.comp4321.indexer.StopStem;
 import hk.ust.comp4321.invertedIndex.ForwardInvertedIndex;
@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.FutureTask;
-import jdbm.htree.HTree;
 
 import static hk.ust.comp4321.utils.PageRank.*;
 
@@ -40,6 +39,7 @@ public class SearchEngine extends HttpServlet {
         System.out.println();
         System.out.println("processed input is " + input);
         System.out.println();
+        //String rootURL = "https://smokeproof-reviews.000webhostapp.com/index.html";
         String rootURL = "https://www.cse.ust.hk/~kwtleung/COMP4321/testpage.htm";
 
         stopStem = new StopStem(stopPath);
@@ -105,10 +105,10 @@ public class SearchEngine extends HttpServlet {
         List<Double> scoreb = RankStemWithQuery(indexTable, forwardInvertedIndex, input, 2, weightDataStorage.getEntry("weightb"), stopPath);
         long endTime6 = System.currentTimeMillis();
         System.out.println("Time taken to rank stem with query: " + (endTime6 - endTime5) + "ms");
-        ArrayList<Double> scoretp = PhasesSearch.weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 1);
-        ArrayList<Double> scorebp = PhasesSearch.weightIncreaseByPhase(indexTable, forwardInvertedIndex, input, stopStem, 2);
+        ArrayList<Double> scoretp = PhrasesSearch.weightIncreaseByPhrase(indexTable, forwardInvertedIndex, input, stopStem, 1);
+        ArrayList<Double> scorebp = PhrasesSearch.weightIncreaseByPhrase(indexTable, forwardInvertedIndex, input, stopStem, 2);
         long endTime7 = System.currentTimeMillis();
-        System.out.println("Time taken to rank weight increase by phase: " + (endTime7 - endTime6) + "ms");
+        System.out.println("Time taken to rank weight increase by phrase: " + (endTime7 - endTime6) + "ms");
         ArrayList<Double> pageScore = PageScoreByBoth(indexTable, checked, scoret, scoreb, scoretp, scorebp, 3.0, 1.0, 2.0, 1.0);
         //System.out.println("root title weight");
         //System.out.println(weightDataStorage.getEntry("weightt"));

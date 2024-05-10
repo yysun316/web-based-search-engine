@@ -136,7 +136,7 @@
 
             int count = 0;
             for (String parentLink : currentW.getParent()) {
-                if (count >= 10) {
+                if (count >= 5) {
                     break;
                 }
                 count++;
@@ -144,7 +144,7 @@
             }
             count = 0;
             for (String childLink : currentW.getChildren()) {
-                if (count >= 10) {
+                if (count >= 5) {
                     break;
                 }
                 count++;

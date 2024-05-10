@@ -10,15 +10,15 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PhasesSearch {
+public class PhrasesSearch {
     /***
      * Get the phrases in the query
      * @param query query
      * @param stopStem stopStem
      * @return the phrases in the query
      */
-    public static ArrayList<String> getPhases(String query, StopStem stopStem) {
-        ArrayList<String> arrayPhase = new ArrayList<>();
+    public static ArrayList<String> getPhrases(String query, StopStem stopStem) {
+        ArrayList<String> arrayPhrase = new ArrayList<>();
         Pattern pattern = Pattern.compile("\"([^\"]*)\"");
         Matcher matcher = pattern.matcher(query);
         while (matcher.find()) {
@@ -33,14 +33,14 @@ public class PhasesSearch {
                 if (sisEmpty.isEmpty())
                     continue;
                 if (firstone) {
-                    arrayPhase.add(sisEmpty);
+                    arrayPhrase.add(sisEmpty);
                     firstone = false;
                 } else {
-                    arrayPhase.set(arrayPhase.size() - 1, arrayPhase.get(arrayPhase.size() - 1) + " " + sisEmpty);
+                    arrayPhrase.set(arrayPhrase.size() - 1, arrayPhrase.get(arrayPhrase.size() - 1) + " " + sisEmpty);
                 }
             }
         }
-        return arrayPhase;
+        return arrayPhrase;
     }
 
     /***
@@ -53,14 +53,14 @@ public class PhasesSearch {
      * @return the weights of the pages
      * @throws IOException if the weight cannot be increased
      */
-    public static ArrayList<Double> weightIncreaseByPhase
+    public static ArrayList<Double> weightIncreaseByPhrase
     (IndexTable indexTable,
      ForwardInvertedIndex forwardInvertedIndex,
      String query,
      StopStem stopStem,
      int tb) throws IOException {
-        Double weightPhase = 1.0;
-        ArrayList<String> phrases = getPhases(query, stopStem);
+        Double weightPhrase = 1.0;
+        ArrayList<String> phrases = getPhrases(query, stopStem);
         int pageIdLimit = indexTable.getPageId();
         ArrayList<Double> weights = new ArrayList<>(Collections.nCopies(pageIdLimit, 0.0));
         for (String phrase : phrases) {
@@ -110,18 +110,18 @@ public class PhasesSearch {
                     }
                     for (int element : position1) {
                         if (wordsLength == 1) {
-                            weights.set(id, weights.get(id) + weightPhase);
+                            weights.set(id, weights.get(id) + weightPhrase);
                             continue;
                         }
                         if (position2 != null && wordsLength == 2) {
                             if (position2.contains(element + 1)) {
-                                weights.set(id, weights.get(id) + weightPhase);
+                                weights.set(id, weights.get(id) + weightPhrase);
                                 continue;
                             }
                         }
                         if (position2 != null && position3 != null && wordsLength == 3) {
                             if (position2.contains(element + 1) && (position3.contains(element + 2))) {
-                                weights.set(id, weights.get(id) + weightPhase);
+                                weights.set(id, weights.get(id) + weightPhrase);
                             }
                         }
                     }

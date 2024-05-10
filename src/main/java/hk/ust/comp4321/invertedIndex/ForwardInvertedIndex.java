@@ -41,7 +41,6 @@ public class ForwardInvertedIndex {
      */
     public ForwardInvertedIndex(String recordManagerName) throws IOException {
         this.recordManager = RecordManagerFactory.createRecordManager(recordManagerName);
-
         long recid3 = recordManager.getNamedObject("word2IdTitle");
         long recid4 = recordManager.getNamedObject("word2IdBody");
         long recid5 = recordManager.getNamedObject("invertedIdxTitle");
