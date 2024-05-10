@@ -102,7 +102,7 @@
 <body>
 
 <%
-	String current = request.getParameter("inputString");
+	String current = request.getParameter("txtname");
 	String currentcheckboxValue = request.getParameter("checkboxName");
 	String inputString = current;
 	String checkboxValue = currentcheckboxValue;
