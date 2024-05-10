@@ -73,7 +73,18 @@ public class LinkExtractor {
                 pairForRanking.add(childURL);
                 pairListForRanking.add(pairForRanking);
                 if (!res.contains(childURL)) {
-                    parentWebNode.addChild(childURL);
+                    // check if child is already there before adding
+                    List<String> chilist = parentWebNode.getChildren();
+                    boolean existed = false;
+                    for (String element : chilist) {
+                        if (element.equals(childURL)){
+                            existed = true;
+                            break;
+                        }
+                    }
+                    if(!existed){
+                        parentWebNode.addChild(childURL);
+                    }
                     List<String> pair = new ArrayList<>();
                     pair.add(parentURL);
                     pair.add(childURL);
@@ -101,11 +112,22 @@ public class LinkExtractor {
      */
     public static void addParentLinks(IndexTable indexTable, List<List<String>> pairList) throws IOException {
         for (List<String> pair : pairList) {
+            // check if child is already there before adding
             int childId = indexTable.getIdFromUrl(pair.get(1));
             if (childId != -1) {
                 WebNode childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
-                childWebNode.addParent(pair.get(0));
-                indexTable.updateEntry(TreeNames.id2WebNode.toString(), childId, childWebNode);
+                List<String> parlist = childWebNode.getParent();
+                boolean existed = false;
+                for (String element : parlist) {
+                    if (element.equals(pair.get(0))){
+                        existed = true;
+                        break;
+                    }
+                }
+                if(!existed){
+                    childWebNode.addParent(pair.get(0));
+                    indexTable.updateEntry(TreeNames.id2WebNode.toString(), childId, childWebNode);
+                }
             }
         }
     }
@@ -122,16 +144,38 @@ public class LinkExtractor {
             int childId = indexTable.getIdFromUrl(pairForRanking.get(1));
             if (childId != -1) {
                 WebNode childWebNode = indexTable.getEntry(TreeNames.id2WebNode.toString(), childId, WebNode.class);
-                childWebNode.addParentForRanking(pairForRanking.get(0));
-                indexTable.updateEntry(TreeNames.id2WebNode.toString(), childId, childWebNode);
+                // check if parent is already there before adding
+                boolean existed = false;
+                List<String> chilist = childWebNode.getParentForRanking();
+                for (String element : chilist) {
+                    if (element.equals(pairForRanking.get(0))){
+                        existed = true;
+                        break;
+                    }
+                }
+                if(!existed){
+                    childWebNode.addParentForRanking(pairForRanking.get(0));
+                    indexTable.updateEntry(TreeNames.id2WebNode.toString(), childId, childWebNode);
+                }
             }
         }
         for (List<String> pairForRanking : pairListForRanking) {
             int parId = indexTable.getIdFromUrl(pairForRanking.get(0));
             if (parId != -1) {
                 WebNode parentWebnode = indexTable.getEntry(TreeNames.id2WebNode.toString(), parId, WebNode.class);
-                parentWebnode.addChildForRanking(pairForRanking.get(1));
-                indexTable.updateEntry(TreeNames.id2WebNode.toString(), parId, parentWebnode);
+                // check if child is already there before adding
+                boolean existed = false;
+                List<String> chilist = parentWebnode.getChildForRanking();
+                for (String element : chilist) {
+                    if (element.equals(pairForRanking.get(1))){
+                        existed = true;
+                        break;
+                    }
+                }
+                if(!existed){
+                    parentWebnode.addChildForRanking(pairForRanking.get(1));
+                    indexTable.updateEntry(TreeNames.id2WebNode.toString(), parId, parentWebnode);
+                }
             }
         }
     }
